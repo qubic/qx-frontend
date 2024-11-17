@@ -1,0 +1,30 @@
+{
+  "global": {
+    "lock_wallet": "Lock Wallet",
+    "unlock_wallet": "Unlock Wallet",
+    "paste": "Paste",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "select_account": "Select Account",
+    "change_account": "Change Account",
+    "beta": "Beta",
+    "learn_more": "Learn More"
+  },
+  "home_page": {},
+  "error_page": {
+    "page_not_found": "Page not found",
+    "error_404_message": "Congratulations! You are one of the elite who managed to find our 404 page.",
+    "back_to_home_page": "Back to homepage",
+    "title": "Oops!",
+    "unexpected_error": "Sorry, an unexpected error has occurred.",
+    "retry": "Retry"
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Account Connected Successfully",
+    "copy_uri": "Copy URI",
+    "scan_qr": "Scan this QR code with your Qubic Wallet or copy the link below:",
+    "wallet_connection_gen_url_error": "Failed to generate WalletConnect URI. Please try again.",
+    "metamask_cooming_soon": "MetaMask (coming soon)"
+  }
+}
