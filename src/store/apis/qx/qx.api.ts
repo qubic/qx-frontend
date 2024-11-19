@@ -2,7 +2,7 @@ import { envConfig } from '@app/configs'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { Asset } from './qx.types'
 
-const BASE_URL = envConfig.QX_API_URL
+const BASE_URL = `${envConfig.QX_API_URL}/v1/qx`
 
 export const qxApi = createApi({
   reducerPath: 'qxApi',
