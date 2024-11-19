@@ -67,7 +67,7 @@ export default function Header() {
           labelClassName="hidden text-gray-50 lg:block"
         />
         <LanguagePicker />
-        <div className="lg:hidden">
+        <div className="md:hidden">
           <BurgerMenu items={MENU_ITEMS} activePath={location.pathname} />
         </div>
       </div>
