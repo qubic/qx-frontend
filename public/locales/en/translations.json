@@ -9,9 +9,23 @@
     "select_account": "Select Account",
     "change_account": "Change Account",
     "beta": "Beta",
-    "learn_more": "Learn More"
+    "learn_more": "Learn More",
+    "tokens": "Tokens",
+    "assets": "Assets",
+    "trades": "Trades",
+    "transactions": "Transactions",
+    "smart_contract_shares": "Smart Contract Shares"
   },
-  "home_page": {},
+  "home_page": {
+    "qx_dashboard": "QX Dashboard",
+    "description": "QX is a decentralized exchange running as a smart contract on the Qubic network. This demo site provides information about assets, trades, and traders, but it is not the official QX platform.",
+    "entity_search": "Entity Search",
+    "entity_search_desc": "Show trades and open orders of an entity.",
+    "lookup_trader": "Lookup Trader"
+  },
+  "assets_page": {
+    "qx_assets": "QX Assets"
+  },
   "error_page": {
     "page_not_found": "Page not found",
     "error_404_message": "Congratulations! You are one of the elite who managed to find our 404 page.",
