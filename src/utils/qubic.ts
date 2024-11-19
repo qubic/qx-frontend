@@ -1,0 +1,2 @@
+// eslint-disable-next-line import/prefer-default-export
+export const ASSETS_ISSUER_ADDRESS = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFXIB'
