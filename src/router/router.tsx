@@ -1,7 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import { AppLayout } from '@app/components/ui/layouts'
-import { Error404Page, HomePage } from '@app/pages'
+import {
+  AssetsPageLazy,
+  Error404Page,
+  HomePage,
+  TradesPageLazy,
+  TransactionsPageLazy
+} from '@app/pages'
 import { PublicRoutes } from './routes'
 
 const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
@@ -13,6 +19,18 @@ const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
       {
         index: true,
         element: <HomePage />
+      },
+      {
+        path: PublicRoutes.ASSETS.ROOT,
+        element: <AssetsPageLazy />
+      },
+      {
+        path: PublicRoutes.TRADES,
+        element: <TradesPageLazy />
+      },
+      {
+        path: PublicRoutes.TRANSACTIONS,
+        element: <TransactionsPageLazy />
       }
     ]
   },
