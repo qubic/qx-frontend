@@ -46,7 +46,7 @@ export default function Button<T extends React.ElementType = 'button'>({
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...restProps}
       className={clsxTwMerge(
-        'flex w-full items-center justify-center gap-8 rounded-12 font-space font-medium transition duration-300 disabled:cursor-not-allowed disabled:no-underline disabled:opacity-30',
+        'flex w-full items-center justify-center gap-8 whitespace-nowrap rounded-12 font-space font-medium transition duration-300 disabled:cursor-not-allowed disabled:no-underline disabled:opacity-30',
         sizeClasses[size],
         colorVariantClasses[color][variant],
         className
