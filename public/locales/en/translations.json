@@ -12,10 +12,21 @@
     "learn_more": "Learn More",
     "home": "Home",
     "tokens": "Tokens",
+    "asset": "Asset",
     "assets": "Assets",
     "trades": "Trades",
     "transactions": "Transactions",
-    "smart_contract_shares": "Smart Contract Shares"
+    "smart_contract_shares": "Smart Contract Shares",
+    "side": "Side",
+    "price": "Price",
+    "shares": "Shares",
+    "total": "Total",
+    "hash": "Hash",
+    "taker": "Taker",
+    "maker": "Maker",
+    "date_and_time": "Date & Time",
+    "buy": "Buy",
+    "sell": "Sell"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
@@ -26,6 +37,11 @@
   },
   "assets_page": {
     "qx_assets": "QX Assets"
+  },
+  "trades_page": {
+    "qx_trades": "Latest Qx Trades",
+    "error_fetching_trades": "Something went wrong while fetching the latest trades. Please try again later.",
+    "trades_not_found": "No trades found."
   },
   "error_page": {
     "page_not_found": "Page not found",
