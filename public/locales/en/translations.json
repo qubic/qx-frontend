@@ -26,7 +26,12 @@
     "maker": "Maker",
     "date_and_time": "Date & Time",
     "buy": "Buy",
-    "sell": "Sell"
+    "sell": "Sell",
+    "tick": "Tick",
+    "from": "From",
+    "to": "To",
+    "issuer": "Issuer",
+    "decimals": "Decimals"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
@@ -43,6 +48,10 @@
     "error_fetching_trades": "Something went wrong while fetching the latest trades. Please try again later.",
     "trades_not_found": "No trades found."
   },
+  "transactions_page": {
+    "latest_issued_assets": "Latest issued assets",
+    "latest_asset_transfers": "Latest asset transfers"
+  },
   "error_page": {
     "page_not_found": "Page not found",
     "error_404_message": "Congratulations! You are one of the elite who managed to find our 404 page.",
@@ -57,5 +66,8 @@
     "scan_qr": "Scan this QR code with your Qubic Wallet or copy the link below:",
     "wallet_connection_gen_url_error": "Failed to generate WalletConnect URI. Please try again.",
     "metamask_cooming_soon": "MetaMask (coming soon)"
+  },
+  "errors": {
+    "error_fetching_data": "Something went wrong while fetching the data. Please try again later."
   }
 }
