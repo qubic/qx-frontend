@@ -1,18 +1,87 @@
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import { Skeleton } from '@app/components/ui'
-import { EntityLink, ExplorerTxLink } from '@app/components/ui/links'
+import { EntityLink, ExplorerLink } from '@app/components/ui/links'
 import { PublicRoutes } from '@app/router'
 import type { Trade } from '@app/store/apis/qx'
+import { ExplorerLinkType } from '@app/types/enums'
 import { clsxTwMerge, formatDate, formatString } from '@app/utils'
-import { useTranslation } from 'react-i18next'
+
+const genTradeRowCells = (trade: Trade, t: (key: string) => string) => [
+  {
+    key: 'asset',
+    content: (
+      <Link
+        to={PublicRoutes.ASSETS.DETAILS(trade.issuer, trade.assetName)}
+        className="text-primary-30"
+      >
+        {trade.assetName}
+      </Link>
+    )
+  },
+  {
+    key: 'side',
+    content: trade.bid ? (
+      <span className="text-success-40">{t('global.buy')}</span>
+    ) : (
+      <span className="text-red-500">{t('global.sell')}</span>
+    )
+  },
+  {
+    key: 'price',
+    content: formatString(trade.numberOfShares)
+  },
+  {
+    key: 'shares',
+    content: formatString(trade.price)
+  },
+  {
+    key: 'total',
+    content: (
+      <>
+        <span>{formatString(trade.price * trade.numberOfShares)}</span>
+        <span className="text-slate-500">qu</span>
+      </>
+    )
+  },
+  {
+    key: 'hash',
+    content: (
+      <ExplorerLink type={ExplorerLinkType.TX} value={trade.transactionHash} ellipsis showTooltip />
+    )
+  },
+  {
+    key: 'taker',
+    content: <EntityLink value={trade.taker} ellipsis showTooltip />
+  },
+  {
+    key: 'maker',
+    content: <EntityLink value={trade.maker} ellipsis showTooltip />
+  },
+  {
+    key: 'date_and_time',
+    content: formatDate(trade.tickTime, {
+      excludeTimeZone: true,
+      shortDate: true
+    }),
+    className: '!text-slate-500'
+  }
+]
 
 function TradeRowCell({
   children,
-  className
-}: Readonly<{ children: React.ReactNode; className?: string }>) {
+  className,
+  ...rest
+}: React.HTMLAttributes<HTMLTableCellElement> & { className?: string }) {
   return (
-    <td className={clsxTwMerge('p-6 text-center text-xxs xs:text-xs md:px-12 md:py-10', className)}>
+    <td
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...rest}
+      align="center"
+      className={clsxTwMerge('p-6 text-xxs xs:text-xs md:px-12 md:py-10', className)}
+    >
       {children}
     </td>
   )
@@ -25,41 +94,15 @@ type Props = Readonly<{
 
 function TradeRow({ trade }: Props) {
   const { t } = useTranslation()
+  const tradeRowCells = useMemo(() => genTradeRowCells(trade, t), [t, trade])
+
   return (
-    <tr>
-      <TradeRowCell>
-        <Link
-          to={PublicRoutes.ASSETS.DETAILS(trade.issuer, trade.assetName)}
-          className="text-primary-30"
-        >
-          {trade.assetName}
-        </Link>
-      </TradeRowCell>
-      <TradeRowCell>
-        {trade.bid ? (
-          <span className="text-success-40">{t('global.buy')}</span>
-        ) : (
-          <span className="text-red-500">{t('global.sell')}</span>
-        )}
-      </TradeRowCell>
-      <TradeRowCell>{formatString(trade.numberOfShares)}</TradeRowCell>
-      <TradeRowCell>{formatString(trade.price)}</TradeRowCell>
-      <TradeRowCell className="space-x-4">
-        <span>{formatString(trade.price * trade.numberOfShares)}</span>
-        <span className="text-slate-500">qu</span>
-      </TradeRowCell>
-      <TradeRowCell className="lg:flex lg:justify-center">
-        <ExplorerTxLink tx={trade.transactionHash} ellipsis showTooltip />
-      </TradeRowCell>
-      <TradeRowCell>
-        <EntityLink value={trade.taker} ellipsis showTooltip />
-      </TradeRowCell>
-      <TradeRowCell>
-        <EntityLink value={trade.maker} ellipsis showTooltip />
-      </TradeRowCell>
-      <TradeRowCell className="!text-slate-500">
-        {formatDate(trade.tickTime, { excludeTimeZone: true, shortDate: true })}
-      </TradeRowCell>
+    <tr className="even:bg-primary-60/30">
+      {tradeRowCells.map(({ key, content, className }) => (
+        <TradeRowCell key={`trade-row-cell-${key}`} className={className}>
+          {content}
+        </TradeRowCell>
+      ))}
     </tr>
   )
 }

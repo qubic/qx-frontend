@@ -10,4 +10,4 @@ export const TRADES_TABLE_COLUMNS = [
   { i18nkey: 'global.date_and_time' }
 ] as const
 
-export const SKELETON_ROWS = 5 as const
+export const SKELETON_ROWS = 5
