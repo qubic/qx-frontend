@@ -3,10 +3,12 @@ import { useMemo } from 'react'
 import { Tooltip } from '@app/components/ui'
 import { CopyTextButton } from '@app/components/ui/buttons'
 import { EXPLORER_URL } from '@app/constants/urls'
+import { ExplorerLinkType } from '@app/types/enums'
 import { clsxTwMerge, formatEllipsis } from '@app/utils'
 
 type Props = {
-  tx: string
+  value: string
+  type: ExplorerLinkType
   label?: string
   copy?: boolean
   ellipsis?: boolean
@@ -14,10 +16,24 @@ type Props = {
   showTooltip?: boolean
 }
 
-const makeExplorertxUrl = (tx: string) => `${EXPLORER_URL}/network/tx/${tx}`
+const makeExplorerTxUrl = (tx: string) => `${EXPLORER_URL}/network/tx/${tx}`
 
-export default function ExplorerTxLink({
-  tx,
+const makeExplorerTickUrl = (tick: string) => `${EXPLORER_URL}/network/tick/${tick}`
+
+const getExplorerLinkUrl = (value: string, type: ExplorerLinkType) => {
+  switch (type) {
+    case ExplorerLinkType.TX:
+      return makeExplorerTxUrl(value)
+    case ExplorerLinkType.TICK:
+      return makeExplorerTickUrl(value)
+    default:
+      throw new Error('Invalid link type')
+  }
+}
+
+export default function ExplorerLink({
+  value,
+  type,
   label,
   className,
   copy = false,
@@ -30,9 +46,9 @@ export default function ExplorerTxLink({
         return label
       }
       if (ellipsis) {
-        return formatEllipsis(tx)
+        return formatEllipsis(value)
       }
-      return tx
+      return value
     }
 
     return (
@@ -42,16 +58,16 @@ export default function ExplorerTxLink({
             'break-all font-space text-xxs text-primary-30 xs:text-xs',
             className
           )}
-          href={makeExplorertxUrl(tx)}
+          href={getExplorerLinkUrl(value, type)}
           target="_blank"
           rel="noreferrer"
         >
           {getDisplayValue()}
         </a>
-        {copy && <CopyTextButton text={tx} />}
+        {copy && <CopyTextButton text={value} />}
       </div>
     )
-  }, [className, tx, copy, label, ellipsis])
+  }, [className, value, type, copy, label, ellipsis])
 
-  return showTooltip ? <Tooltip content={tx}>{txLink}</Tooltip> : txLink
+  return showTooltip ? <Tooltip content={value}>{txLink}</Tooltip> : txLink
 }
