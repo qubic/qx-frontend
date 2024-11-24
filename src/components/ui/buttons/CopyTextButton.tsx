@@ -20,7 +20,7 @@ export default function CopyTextButton({ text, children, className }: Props) {
   }, [text])
 
   return (
-    <Tooltip content={isCopied ? 'Copied' : 'Copy to clipboard'}>
+    <Tooltip tooltipId={`copy-text-${text}`} content={isCopied ? 'Copied' : 'Copy to clipboard'}>
       <button
         type="button"
         aria-live="polite"
