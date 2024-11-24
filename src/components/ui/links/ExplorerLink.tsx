@@ -69,5 +69,11 @@ export default function ExplorerLink({
     )
   }, [className, value, type, copy, label, ellipsis])
 
-  return showTooltip ? <Tooltip content={value}>{txLink}</Tooltip> : txLink
+  return showTooltip ? (
+    <Tooltip tooltipId={value} content={value}>
+      {txLink}
+    </Tooltip>
+  ) : (
+    txLink
+  )
 }

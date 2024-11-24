@@ -50,5 +50,11 @@ export default function EntityLink({
     )
   }, [className, value, copy, label, ellipsis])
 
-  return showTooltip ? <Tooltip content={value}>{addressLink}</Tooltip> : addressLink
+  return showTooltip ? (
+    <Tooltip tooltipId={value} content={value}>
+      {addressLink}
+    </Tooltip>
+  ) : (
+    addressLink
+  )
 }
