@@ -1,6 +1,6 @@
 import { envConfig } from '@app/configs'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import type { Asset, Trade } from './qx.types'
+import type { Asset, IssuedAsset, Trade, Transfer } from './qx.types'
 
 const BASE_URL = `${envConfig.QX_API_URL}/v1/qx`
 
@@ -13,8 +13,14 @@ export const qxApi = createApi({
     }),
     getTrades: build.query<Trade[], void>({
       query: () => '/trades'
+    }),
+    getTransfers: build.query<Transfer[], void>({
+      query: () => '/transfers'
+    }),
+    getIssuedAssets: build.query<IssuedAsset[], void>({
+      query: () => '/issued-assets'
     })
   })
 })
 
-export const { useGetAssetsQuery, useGetTradesQuery } = qxApi
+export const { useGetAssetsQuery, useGetTradesQuery, useGetTransfersQuery } = qxApi
