@@ -1,13 +1,15 @@
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+
+import { withHelmet } from '@app/components/hocs'
 import { PageLayout } from '@app/components/ui/layouts'
 import type { Asset } from '@app/store/apis/qx'
 import { useGetAssetsQuery } from '@app/store/apis/qx'
 import { ASSETS_ISSUER_ADDRESS } from '@app/utils/qubic'
 import { formatRTKError } from '@app/utils/rtk'
-import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
 import { AssetsSection } from './components'
 
-export default function AssetsPage() {
+function AssetsPage() {
   const { data: assets = [], error, isFetching } = useGetAssetsQuery()
   const { t } = useTranslation()
 
@@ -40,3 +42,10 @@ export default function AssetsPage() {
     </PageLayout>
   )
 }
+
+const AssetsPageWithHelmet = withHelmet(AssetsPage, {
+  title: 'Assets | Qx',
+  meta: [{ name: 'description', content: 'Check assets on Qx' }]
+})
+
+export default AssetsPageWithHelmet
