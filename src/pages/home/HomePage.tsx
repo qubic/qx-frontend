@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { AssetsIcon, TradesIcon, TransactionsIcon } from '@app/assets/icons'
+import { withHelmet } from '@app/components/hocs'
 import { Button } from '@app/components/ui/buttons'
 import { TextInput } from '@app/components/ui/inputs'
 import { PageLayout } from '@app/components/ui/layouts'
@@ -14,7 +15,7 @@ const DASHBOARD_MENU_ITEMS = [
   { icon: TransactionsIcon, i18nKey: 'global.transactions', href: PublicRoutes.TRANSACTIONS }
 ]
 
-export default function HomePage() {
+function HomePage() {
   const { t } = useTranslation()
   const [searchTrader, setSearchTrader] = useState<string>('')
   const navigate = useNavigate()
@@ -66,3 +67,9 @@ export default function HomePage() {
     </PageLayout>
   )
 }
+
+const HomePageWithHelmet = withHelmet(HomePage, {
+  title: 'Dashboard | Qx'
+})
+
+export default HomePageWithHelmet
