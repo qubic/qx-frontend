@@ -84,7 +84,7 @@ function TransferRow({ transfer }: Props) {
   return (
     <tr className="even:bg-primary-60/30">
       {transferRowCells.map(({ key, content, className }) => (
-        <TransferRowCell key={`transfer-row-cell-skeleton-${key}`} className={className}>
+        <TransferRowCell key={`transfer-row-cell-${key}`} className={className}>
           {content}
         </TransferRowCell>
       ))}
