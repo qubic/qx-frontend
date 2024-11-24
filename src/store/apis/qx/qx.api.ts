@@ -23,4 +23,9 @@ export const qxApi = createApi({
   })
 })
 
-export const { useGetAssetsQuery, useGetTradesQuery, useGetTransfersQuery } = qxApi
+export const {
+  useGetAssetsQuery,
+  useGetTradesQuery,
+  useGetTransfersQuery,
+  useGetIssuedAssetsQuery
+} = qxApi
