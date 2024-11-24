@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next'
 import { Alert } from '@app/components/ui'
 import type { Transfer } from '@app/store/apis/qx'
 import { clsxTwMerge } from '@app/utils'
-import { SKELETON_ROWS, TRANSFERS_TABLE_COLUMNS } from '../constants'
-import TransferRow from './TransfersRow'
+import { TRANSFERS_TABLE_COLUMNS, TRANSFERS_TABLE_SKELETON_ROWS } from '../constants'
+import TransferRow from './TransferRow'
 
 const TransfersSkeleton = memo(() =>
-  Array.from({ length: SKELETON_ROWS }).map((_, index) => (
+  Array.from({ length: TRANSFERS_TABLE_SKELETON_ROWS }).map((_, index) => (
     <TransferRow.Skeleton key={String(`Transfer-row-skeleton-${index}`)} />
   ))
 )
@@ -24,10 +24,9 @@ const TransferHeadCell = memo(
 type Props = Readonly<{
   transfers: Transfer[] | undefined
   isLoading: boolean
-  isMobile: boolean
 }>
 
-export default function TransfersTable({ transfers, isLoading, isMobile }: Props) {
+export default function TransfersTable({ transfers, isLoading }: Props) {
   const { t } = useTranslation()
 
   const renderTableHeadContent = useCallback(
@@ -57,15 +56,13 @@ export default function TransfersTable({ transfers, isLoading, isMobile }: Props
       return (
         <tr>
           <td className="p-16" colSpan={9}>
-            <Alert>{t('Transfers_page.Transfers_not_found')}</Alert>
+            <Alert>{t('transfers_page.Transfers_not_found')}</Alert>
           </td>
         </tr>
       )
 
-    return transfers?.map((transfer) => (
-      <TransferRow key={transfer.hash} transfer={transfer} isMobile={isMobile} />
-    ))
-  }, [isLoading, transfers, isMobile, t])
+    return transfers?.map((transfer) => <TransferRow key={transfer.hash} transfer={transfer} />)
+  }, [isLoading, transfers, t])
 
   return (
     <div className="w-[85vw] max-w-2xl rounded-12 border-1 border-primary-60 bg-primary-70 pb-16">
