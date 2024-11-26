@@ -6,7 +6,9 @@ export const PublicRoutes = {
     DETAILS: (issuer: string, assetName: string) => `/assets/${issuer}/${assetName}`
   },
   TRANSACTIONS: '/transactions',
-  ENTITY: (entity: string) => `/entities/${entity}`,
+  ENTITIES: {
+    DETAILS: (entity: string) => `/entities/${entity}`
+  },
   NOT_FOUND: '/404'
 } as const
 
