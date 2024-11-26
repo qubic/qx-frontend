@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next'
 
 import { withHelmet } from '@app/components/hocs'
+import { TransfersTable } from '@app/components/tables'
 import { PageLayout } from '@app/components/ui/layouts'
 import { useGetIssuedAssetsQuery, useGetTransfersQuery } from '@app/store/apis/qx'
 import { useMemo } from 'react'
-import { IssuedAssetsTable, TransfersTable } from './components'
+import { IssuedAssetsTable } from './components'
 
 function TransactionsPage() {
   const { t } = useTranslation()
@@ -28,24 +29,27 @@ function TransactionsPage() {
     [transfers]
   )
 
-  const errorMessage = useMemo(() => {
-    if (!isTransfersError && !isIssuedAssetsError) return undefined
-    return t('errors.error_fetching_data')
-  }, [isTransfersError, isIssuedAssetsError, t])
-
   return (
-    <PageLayout error={errorMessage}>
+    <PageLayout>
       <section className="grid gap-24">
         <h2 className="text-center text-2xl font-bold">
           {t('transactions_page.latest_issued_assets')}
         </h2>
-        <IssuedAssetsTable issuedAssets={latestIssuedAssets} isLoading={isIssuedAssetsLoading} />
+        <IssuedAssetsTable
+          issuedAssets={latestIssuedAssets}
+          isLoading={isIssuedAssetsLoading}
+          hasError={isIssuedAssetsError}
+        />
       </section>
       <section className="grid gap-24">
         <h2 className="text-center text-2xl font-bold">
           {t('transactions_page.latest_asset_transfers')}
         </h2>
-        <TransfersTable transfers={latestTransfers} isLoading={isTransfersLoading} />
+        <TransfersTable
+          transfers={latestTransfers}
+          isLoading={isTransfersLoading}
+          hasError={isTransfersError}
+        />
       </section>
     </PageLayout>
   )
