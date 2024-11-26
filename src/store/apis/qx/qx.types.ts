@@ -3,6 +3,13 @@ export type Asset = {
   name: string
 }
 
+export type EntityOrder = {
+  issuerId: string
+  assetName: string
+  price: number
+  numberOfShares: number
+}
+
 export type Trade = {
   tickTime: string
   transactionHash: string
