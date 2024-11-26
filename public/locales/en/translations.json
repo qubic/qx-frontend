@@ -14,6 +14,7 @@
     "tokens": "Tokens",
     "asset": "Asset",
     "assets": "Assets",
+    "asset_transfers": "Asset Transfers",
     "trades": "Trades",
     "transactions": "Transactions",
     "smart_contract_shares": "Smart Contract Shares",
@@ -44,13 +45,15 @@
     "qx_assets": "QX Assets"
   },
   "trades_page": {
-    "qx_trades": "Latest Qx Trades",
-    "error_fetching_trades": "Something went wrong while fetching the latest trades. Please try again later.",
-    "trades_not_found": "No trades found."
+    "qx_trades": "Latest Qx Trades"
   },
   "transactions_page": {
     "latest_issued_assets": "Latest issued assets",
     "latest_asset_transfers": "Latest asset transfers"
+  },
+  "entity_page": {
+    "open_ask_orders": "Open Ask Orders",
+    "open_bid_orders": "Open Bid Orders"
   },
   "error_page": {
     "page_not_found": "Page not found",
@@ -59,6 +62,22 @@
     "title": "Oops!",
     "unexpected_error": "Sorry, an unexpected error has occurred.",
     "retry": "Retry"
+  },
+  "trades_table": {
+    "error_fetching_trades": "Something went wrong while fetching the latest trades. Please try again later.",
+    "trades_not_found": "No trades found."
+  },
+  "entity_orders_table": {
+    "open_orders_not_found": "No open orders found.",
+    "error_fetching_open_orders": "Something went wrong while fetching the open orders. Please try again later."
+  },
+  "issued_assets_table": {
+    "issued_assets_not_found": "No issued assets found.",
+    "error_fetching_issued_assets": "Something went wrong while fetching the latest issued assets. Please try again later."
+  },
+  "transfers_table": {
+    "transfers_not_found": "No transfers found.",
+    "error_fetching_transfers": "Something went wrong while fetching the latest transfers. Please try again later."
   },
   "connect_wallet_modal": {
     "account_connected": "Account Connected Successfully",
