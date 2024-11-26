@@ -1,10 +1,15 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { Alert } from '@app/components/ui'
 import type { Transfer } from '@app/store/apis/qx'
 import { clsxTwMerge } from '@app/utils'
-import { TRANSFERS_TABLE_COLUMNS, TRANSFERS_TABLE_SKELETON_ROWS } from '../constants'
+import ErrorRow from '../ErrorRow'
+import NoItemsFoundRow from '../NoItemsFoundRow'
+import {
+  TRANSFERS_TABLE_COLUMNS,
+  TRANSFERS_TABLE_COLUMNS_COUNT,
+  TRANSFERS_TABLE_SKELETON_ROWS
+} from './constants'
 import TransferRow from './TransferRow'
 
 const TransfersSkeleton = memo(() =>
@@ -24,9 +29,10 @@ const TransferHeadCell = memo(
 type Props = Readonly<{
   transfers: Transfer[] | undefined
   isLoading: boolean
+  hasError?: boolean
 }>
 
-export default function TransfersTable({ transfers, isLoading }: Props) {
+export default function TransfersTable({ transfers, isLoading, hasError }: Props) {
   const { t } = useTranslation()
 
   const renderTableHeadContent = useCallback(
@@ -43,26 +49,24 @@ export default function TransfersTable({ transfers, isLoading }: Props) {
   const renderTableContent = useCallback(() => {
     if (isLoading) return <TransfersSkeleton />
 
-    if (!transfers)
+    if (!transfers || hasError)
       return (
-        <tr>
-          <td className="p-16" colSpan={9}>
-            <Alert variant="error">{t('transfers_page.error_fetching_transfers')}</Alert>
-          </td>
-        </tr>
+        <ErrorRow
+          colSpan={TRANSFERS_TABLE_COLUMNS_COUNT}
+          message={t('transfers_table.error_fetching_transfers')}
+        />
       )
 
     if (!transfers.length)
       return (
-        <tr>
-          <td className="p-16" colSpan={9}>
-            <Alert>{t('transfers_page.Transfers_not_found')}</Alert>
-          </td>
-        </tr>
+        <NoItemsFoundRow
+          colSpan={TRANSFERS_TABLE_COLUMNS_COUNT}
+          message={t('transfers_table.transfers_not_found')}
+        />
       )
 
     return transfers?.map((transfer) => <TransferRow key={transfer.hash} transfer={transfer} />)
-  }, [isLoading, transfers, t])
+  }, [isLoading, transfers, hasError, t])
 
   return (
     <div className="w-[85vw] max-w-2xl rounded-12 border-1 border-primary-60 bg-primary-70 pb-16">
