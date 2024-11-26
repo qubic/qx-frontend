@@ -10,4 +10,6 @@ export const TRADES_TABLE_COLUMNS = [
   { i18nkey: 'global.date_and_time' }
 ] as const
 
-export const SKELETON_ROWS = 5
+export const TRADES_TABLE_COLUMNS_COUNT = TRADES_TABLE_COLUMNS.length
+
+export const TRADES_TABLE_SKELETON_ROWS = 5

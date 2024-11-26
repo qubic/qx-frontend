@@ -44,7 +44,8 @@ const genTradeRowCells = (trade: Trade, t: (key: string) => string) => [
         <span>{formatString(trade.price * trade.numberOfShares)}</span>
         <span className="text-slate-500">qu</span>
       </>
-    )
+    ),
+    className: 'space-x-4'
   },
   {
     key: 'hash',
@@ -89,7 +90,6 @@ function TradeRowCell({
 
 type Props = Readonly<{
   trade: Trade
-  isMobile: boolean
 }>
 
 function TradeRow({ trade }: Props) {
