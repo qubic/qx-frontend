@@ -26,7 +26,7 @@ function HomePage() {
 
   const handleSearch = useCallback(() => {
     if (searchTrader) {
-      navigate(PublicRoutes.ENTITY(searchTrader))
+      navigate(PublicRoutes.ENTITIES.DETAILS(searchTrader))
     }
   }, [navigate, searchTrader])
 

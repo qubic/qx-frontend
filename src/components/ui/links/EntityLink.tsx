@@ -41,7 +41,7 @@ export default function EntityLink({
             'break-all font-space text-xxs text-primary-30 xs:text-xs',
             className
           )}
-          to={PublicRoutes.ENTITY(value)}
+          to={PublicRoutes.ENTITIES.DETAILS(value)}
         >
           {getDisplayValue()}
         </Link>
