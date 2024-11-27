@@ -14,11 +14,14 @@ type Props = {
   ellipsis?: boolean
   className?: string
   showTooltip?: boolean
+  tooltipContent?: string
 }
 
 const makeExplorerTxUrl = (tx: string) => `${EXPLORER_URL}/network/tx/${tx}`
 
 const makeExplorerTickUrl = (tick: string) => `${EXPLORER_URL}/network/tick/${tick}`
+
+const makeExplorerAddressUrl = (address: string) => `${EXPLORER_URL}/network/address/${address}`
 
 const getExplorerLinkUrl = (value: string, type: ExplorerLinkType) => {
   switch (type) {
@@ -26,6 +29,8 @@ const getExplorerLinkUrl = (value: string, type: ExplorerLinkType) => {
       return makeExplorerTxUrl(value)
     case ExplorerLinkType.TICK:
       return makeExplorerTickUrl(value)
+    case ExplorerLinkType.ADDRESS:
+      return makeExplorerAddressUrl(value)
     default:
       throw new Error('Invalid link type')
   }
@@ -38,7 +43,8 @@ export default function ExplorerLink({
   className,
   copy = false,
   ellipsis = false,
-  showTooltip = false
+  showTooltip = false,
+  tooltipContent = value
 }: Props) {
   const txLink = useMemo(() => {
     const getDisplayValue = () => {
@@ -70,7 +76,7 @@ export default function ExplorerLink({
   }, [className, value, type, copy, label, ellipsis])
 
   return showTooltip ? (
-    <Tooltip tooltipId={value} content={value}>
+    <Tooltip tooltipId={value} content={tooltipContent}>
       {txLink}
     </Tooltip>
   ) : (
