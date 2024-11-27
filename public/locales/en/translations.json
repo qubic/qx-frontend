@@ -32,7 +32,10 @@
     "from": "From",
     "to": "To",
     "issuer": "Issuer",
-    "decimals": "Decimals"
+    "decimals": "Decimals",
+    "name": "Name",
+    "check_on_explorer": "Check on Explorer",
+    "chart_avg_price": "Chart (Avg Price)"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
@@ -43,6 +46,9 @@
   },
   "assets_page": {
     "qx_assets": "QX Assets"
+  },
+  "asset_page": {
+    "asset_order_book": "{{asset}} Order book"
   },
   "trades_page": {
     "qx_trades": "Latest Qx Trades"
@@ -67,7 +73,7 @@
     "error_fetching_trades": "Something went wrong while fetching the latest trades. Please try again later.",
     "trades_not_found": "No trades found."
   },
-  "entity_orders_table": {
+  "orders_table": {
     "open_orders_not_found": "No open orders found.",
     "error_fetching_open_orders": "Something went wrong while fetching the open orders. Please try again later."
   },
