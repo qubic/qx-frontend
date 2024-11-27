@@ -3,6 +3,12 @@ export type Asset = {
   name: string
 }
 
+export type AssetOrder = {
+  entityId: string
+  price: number
+  numberOfShares: number
+}
+
 export type EntityOrder = {
   issuerId: string
   assetName: string
@@ -57,6 +63,10 @@ export type IssuedAsset = {
 
 export type AveragePrice = {
   time: string
-  averagePrice: number
+  min: number
+  max: number
+  totalShares: number
   totalAmount: number
+  totalTrades: number
+  averagePrice: number
 }
