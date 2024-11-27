@@ -17,7 +17,7 @@ export default function Tooltip({ tooltipId, children, content }: Props) {
       <div data-tooltip-id={tooltipIdWithId}>{children}</div>
       <ReactTooltip
         id={tooltipIdWithId}
-        style={{ backgroundColor: '#202E3C', borderRadius: 10 }}
+        style={{ backgroundColor: '#202E3C', borderRadius: 10, fontSize: 11 }}
         opacity={100}
       >
         {content}
