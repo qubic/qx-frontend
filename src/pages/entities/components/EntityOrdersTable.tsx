@@ -58,7 +58,7 @@ export default function EntityOrdersTable({ entityOrders, isLoading, hasError, c
       return (
         <ErrorRow
           colSpan={ENTITY_ORDERS_TABLE_COLUMNS_COUNT}
-          message={t('entity_orders_table.error_fetching_open_orders')}
+          message={t('orders_table.error_fetching_open_orders')}
         />
       )
 
@@ -66,7 +66,7 @@ export default function EntityOrdersTable({ entityOrders, isLoading, hasError, c
       return (
         <NoItemsFoundRow
           colSpan={ENTITY_ORDERS_TABLE_COLUMNS_COUNT}
-          message={t('entity_orders_table.open_orders_not_found')}
+          message={t('orders_table.open_orders_not_found')}
         />
       )
 
