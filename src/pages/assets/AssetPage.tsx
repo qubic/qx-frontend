@@ -41,6 +41,11 @@ function AssetPage() {
     [averagePrices]
   )
 
+  const shouldDisplayChart = useMemo(
+    () => (averagePrices.data?.length ?? 0) > 1,
+    [averagePrices.data]
+  )
+
   return (
     <PageLayout title={t('asset_page.asset_order_book', { asset: assetName })}>
       <section className="grid w-[85vw] max-w-2xl text-sm">
@@ -60,7 +65,7 @@ function AssetPage() {
         </div>
       </section>
 
-      {Boolean(averagePrices.data?.length) && (
+      {shouldDisplayChart && (
         <section className="mt-12 grid gap-24">
           <h2 className="text-center text-xl font-bold">{t('global.chart_avg_price')}</h2>
           <LightweightChart
