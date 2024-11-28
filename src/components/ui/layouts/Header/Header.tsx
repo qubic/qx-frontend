@@ -1,9 +1,10 @@
+import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router-dom'
 
 import { QubicQxInfoWhiteLogo } from '@app/assets/icons/logo'
+import { isConnectWalletEnabled } from '@app/configs/feature-flags'
 import { PublicRoutes } from '@app/router/routes'
 import { clsxTwMerge } from '@app/utils'
-import { useTranslation } from 'react-i18next'
 import LanguagePicker from '../../LanguagePicker'
 import { ConnectWalletButton } from '../../buttons'
 import BurgerMenu from './BurgerMenu'
@@ -60,12 +61,14 @@ export default function Header() {
         </ul>
       </nav>
       <div className="absolute right-2 flex items-center gap-8 sm:right-24">
-        <ConnectWalletButton
-          className="p-10 lg:flex"
-          variant="text"
-          showIcon
-          labelClassName="hidden text-gray-50 lg:block"
-        />
+        {isConnectWalletEnabled && (
+          <ConnectWalletButton
+            className="p-10 lg:flex"
+            variant="text"
+            showIcon
+            labelClassName="hidden text-gray-50 lg:block"
+          />
+        )}
         <LanguagePicker />
         <div className="md:hidden">
           <BurgerMenu items={MENU_ITEMS} activePath={location.pathname} />
