@@ -1,0 +1,98 @@
+{
+  "global": {
+    "lock_wallet": "Заблокировать кошелек",
+    "unlock_wallet": "Разблокировать кошелек",
+    "paste": "Вставить",
+    "cancel": "Отмена",
+    "close": "Закрыть",
+    "confirm": "Подтвердить",
+    "select_account": "Выбрать аккаунт",
+    "change_account": "Сменить аккаунт",
+    "beta": "Бета",
+    "learn_more": "Узнать больше",
+    "home": "Главная",
+    "tokens": "Токены",
+    "asset": "Актив",
+    "assets": "Активы",
+    "asset_transfers": "Переводы активов",
+    "trades": "Сделки",
+    "transactions": "Транзакции",
+    "smart_contract_shares": "Доли смарт-контракта",
+    "side": "Сторона",
+    "price": "Цена",
+    "shares": "Доли",
+    "total": "Итого",
+    "hash": "Хэш",
+    "taker": "Тейкер",
+    "maker": "Мейкер",
+    "date_and_time": "Дата и время",
+    "buy": "Купить",
+    "sell": "Продать",
+    "tick": "Тик",
+    "from": "От",
+    "to": "К",
+    "issuer": "Эмитент",
+    "decimals": "Десятичные",
+    "name": "Название",
+    "check_on_explorer": "Проверить в проводнике",
+    "chart_avg_price": "График (Средняя цена)"
+  },
+  "home_page": {
+    "qx_dashboard": "Панель QX",
+    "description": "QX — это децентрализованная биржа, работающая как смарт-контракт в сети Qubic. Этот демонстрационный сайт предоставляет информацию об активах, сделках и трейдерах, но не является официальной платформой QX.",
+    "entity_search": "Поиск сущности",
+    "entity_search_desc": "Отображение сделок и открытых ордеров сущности.",
+    "lookup_trader": "Найти трейдера"
+  },
+  "assets_page": {
+    "qx_assets": "Активы QX"
+  },
+  "asset_page": {
+    "asset_order_book": "Книга ордеров {{asset}}"
+  },
+  "trades_page": {
+    "qx_trades": "Последние сделки QX"
+  },
+  "transactions_page": {
+    "latest_issued_assets": "Последние выпущенные активы",
+    "latest_asset_transfers": "Последние переводы активов"
+  },
+  "entity_page": {
+    "open_ask_orders": "Открытые ордера на продажу",
+    "open_bid_orders": "Открытые ордера на покупку"
+  },
+  "error_page": {
+    "page_not_found": "Страница не найдена",
+    "error_404_message": "Поздравляем! Вы один из немногих, кому удалось найти нашу страницу 404.",
+    "back_to_home_page": "Вернуться на главную страницу",
+    "title": "Упс!",
+    "unexpected_error": "Извините, произошла непредвиденная ошибка.",
+    "retry": "Повторить"
+  },
+  "trades_table": {
+    "error_fetching_trades": "Произошла ошибка при получении последних сделок. Попробуйте позже.",
+    "trades_not_found": "Сделки не найдены."
+  },
+  "orders_table": {
+    "open_orders_not_found": "Открытые ордера не найдены.",
+    "error_fetching_open_orders": "Произошла ошибка при получении открытых ордеров. Попробуйте позже."
+  },
+  "issued_assets_table": {
+    "issued_assets_not_found": "Выпущенные активы не найдены.",
+    "error_fetching_issued_assets": "Произошла ошибка при получении последних выпущенных активов. Попробуйте позже."
+  },
+  "transfers_table": {
+    "transfers_not_found": "Переводы не найдены.",
+    "error_fetching_transfers": "Произошла ошибка при получении последних переводов. Попробуйте позже."
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Аккаунт успешно подключен",
+    "copy_uri": "Скопировать URI",
+    "scan_qr": "Сканируйте этот QR-код с помощью вашего кошелька Qubic или скопируйте ссылку ниже:",
+    "wallet_connection_gen_url_error": "Не удалось создать URI WalletConnect. Попробуйте позже.",
+    "metamask_cooming_soon": "MetaMask (скоро)"
+  },
+  "errors": {
+    "error_fetching_data": "Произошла ошибка при получении данных. Попробуйте позже."
+  }
+}

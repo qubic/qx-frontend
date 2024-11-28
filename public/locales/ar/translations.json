@@ -1,0 +1,98 @@
+{
+  "global": {
+    "lock_wallet": "قفل المحفظة",
+    "unlock_wallet": "فتح المحفظة",
+    "paste": "لصق",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "confirm": "تأكيد",
+    "select_account": "اختر الحساب",
+    "change_account": "تغيير الحساب",
+    "beta": "نسخة تجريبية",
+    "learn_more": "اعرف المزيد",
+    "home": "الصفحة الرئيسية",
+    "tokens": "الرموز",
+    "asset": "الأصل",
+    "assets": "الأصول",
+    "asset_transfers": "تحويلات الأصول",
+    "trades": "التداولات",
+    "transactions": "المعاملات",
+    "smart_contract_shares": "أسهم العقود الذكية",
+    "side": "الجانب",
+    "price": "السعر",
+    "shares": "الأسهم",
+    "total": "الإجمالي",
+    "hash": "التجزئة",
+    "taker": "المستلم",
+    "maker": "المنشئ",
+    "date_and_time": "التاريخ والوقت",
+    "buy": "شراء",
+    "sell": "بيع",
+    "tick": "تيك",
+    "from": "من",
+    "to": "إلى",
+    "issuer": "المصدر",
+    "decimals": "الأرقام العشرية",
+    "name": "الاسم",
+    "check_on_explorer": "التحقق عبر المستكشف",
+    "chart_avg_price": "الرسم البياني (متوسط السعر)"
+  },
+  "home_page": {
+    "qx_dashboard": "لوحة معلومات QX",
+    "description": "QX هو تبادل لامركزي يعمل كعقد ذكي على شبكة Qubic. يوفر هذا الموقع التجريبي معلومات حول الأصول والتداولات والمتداولين، ولكنه ليس منصة QX الرسمية.",
+    "entity_search": "بحث الكيان",
+    "entity_search_desc": "عرض التداولات والأوامر المفتوحة لكيان.",
+    "lookup_trader": "البحث عن متداول"
+  },
+  "assets_page": {
+    "qx_assets": "أصول QX"
+  },
+  "asset_page": {
+    "asset_order_book": "دفتر أوامر {{asset}}"
+  },
+  "trades_page": {
+    "qx_trades": "أحدث التداولات في QX"
+  },
+  "transactions_page": {
+    "latest_issued_assets": "أحدث الأصول المُصدرة",
+    "latest_asset_transfers": "أحدث تحويلات الأصول"
+  },
+  "entity_page": {
+    "open_ask_orders": "طلبات البيع المفتوحة",
+    "open_bid_orders": "طلبات الشراء المفتوحة"
+  },
+  "error_page": {
+    "page_not_found": "الصفحة غير موجودة",
+    "error_404_message": "تهانينا! أنت من القلة النادرة الذين تمكنوا من العثور على صفحة 404 الخاصة بنا.",
+    "back_to_home_page": "العودة إلى الصفحة الرئيسية",
+    "title": "عذرًا!",
+    "unexpected_error": "نأسف، حدث خطأ غير متوقع.",
+    "retry": "إعادة المحاولة"
+  },
+  "trades_table": {
+    "error_fetching_trades": "حدث خطأ أثناء جلب أحدث التداولات. يرجى المحاولة لاحقًا.",
+    "trades_not_found": "لم يتم العثور على تداولات."
+  },
+  "orders_table": {
+    "open_orders_not_found": "لم يتم العثور على أوامر مفتوحة.",
+    "error_fetching_open_orders": "حدث خطأ أثناء جلب الأوامر المفتوحة. يرجى المحاولة لاحقًا."
+  },
+  "issued_assets_table": {
+    "issued_assets_not_found": "لم يتم العثور على أصول مُصدرة.",
+    "error_fetching_issued_assets": "حدث خطأ أثناء جلب أحدث الأصول المُصدرة. يرجى المحاولة لاحقًا."
+  },
+  "transfers_table": {
+    "transfers_not_found": "لم يتم العثور على تحويلات.",
+    "error_fetching_transfers": "حدث خطأ أثناء جلب أحدث التحويلات. يرجى المحاولة لاحقًا."
+  },
+  "connect_wallet_modal": {
+    "account_connected": "تم الاتصال بالحساب بنجاح",
+    "copy_uri": "نسخ الرابط",
+    "scan_qr": "امسح رمز الاستجابة السريعة هذا باستخدام محفظة Qubic الخاصة بك أو انسخ الرابط أدناه:",
+    "wallet_connection_gen_url_error": "فشل في إنشاء رابط WalletConnect. يرجى المحاولة لاحقًا.",
+    "metamask_cooming_soon": "MetaMask (قريبًا)"
+  },
+  "errors": {
+    "error_fetching_data": "حدث خطأ أثناء جلب البيانات. يرجى المحاولة لاحقًا."
+  }
+}

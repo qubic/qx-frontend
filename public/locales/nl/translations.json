@@ -1,0 +1,98 @@
+{
+  "global": {
+    "lock_wallet": "Wallet vergrendelen",
+    "unlock_wallet": "Wallet ontgrendelen",
+    "paste": "Plakken",
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "confirm": "Bevestigen",
+    "select_account": "Account selecteren",
+    "change_account": "Account wijzigen",
+    "beta": "Bèta",
+    "learn_more": "Meer informatie",
+    "home": "Home",
+    "tokens": "Tokens",
+    "asset": "Vermogen",
+    "assets": "Vermogens",
+    "asset_transfers": "Vermogenoverdrachten",
+    "trades": "Handel",
+    "transactions": "Transacties",
+    "smart_contract_shares": "Aandelen van slimme contracten",
+    "side": "Zijde",
+    "price": "Prijs",
+    "shares": "Aandelen",
+    "total": "Totaal",
+    "hash": "Hash",
+    "taker": "Taker",
+    "maker": "Maker",
+    "date_and_time": "Datum & Tijd",
+    "buy": "Kopen",
+    "sell": "Verkopen",
+    "tick": "Tick",
+    "from": "Van",
+    "to": "Naar",
+    "issuer": "Uitgever",
+    "decimals": "Decimalen",
+    "name": "Naam",
+    "check_on_explorer": "Controleren in verkenner",
+    "chart_avg_price": "Grafiek (Gem. prijs)"
+  },
+  "home_page": {
+    "qx_dashboard": "QX Dashboard",
+    "description": "QX is een gedecentraliseerde beurs die als een slim contract op het Qubic-netwerk draait. Deze demowebsite biedt informatie over vermogens, handel en handelaren, maar is niet het officiële QX-platform.",
+    "entity_search": "Entiteit zoeken",
+    "entity_search_desc": "Toon handelsactiviteiten en openstaande orders van een entiteit.",
+    "lookup_trader": "Handelaar opzoeken"
+  },
+  "assets_page": {
+    "qx_assets": "QX Vermogens"
+  },
+  "asset_page": {
+    "asset_order_book": "{{asset}} Orderboek"
+  },
+  "trades_page": {
+    "qx_trades": "Laatste QX-handel"
+  },
+  "transactions_page": {
+    "latest_issued_assets": "Laatste uitgegeven vermogens",
+    "latest_asset_transfers": "Laatste vermogenoverdrachten"
+  },
+  "entity_page": {
+    "open_ask_orders": "Open verkooporders",
+    "open_bid_orders": "Open kooporders"
+  },
+  "error_page": {
+    "page_not_found": "Pagina niet gevonden",
+    "error_404_message": "Gefeliciteerd! Je behoort tot de weinigen die onze 404-pagina hebben gevonden.",
+    "back_to_home_page": "Terug naar homepagina",
+    "title": "Oeps!",
+    "unexpected_error": "Sorry, er is een onverwachte fout opgetreden.",
+    "retry": "Opnieuw proberen"
+  },
+  "trades_table": {
+    "error_fetching_trades": "Er is iets misgegaan bij het ophalen van de laatste handel. Probeer het later opnieuw.",
+    "trades_not_found": "Geen handel gevonden."
+  },
+  "orders_table": {
+    "open_orders_not_found": "Geen openstaande orders gevonden.",
+    "error_fetching_open_orders": "Er is iets misgegaan bij het ophalen van de openstaande orders. Probeer het later opnieuw."
+  },
+  "issued_assets_table": {
+    "issued_assets_not_found": "Geen uitgegeven vermogens gevonden.",
+    "error_fetching_issued_assets": "Er is iets misgegaan bij het ophalen van de laatste uitgegeven vermogens. Probeer het later opnieuw."
+  },
+  "transfers_table": {
+    "transfers_not_found": "Geen overdrachten gevonden.",
+    "error_fetching_transfers": "Er is iets misgegaan bij het ophalen van de laatste overdrachten. Probeer het later opnieuw."
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Account succesvol verbonden",
+    "copy_uri": "URI kopiëren",
+    "scan_qr": "Scan deze QR-code met je Qubic Wallet of kopieer de onderstaande link:",
+    "wallet_connection_gen_url_error": "Kan WalletConnect-URI niet genereren. Probeer het later opnieuw.",
+    "metamask_cooming_soon": "MetaMask (binnenkort beschikbaar)"
+  },
+  "errors": {
+    "error_fetching_data": "Er is iets misgegaan bij het ophalen van de gegevens. Probeer het later opnieuw."
+  }
+}

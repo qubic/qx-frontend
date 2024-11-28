@@ -1,0 +1,98 @@
+{
+  "global": {
+    "lock_wallet": "Bloquear billetera",
+    "unlock_wallet": "Desbloquear billetera",
+    "paste": "Pegar",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "select_account": "Seleccionar cuenta",
+    "change_account": "Cambiar cuenta",
+    "beta": "Beta",
+    "learn_more": "Saber más",
+    "home": "Inicio",
+    "tokens": "Tokens",
+    "asset": "Activo",
+    "assets": "Activos",
+    "asset_transfers": "Transferencias de activos",
+    "trades": "Comercios",
+    "transactions": "Transacciones",
+    "smart_contract_shares": "Acciones de contrato inteligente",
+    "side": "Lado",
+    "price": "Precio",
+    "shares": "Acciones",
+    "total": "Total",
+    "hash": "Hash",
+    "taker": "Tomador",
+    "maker": "Creador",
+    "date_and_time": "Fecha y hora",
+    "buy": "Comprar",
+    "sell": "Vender",
+    "tick": "Tick",
+    "from": "De",
+    "to": "Para",
+    "issuer": "Emisor",
+    "decimals": "Decimales",
+    "name": "Nombre",
+    "check_on_explorer": "Verificar en el explorador",
+    "chart_avg_price": "Gráfico (Precio promedio)"
+  },
+  "home_page": {
+    "qx_dashboard": "Panel de control de QX",
+    "description": "QX es un intercambio descentralizado que funciona como un contrato inteligente en la red Qubic. Este sitio de demostración proporciona información sobre activos, comercios y comerciantes, pero no es la plataforma oficial de QX.",
+    "entity_search": "Búsqueda de entidades",
+    "entity_search_desc": "Muestra comercios y órdenes abiertas de una entidad.",
+    "lookup_trader": "Buscar comerciante"
+  },
+  "assets_page": {
+    "qx_assets": "Activos de QX"
+  },
+  "asset_page": {
+    "asset_order_book": "Libro de órdenes de {{asset}}"
+  },
+  "trades_page": {
+    "qx_trades": "Últimos comercios de QX"
+  },
+  "transactions_page": {
+    "latest_issued_assets": "Últimos activos emitidos",
+    "latest_asset_transfers": "Últimas transferencias de activos"
+  },
+  "entity_page": {
+    "open_ask_orders": "Órdenes de venta abiertas",
+    "open_bid_orders": "Órdenes de compra abiertas"
+  },
+  "error_page": {
+    "page_not_found": "Página no encontrada",
+    "error_404_message": "¡Felicidades! Eres uno de los pocos que logró encontrar nuestra página 404.",
+    "back_to_home_page": "Volver a la página principal",
+    "title": "¡Oops!",
+    "unexpected_error": "Lo sentimos, ocurrió un error inesperado.",
+    "retry": "Reintentar"
+  },
+  "trades_table": {
+    "error_fetching_trades": "Ocurrió un error al obtener los últimos comercios. Por favor, inténtalo de nuevo más tarde.",
+    "trades_not_found": "No se encontraron comercios."
+  },
+  "orders_table": {
+    "open_orders_not_found": "No se encontraron órdenes abiertas.",
+    "error_fetching_open_orders": "Ocurrió un error al obtener las órdenes abiertas. Por favor, inténtalo de nuevo más tarde."
+  },
+  "issued_assets_table": {
+    "issued_assets_not_found": "No se encontraron activos emitidos.",
+    "error_fetching_issued_assets": "Ocurrió un error al obtener los últimos activos emitidos. Por favor, inténtalo de nuevo más tarde."
+  },
+  "transfers_table": {
+    "transfers_not_found": "No se encontraron transferencias.",
+    "error_fetching_transfers": "Ocurrió un error al obtener las últimas transferencias. Por favor, inténtalo de nuevo más tarde."
+  },
+  "connect_wallet_modal": {
+    "account_connected": "Cuenta conectada con éxito",
+    "copy_uri": "Copiar URI",
+    "scan_qr": "Escanea este código QR con tu billetera Qubic o copia el enlace a continuación:",
+    "wallet_connection_gen_url_error": "No se pudo generar la URI de WalletConnect. Por favor, inténtalo de nuevo.",
+    "metamask_cooming_soon": "MetaMask (próximamente)"
+  },
+  "errors": {
+    "error_fetching_data": "Ocurrió un error al obtener los datos. Por favor, inténtalo de nuevo más tarde."
+  }
+}

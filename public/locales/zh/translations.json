@@ -1,0 +1,98 @@
+{
+  "global": {
+    "lock_wallet": "锁定钱包",
+    "unlock_wallet": "解锁钱包",
+    "paste": "粘贴",
+    "cancel": "取消",
+    "close": "关闭",
+    "confirm": "确认",
+    "select_account": "选择账户",
+    "change_account": "更换账户",
+    "beta": "测试版",
+    "learn_more": "了解更多",
+    "home": "首页",
+    "tokens": "代币",
+    "asset": "资产",
+    "assets": "资产",
+    "asset_transfers": "资产转账",
+    "trades": "交易",
+    "transactions": "交易记录",
+    "smart_contract_shares": "智能合约份额",
+    "side": "方向",
+    "price": "价格",
+    "shares": "份额",
+    "total": "总计",
+    "hash": "哈希值",
+    "taker": "接受者",
+    "maker": "提供者",
+    "date_and_time": "日期和时间",
+    "buy": "买入",
+    "sell": "卖出",
+    "tick": "滴答",
+    "from": "从",
+    "to": "到",
+    "issuer": "发行方",
+    "decimals": "小数位",
+    "name": "名称",
+    "check_on_explorer": "在区块浏览器查看",
+    "chart_avg_price": "图表（平均价格）"
+  },
+  "home_page": {
+    "qx_dashboard": "QX仪表板",
+    "description": "QX 是运行在 Qubic 网络上的智能合约形式的去中心化交易所。本演示网站提供资产、交易和交易员信息，但并非 QX 的官方平台。",
+    "entity_search": "实体搜索",
+    "entity_search_desc": "显示实体的交易和未完成订单。",
+    "lookup_trader": "查找交易员"
+  },
+  "assets_page": {
+    "qx_assets": "QX资产"
+  },
+  "asset_page": {
+    "asset_order_book": "{{asset}}订单簿"
+  },
+  "trades_page": {
+    "qx_trades": "最新QX交易"
+  },
+  "transactions_page": {
+    "latest_issued_assets": "最新发行的资产",
+    "latest_asset_transfers": "最新资产转账"
+  },
+  "entity_page": {
+    "open_ask_orders": "未完成的卖单",
+    "open_bid_orders": "未完成的买单"
+  },
+  "error_page": {
+    "page_not_found": "页面未找到",
+    "error_404_message": "恭喜！您是少数能找到我们404页面的精英之一。",
+    "back_to_home_page": "返回首页",
+    "title": "哎呀！",
+    "unexpected_error": "抱歉，发生了意外错误。",
+    "retry": "重试"
+  },
+  "trades_table": {
+    "error_fetching_trades": "获取最新交易时出错，请稍后再试。",
+    "trades_not_found": "未找到交易。"
+  },
+  "orders_table": {
+    "open_orders_not_found": "未找到未完成订单。",
+    "error_fetching_open_orders": "获取未完成订单时出错，请稍后再试。"
+  },
+  "issued_assets_table": {
+    "issued_assets_not_found": "未找到已发行的资产。",
+    "error_fetching_issued_assets": "获取最新发行的资产时出错，请稍后再试。"
+  },
+  "transfers_table": {
+    "transfers_not_found": "未找到转账记录。",
+    "error_fetching_transfers": "获取最新转账记录时出错，请稍后再试。"
+  },
+  "connect_wallet_modal": {
+    "account_connected": "账户连接成功",
+    "copy_uri": "复制 URI",
+    "scan_qr": "使用您的 Qubic 钱包扫描此二维码或复制以下链接：",
+    "wallet_connection_gen_url_error": "生成 WalletConnect URI 失败，请稍后再试。",
+    "metamask_cooming_soon": "MetaMask（即将推出）"
+  },
+  "errors": {
+    "error_fetching_data": "获取数据时出错，请稍后再试。"
+  }
+}
