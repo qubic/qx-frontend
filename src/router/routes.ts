@@ -2,7 +2,7 @@ export const PublicRoutes = {
   HOME: '/',
   TRADES: '/trades',
   ASSETS: {
-    ROOT: '/assets',
+    ROOT: '/qx-assets',
     DETAILS: (issuer: string, assetName: string) => `/assets/${issuer}/${assetName}`
   },
   TRANSACTIONS: '/transactions',
