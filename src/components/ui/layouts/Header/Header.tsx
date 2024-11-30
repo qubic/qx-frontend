@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router-dom'
 
-import { QubicQxInfoWhiteLogo } from '@app/assets/icons/logo'
+import { QubicQxWhiteLogo } from '@app/assets/icons/logo'
 import { isConnectWalletEnabled } from '@app/configs/feature-flags'
 import { PublicRoutes } from '@app/router/routes'
 import { clsxTwMerge } from '@app/utils'
@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <header className="relative mx-auto flex h-[var(--header-height)] items-center justify-center gap-6 border-b border-primary-60 p-12 sm:h-[var(--desktop-header-height)]">
       <Link to={PublicRoutes.HOME} className="absolute left-12 sm:left-24">
-        <QubicQxInfoWhiteLogo />
+        <QubicQxWhiteLogo />
       </Link>
 
       <nav className="hidden md:block">
