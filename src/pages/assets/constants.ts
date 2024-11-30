@@ -1,8 +1,8 @@
 export const ASSET_ORDERS_TABLE_COLUMNS = [
   { i18nkey: 'global.asset' },
-  { i18nkey: 'global.issuer' },
   { i18nkey: 'global.shares' },
-  { i18nkey: 'global.price' }
+  { i18nkey: 'global.price' },
+  { i18nkey: 'global.total' }
 ] as const
 
 export const ASSET_ORDERS_TABLE_COLUMNS_COUNT = ASSET_ORDERS_TABLE_COLUMNS.length

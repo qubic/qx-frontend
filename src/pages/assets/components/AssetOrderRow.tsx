@@ -12,11 +12,11 @@ const genAssetOrderRowCells = (assetOrder: AssetOrder) => [
   },
   {
     key: 'shares',
-    content: formatString(assetOrder.price)
+    content: formatString(assetOrder.numberOfShares)
   },
   {
     key: 'price',
-    content: formatString(assetOrder.numberOfShares)
+    content: formatString(assetOrder.price)
   },
   {
     key: 'total',
