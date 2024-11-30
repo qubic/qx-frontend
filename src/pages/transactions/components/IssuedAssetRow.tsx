@@ -39,10 +39,6 @@ const genIssuedAssetRowCells = (issuedAsset: IssuedAsset) => [
     )
   },
   {
-    key: 'decimals',
-    content: issuedAsset.extraData.numberOfDecimalPlaces
-  },
-  {
     key: 'hash',
     content: (
       <ExplorerLink type={ExplorerLinkType.TX} value={issuedAsset.hash} ellipsis showTooltip />
