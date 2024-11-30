@@ -7,7 +7,7 @@ import { withHelmet } from '@app/components/hocs'
 import { TradesTable, TransfersTable } from '@app/components/tables'
 import { LightweightChart } from '@app/components/ui'
 import { PageLayout } from '@app/components/ui/layouts'
-import { ExplorerLink } from '@app/components/ui/links'
+import { EntityLink } from '@app/components/ui/links'
 import {
   useGetAssetAskOrdersQuery,
   useGetAssetBidOrdersQuery,
@@ -15,7 +15,6 @@ import {
   useGetAssetTradesQuery,
   useGetAssetTransfersQuery
 } from '@app/store/apis/qx'
-import { ExplorerLinkType } from '@app/types/enums'
 import { AssetOrdersTable } from './components'
 
 function AssetPage() {
@@ -55,13 +54,7 @@ function AssetPage() {
         </div>
         <div className="flex gap-8 border-b-1 border-primary-60 py-12">
           <p className="text-slate-500">{t('global.issuer')}</p>
-          <ExplorerLink
-            type={ExplorerLinkType.ADDRESS}
-            value={assetIssuer}
-            className="xs:text-sm"
-            showTooltip
-            tooltipContent={t('global.check_on_explorer')}
-          />
+          <EntityLink value={assetIssuer} className="xs:text-sm" />
         </div>
       </section>
 

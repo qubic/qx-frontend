@@ -12,10 +12,10 @@ function AssetCard({ asset }: Props) {
     <Link
       key={asset.name}
       to={PublicRoutes.ASSETS.DETAILS(asset.issuer, asset.name)}
-      className="flex w-[174px] flex-col justify-center break-words rounded-12 border-1 border-primary-60 bg-primary-70 p-24 transition-all duration-300 ease-in-out hover:border-primary-30"
+      className="flex w-[174px] flex-col justify-center gap-6 break-words rounded-12 border-1 border-primary-60 bg-primary-70 p-24 transition-all duration-300 ease-in-out hover:border-primary-30"
     >
       <span className="text-center text-lg font-bold">{asset.name}</span>
-      <span className="text-xxs text-slate-500">{asset.issuer}</span>
+      <span className="font-mono text-xxs text-slate-500">{asset.issuer}</span>
     </Link>
   )
 }
