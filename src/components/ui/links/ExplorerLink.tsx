@@ -9,7 +9,7 @@ import { clsxTwMerge, formatEllipsis } from '@app/utils'
 type Props = {
   value: string
   type: ExplorerLinkType
-  label?: string
+  label?: string | React.ReactNode
   copy?: boolean
   ellipsis?: boolean
   className?: string
