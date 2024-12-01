@@ -54,7 +54,7 @@ function AssetPage() {
         </div>
         <div className="flex gap-8 border-b-1 border-primary-60 py-12">
           <p className="text-slate-500">{t('global.issuer')}</p>
-          <EntityLink value={assetIssuer} className="xs:text-sm" />
+          <EntityLink value={assetIssuer} className="sm:text-sm" />
         </div>
       </section>
 
