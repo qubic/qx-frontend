@@ -35,11 +35,12 @@
     "decimals": "Ondalık",
     "name": "İsim",
     "check_on_explorer": "Keşif Aracında Kontrol Et",
-    "chart_avg_price": "Grafik (Ortalama Fiyat)"
+    "chart_avg_price": "Grafik (Ortalama Fiyat)",
+    "address": "Adres"
   },
   "home_page": {
     "qx_dashboard": "QX Gösterge Paneli",
-    "description": "QX, Qubic ağında bir akıllı sözleşme olarak çalışan merkezi olmayan bir borsadır. Bu demo sitesi varlıklar, işlemler ve tüccarlar hakkında bilgi sağlar ancak resmi QX platformu değildir.",
+    "description": "QX, Qubic ağında bir akıllı sözleşme olarak çalışan merkezi olmayan bir borsadır.",
     "entity_search": "Varlık Arama",
     "entity_search_desc": "Bir varlığın işlemlerini ve açık emirlerini gösterin.",
     "lookup_trader": "Tüccar Ara"

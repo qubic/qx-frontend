@@ -35,11 +35,12 @@
     "decimals": "Decimalen",
     "name": "Naam",
     "check_on_explorer": "Controleren in verkenner",
-    "chart_avg_price": "Grafiek (Gem. prijs)"
+    "chart_avg_price": "Grafiek (Gem. prijs)",
+    "address": "Adres"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
-    "description": "QX is een gedecentraliseerde beurs die als een slim contract op het Qubic-netwerk draait. Deze demowebsite biedt informatie over vermogens, handel en handelaren, maar is niet het officiële QX-platform.",
+    "description": "QX is een gedecentraliseerde beurs die als een slim contract op het Qubic-netwerk draait.",
     "entity_search": "Entiteit zoeken",
     "entity_search_desc": "Toon handelsactiviteiten en openstaande orders van een entiteit.",
     "lookup_trader": "Handelaar opzoeken"

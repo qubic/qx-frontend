@@ -35,11 +35,12 @@
     "decimals": "小数点以下",
     "name": "名前",
     "check_on_explorer": "エクスプローラーで確認",
-    "chart_avg_price": "チャート（平均価格）"
+    "chart_avg_price": "チャート（平均価格）",
+    "address": "アドレス"
   },
   "home_page": {
     "qx_dashboard": "QXダッシュボード",
-    "description": "QXは、Qubicネットワーク上のスマートコントラクトとして動作する分散型取引所です。このデモサイトはアセット、取引、トレーダーに関する情報を提供しますが、公式のQXプラットフォームではありません。",
+    "description": "QXは、Qubicネットワーク上のスマートコントラクトとして動作する分散型取引所です。",
     "entity_search": "エンティティ検索",
     "entity_search_desc": "エンティティの取引とオープンオーダーを表示します。",
     "lookup_trader": "トレーダーを検索"

@@ -35,11 +35,12 @@
     "decimals": "小数位",
     "name": "名称",
     "check_on_explorer": "在区块浏览器查看",
-    "chart_avg_price": "图表（平均价格）"
+    "chart_avg_price": "图表（平均价格）",
+    "address": "地址"
   },
   "home_page": {
     "qx_dashboard": "QX仪表板",
-    "description": "QX 是运行在 Qubic 网络上的智能合约形式的去中心化交易所。本演示网站提供资产、交易和交易员信息，但并非 QX 的官方平台。",
+    "description": "QX 是运行在 Qubic 网络上的智能合约形式的去中心化交易所。",
     "entity_search": "实体搜索",
     "entity_search_desc": "显示实体的交易和未完成订单。",
     "lookup_trader": "查找交易员"

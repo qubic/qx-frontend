@@ -35,11 +35,12 @@
     "decimals": "Décimales",
     "name": "Nom",
     "check_on_explorer": "Vérifier sur l'explorateur",
-    "chart_avg_price": "Graphique (Prix moyen)"
+    "chart_avg_price": "Graphique (Prix moyen)",
+    "address": "Adresse"
   },
   "home_page": {
     "qx_dashboard": "Tableau de bord QX",
-    "description": "QX est une plateforme d'échange décentralisée fonctionnant comme un contrat intelligent sur le réseau Qubic. Ce site de démonstration fournit des informations sur les actifs, les échanges et les traders, mais il ne s'agit pas de la plateforme officielle de QX.",
+    "description": "QX est une plateforme d'échange décentralisée fonctionnant comme un contrat intelligent sur le réseau Qubic.",
     "entity_search": "Recherche d'entité",
     "entity_search_desc": "Afficher les échanges et les ordres ouverts d'une entité.",
     "lookup_trader": "Rechercher un trader"

@@ -35,11 +35,12 @@
     "decimals": "Dezimalstellen",
     "name": "Name",
     "check_on_explorer": "Im Explorer prüfen",
-    "chart_avg_price": "Diagramm (Durchschnittspreis)"
+    "chart_avg_price": "Diagramm (Durchschnittspreis)",
+    "address": "Adresse"
   },
   "home_page": {
     "qx_dashboard": "QX-Dashboard",
-    "description": "QX ist eine dezentrale Börse, die als Smart Contract auf dem Qubic-Netzwerk läuft. Diese Demo-Seite bietet Informationen zu Vermögenswerten, Handel und Händlern, ist jedoch nicht die offizielle QX-Plattform.",
+    "description": "QX ist eine dezentrale Börse, die als Smart Contract auf dem Qubic-Netzwerk läuft.",
     "entity_search": "Entitätssuche",
     "entity_search_desc": "Anzeigen von Handels- und offenen Aufträgen einer Entität.",
     "lookup_trader": "Händler suchen"

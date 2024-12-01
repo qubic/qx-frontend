@@ -35,11 +35,12 @@
     "decimals": "Decimals",
     "name": "Name",
     "check_on_explorer": "Check on Explorer",
-    "chart_avg_price": "Chart (Avg Price)"
+    "chart_avg_price": "Chart (Avg Price)",
+    "address": "Address"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
-    "description": "QX is a decentralized exchange running as a smart contract on the Qubic network. This demo site provides information about assets, trades, and traders, but it is not the official QX platform.",
+    "description": "QX is a decentralized exchange running as a smart contract on the Qubic network.",
     "entity_search": "Entity Search",
     "entity_search_desc": "Show trades and open orders of an entity.",
     "lookup_trader": "Lookup Trader"
