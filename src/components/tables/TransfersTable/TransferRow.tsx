@@ -52,7 +52,7 @@ const genTransferRowCells = (transfer: Transfer) => [
       excludeTimeZone: true,
       shortDate: true
     }),
-    className: '!text-slate-500'
+    className: 'text-slate-500'
   }
 ]
 

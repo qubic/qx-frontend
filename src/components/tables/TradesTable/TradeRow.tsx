@@ -67,7 +67,7 @@ const genTradeRowCells = (trade: Trade, t: (key: string) => string) => [
       excludeTimeZone: true,
       shortDate: true
     }),
-    className: '!text-slate-500'
+    className: 'text-slate-500'
   }
 ]
 

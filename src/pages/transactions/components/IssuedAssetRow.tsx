@@ -51,7 +51,7 @@ const genIssuedAssetRowCells = (issuedAsset: IssuedAsset) => [
       excludeTimeZone: true,
       shortDate: true
     }),
-    className: '!text-slate-500'
+    className: 'text-slate-500'
   }
 ]
 
