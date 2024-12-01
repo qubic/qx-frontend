@@ -31,11 +31,11 @@ const genTradeRowCells = (trade: Trade, t: (key: string) => string) => [
   },
   {
     key: 'price',
-    content: formatString(trade.numberOfShares)
+    content: formatString(trade.price)
   },
   {
     key: 'shares',
-    content: formatString(trade.price)
+    content: formatString(trade.numberOfShares)
   },
   {
     key: 'total',

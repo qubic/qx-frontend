@@ -25,11 +25,11 @@ const genEntityOrderRowCells = (entityOrder: EntityOrder) => [
   },
   {
     key: 'shares',
-    content: formatString(entityOrder.price)
+    content: formatString(entityOrder.numberOfShares)
   },
   {
     key: 'price',
-    content: formatString(entityOrder.numberOfShares)
+    content: formatString(entityOrder.price)
   }
 ]
 
