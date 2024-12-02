@@ -36,7 +36,8 @@
     "name": "Название",
     "check_on_explorer": "Проверить в проводнике",
     "chart_avg_price": "График (Средняя цена)",
-    "address": "Адрес"
+    "address": "Адрес",
+    "entity": "Сущность"
   },
   "home_page": {
     "qx_dashboard": "Панель QX",

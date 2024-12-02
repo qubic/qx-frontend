@@ -36,7 +36,8 @@
     "name": "Name",
     "check_on_explorer": "Check on Explorer",
     "chart_avg_price": "Chart (Avg Price)",
-    "address": "Address"
+    "address": "Address",
+    "entity": "Entity"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
