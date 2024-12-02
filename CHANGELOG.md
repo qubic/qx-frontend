@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/qubic/qx-frontend/compare/v1.0.0...v1.0.1) (2024-12-02)
+
+
+### Bug Fixes
+
+* rename 'asset' to 'entity' in AssetOrderRow component and update constant for table columns ([c33e216](https://github.com/qubic/qx-frontend/commit/c33e21623fff0c13c657af0b87f73a72bbcd50bf))
+
 # 1.0.0 (2024-12-01)
 
 
