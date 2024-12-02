@@ -7,7 +7,7 @@ import { clsxTwMerge, formatString } from '@app/utils'
 
 const genAssetOrderRowCells = (assetOrder: AssetOrder) => [
   {
-    key: 'asset',
+    key: 'entity',
     content: <EntityLink value={assetOrder.entityId} showTooltip ellipsis />
   },
   {

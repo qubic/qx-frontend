@@ -36,7 +36,8 @@
     "name": "İsim",
     "check_on_explorer": "Keşif Aracında Kontrol Et",
     "chart_avg_price": "Grafik (Ortalama Fiyat)",
-    "address": "Adres"
+    "address": "Adres",
+    "entity": "Varlık"
   },
   "home_page": {
     "qx_dashboard": "QX Gösterge Paneli",

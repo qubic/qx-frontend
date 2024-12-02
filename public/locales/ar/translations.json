@@ -36,7 +36,8 @@
     "name": "الاسم",
     "check_on_explorer": "التحقق عبر المستكشف",
     "chart_avg_price": "الرسم البياني (متوسط السعر)",
-    "address": "عنوان"
+    "address": "عنوان",
+    "entity": "كيان"
   },
   "home_page": {
     "qx_dashboard": "لوحة معلومات QX",

@@ -36,7 +36,8 @@
     "name": "Nom",
     "check_on_explorer": "Vérifier sur l'explorateur",
     "chart_avg_price": "Graphique (Prix moyen)",
-    "address": "Adresse"
+    "address": "Adresse",
+    "entity": "Entité"
   },
   "home_page": {
     "qx_dashboard": "Tableau de bord QX",

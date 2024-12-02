@@ -1,5 +1,5 @@
 export const ASSET_ORDERS_TABLE_COLUMNS = [
-  { i18nkey: 'global.asset' },
+  { i18nkey: 'global.entity' },
   { i18nkey: 'global.shares' },
   { i18nkey: 'global.price' },
   { i18nkey: 'global.total' }
