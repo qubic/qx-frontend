@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { TableHeadCell } from '@app/components/ui/tables'
 import type { Trade } from '@app/store/apis/qx'
-import { clsxTwMerge } from '@app/utils'
 import ErrorRow from '../ErrorRow'
 import NoItemsFoundRow from '../NoItemsFoundRow'
 import {
@@ -12,18 +12,10 @@ import {
 } from './constants'
 import TradeRow from './TradeRow'
 
-const TradesSkeleton = memo(() => {
-  return Array.from({ length: TRADES_TABLE_SKELETON_ROWS }).map((_, index) => (
+const TradesSkeleton = memo(() =>
+  Array.from({ length: TRADES_TABLE_SKELETON_ROWS }).map((_, index) => (
     <TradeRow.Skeleton key={String(`trade-row-skeleton-${index}`)} />
   ))
-})
-
-const TradeHeadCell = memo(
-  ({ children, className }: Readonly<{ children: React.ReactNode; className?: string }>) => (
-    <th className={clsxTwMerge('p-16 text-center text-xxs font-400 xs:text-xs', className)}>
-      <span className="text-gray-50">{children}</span>
-    </th>
-  )
 )
 
 type Props = Readonly<{
@@ -38,8 +30,10 @@ export default function TradesTable({ trades, isLoading, hasError }: Props) {
   const renderTableHeadContent = useCallback(
     () => (
       <tr>
-        {TRADES_TABLE_COLUMNS.map(({ i18nkey }) => (
-          <TradeHeadCell key={i18nkey}>{t(i18nkey)}</TradeHeadCell>
+        {TRADES_TABLE_COLUMNS.map(({ i18nKey, label, align }) => (
+          <TableHeadCell key={i18nKey} label={label} align={align}>
+            {t(i18nKey)}
+          </TableHeadCell>
         ))}
       </tr>
     ),

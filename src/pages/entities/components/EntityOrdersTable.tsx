@@ -2,6 +2,7 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
+import { TableHeadCell } from '@app/components/ui/tables'
 import type { EntityOrder } from '@app/store/apis/qx'
 import { clsxTwMerge } from '@app/utils'
 import {
@@ -11,23 +12,10 @@ import {
 } from '../constants'
 import EntityOrderRow from './EntityOrderRow'
 
-const EntityOrdersSkeleton = memo(() => {
-  return Array.from({ length: ENTITY_ORDERS_TABLE_SKELETON_ROWS }).map((_, index) => (
+const EntityOrdersSkeleton = memo(() =>
+  Array.from({ length: ENTITY_ORDERS_TABLE_SKELETON_ROWS }).map((_, index) => (
     <EntityOrderRow.Skeleton key={String(`entity-order-row-skeleton-${index}`)} />
   ))
-})
-
-const EntityOrderHeadCell = memo(
-  ({ children, className }: Readonly<{ children: React.ReactNode; className?: string }>) => (
-    <th
-      className={clsxTwMerge(
-        'p-16 text-center text-xxs font-400 first:rounded-tl-lg last:rounded-tr-lg xs:text-xs',
-        className
-      )}
-    >
-      <span className="text-gray-50">{children}</span>
-    </th>
-  )
 )
 
 type Props = Readonly<{
@@ -43,8 +31,15 @@ export default function EntityOrdersTable({ entityOrders, isLoading, hasError, c
   const renderTableHeadContent = useCallback(
     () => (
       <tr>
-        {ENTITY_ORDERS_TABLE_COLUMNS.map(({ i18nkey }) => (
-          <EntityOrderHeadCell key={i18nkey}>{t(i18nkey)}</EntityOrderHeadCell>
+        {ENTITY_ORDERS_TABLE_COLUMNS.map(({ i18nKey, label, align }) => (
+          <TableHeadCell
+            key={i18nKey}
+            className="first:rounded-tl-lg last:rounded-tr-lg"
+            label={label}
+            align={align}
+          >
+            {t(i18nKey)}
+          </TableHeadCell>
         ))}
       </tr>
     ),

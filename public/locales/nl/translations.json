@@ -37,7 +37,8 @@
     "check_on_explorer": "Controleren in verkenner",
     "chart_avg_price": "Grafiek (Gem. prijs)",
     "address": "Adres",
-    "entity": "Entiteit"
+    "entity": "Entiteit",
+    "amount": "Bedrag"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",

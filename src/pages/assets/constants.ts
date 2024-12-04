@@ -1,8 +1,10 @@
-export const ASSET_ORDERS_TABLE_COLUMNS = [
-  { i18nkey: 'global.entity' },
-  { i18nkey: 'global.shares' },
-  { i18nkey: 'global.price' },
-  { i18nkey: 'global.total' }
+import type { TableColumns } from '@app/types'
+
+export const ASSET_ORDERS_TABLE_COLUMNS: TableColumns = [
+  { i18nKey: 'global.entity' },
+  { i18nKey: 'global.amount', align: 'right' },
+  { i18nKey: 'global.price', label: '(QUBIC)', align: 'right' },
+  { i18nKey: 'global.total', label: '(QUBIC)', align: 'right' }
 ] as const
 
 export const ASSET_ORDERS_TABLE_COLUMNS_COUNT = ASSET_ORDERS_TABLE_COLUMNS.length
