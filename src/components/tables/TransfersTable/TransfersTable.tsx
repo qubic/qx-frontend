@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { TableHeadCell } from '@app/components/ui/tables'
 import type { Transfer } from '@app/store/apis/qx'
-import { clsxTwMerge } from '@app/utils'
 import ErrorRow from '../ErrorRow'
 import NoItemsFoundRow from '../NoItemsFoundRow'
 import {
@@ -18,14 +18,6 @@ const TransfersSkeleton = memo(() =>
   ))
 )
 
-const TransferHeadCell = memo(
-  ({ children, className }: Readonly<{ children: React.ReactNode; className?: string }>) => (
-    <th className={clsxTwMerge('p-16 text-center text-xxs font-400 xs:text-xs', className)}>
-      <span className="text-gray-50">{children}</span>
-    </th>
-  )
-)
-
 type Props = Readonly<{
   transfers: Transfer[] | undefined
   isLoading: boolean
@@ -38,8 +30,10 @@ export default function TransfersTable({ transfers, isLoading, hasError }: Props
   const renderTableHeadContent = useCallback(
     () => (
       <tr>
-        {TRANSFERS_TABLE_COLUMNS.map(({ i18nkey }) => (
-          <TransferHeadCell key={i18nkey}>{t(i18nkey)}</TransferHeadCell>
+        {TRANSFERS_TABLE_COLUMNS.map(({ i18nKey, align }) => (
+          <TableHeadCell key={i18nKey} align={align}>
+            {t(i18nKey)}
+          </TableHeadCell>
         ))}
       </tr>
     ),

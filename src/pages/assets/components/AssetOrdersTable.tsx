@@ -2,6 +2,7 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
+import { TableHeadCell } from '@app/components/ui/tables'
 import type { AssetOrder } from '@app/store/apis/qx'
 import { clsxTwMerge } from '@app/utils'
 import {
@@ -11,23 +12,10 @@ import {
 } from '../constants'
 import AssetOrderRow from './AssetOrderRow'
 
-const AssetOrdersSkeleton = memo(() => {
-  return Array.from({ length: ASSET_ORDERS_TABLE_SKELETON_ROWS }).map((_, index) => (
+const AssetOrdersSkeleton = memo(() =>
+  Array.from({ length: ASSET_ORDERS_TABLE_SKELETON_ROWS }).map((_, index) => (
     <AssetOrderRow.Skeleton key={String(`asset-order-row-skeleton-${index}`)} />
   ))
-})
-
-const AssetOrderHeadCell = memo(
-  ({ children, className }: Readonly<{ children: React.ReactNode; className?: string }>) => (
-    <th
-      className={clsxTwMerge(
-        'p-16 text-center text-xxs font-400 first:rounded-tl-lg last:rounded-tr-lg xs:text-xs',
-        className
-      )}
-    >
-      <span className="text-gray-50">{children}</span>
-    </th>
-  )
 )
 
 type Props = Readonly<{
@@ -43,8 +31,15 @@ export default function AssetOrdersTable({ assetOrders, isLoading, hasError, cla
   const renderTableHeadContent = useCallback(
     () => (
       <tr>
-        {ASSET_ORDERS_TABLE_COLUMNS.map(({ i18nkey }) => (
-          <AssetOrderHeadCell key={i18nkey}>{t(i18nkey)}</AssetOrderHeadCell>
+        {ASSET_ORDERS_TABLE_COLUMNS.map(({ i18nKey, label, align }) => (
+          <TableHeadCell
+            key={i18nKey}
+            className="first:rounded-tl-lg last:rounded-tr-lg"
+            label={label}
+            align={align}
+          >
+            {t(i18nKey)}
+          </TableHeadCell>
         ))}
       </tr>
     ),

@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom'
 
 import { Skeleton } from '@app/components/ui'
 import { EntityLink, ExplorerLink } from '@app/components/ui/links'
+import { TableRowCell } from '@app/components/ui/tables'
 import { PublicRoutes } from '@app/router'
 import type { Trade } from '@app/store/apis/qx'
+import type { TableRows } from '@app/types'
 import { ExplorerLinkType } from '@app/types/enums'
-import { clsxTwMerge, formatDate, formatString } from '@app/utils'
+import { formatDate, formatString } from '@app/utils'
 
-const genTradeRowCells = (trade: Trade, t: (key: string) => string) => [
+const genTradeRowCells = (trade: Trade, t: (key: string) => string): TableRows => [
   {
     key: 'asset',
     content: (
@@ -31,21 +33,18 @@ const genTradeRowCells = (trade: Trade, t: (key: string) => string) => [
   },
   {
     key: 'price',
-    content: formatString(trade.price)
+    content: formatString(trade.price),
+    align: 'right'
   },
   {
-    key: 'shares',
-    content: formatString(trade.numberOfShares)
+    key: 'amount',
+    content: formatString(trade.numberOfShares),
+    align: 'right'
   },
   {
     key: 'total',
-    content: (
-      <>
-        <span>{formatString(trade.price * trade.numberOfShares)}</span>
-        <span className="text-slate-500">qu</span>
-      </>
-    ),
-    className: 'space-x-4'
+    content: formatString(trade.price * trade.numberOfShares),
+    align: 'right'
   },
   {
     key: 'hash',
@@ -71,23 +70,6 @@ const genTradeRowCells = (trade: Trade, t: (key: string) => string) => [
   }
 ]
 
-function TradeRowCell({
-  children,
-  className,
-  ...rest
-}: React.HTMLAttributes<HTMLTableCellElement> & { className?: string }) {
-  return (
-    <td
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...rest}
-      align="center"
-      className={clsxTwMerge('p-6 text-xxs xs:text-xs md:px-12 md:py-10', className)}
-    >
-      {children}
-    </td>
-  )
-}
-
 type Props = Readonly<{
   trade: Trade
 }>
@@ -98,10 +80,10 @@ function TradeRow({ trade }: Props) {
 
   return (
     <tr className="even:bg-primary-60/30">
-      {tradeRowCells.map(({ key, content, className }) => (
-        <TradeRowCell key={`trade-row-cell-${key}`} className={className}>
+      {tradeRowCells.map(({ key, content, className, align }) => (
+        <TableRowCell key={`trade-row-cell-${key}`} className={className} align={align}>
           {content}
-        </TradeRowCell>
+        </TableRowCell>
       ))}
     </tr>
   )
@@ -110,16 +92,16 @@ function TradeRow({ trade }: Props) {
 TradeRow.Skeleton = function TradeRowSkeleton() {
   return (
     <tr className="animate-pulse border-b border-primary-60">
-      <TradeRowCell>
+      <TableRowCell>
         <Skeleton className="h-13 w-32 xs:h-16" />
-      </TradeRowCell>
-      <TradeRowCell>
+      </TableRowCell>
+      <TableRowCell>
         <Skeleton className="h-13 w-32 xs:h-16" />
-      </TradeRowCell>
+      </TableRowCell>
       {Array.from({ length: 7 }).map((_, index) => (
-        <TradeRowCell key={String(`trade-row-cell-skeleton-${index}`)}>
+        <TableRowCell key={String(`trade-row-cell-skeleton-${index}`)}>
           <Skeleton className="h-13 min-w-88 xs:h-16" />
-        </TradeRowCell>
+        </TableRowCell>
       ))}
     </tr>
   )

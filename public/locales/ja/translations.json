@@ -37,7 +37,8 @@
     "check_on_explorer": "エクスプローラーで確認",
     "chart_avg_price": "チャート（平均価格）",
     "address": "アドレス",
-    "entity": "エンティティ"
+    "entity": "エンティティ",
+    "amount": "金額"
   },
   "home_page": {
     "qx_dashboard": "QXダッシュボード",

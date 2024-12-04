@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 
 import { Skeleton } from '@app/components/ui'
 import { EntityLink, ExplorerLink } from '@app/components/ui/links'
+import { TableRowCell } from '@app/components/ui/tables'
 import { PublicRoutes } from '@app/router'
 import type { IssuedAsset } from '@app/store/apis/qx'
+import type { TableRows } from '@app/types'
 import { ExplorerLinkType } from '@app/types/enums'
-import { clsxTwMerge, formatDate, formatString } from '@app/utils'
+import { formatDate, formatString } from '@app/utils'
 
-const genIssuedAssetRowCells = (issuedAsset: IssuedAsset) => [
+const genIssuedAssetRowCells = (issuedAsset: IssuedAsset): TableRows => [
   {
     key: 'asset',
     content: (
@@ -25,8 +27,10 @@ const genIssuedAssetRowCells = (issuedAsset: IssuedAsset) => [
     content: <EntityLink value={issuedAsset.source} showTooltip ellipsis />
   },
   {
-    key: 'shares',
-    content: formatString(issuedAsset.extraData.numberOfShares)
+    key: 'amount',
+    content: formatString(issuedAsset.extraData.numberOfShares),
+    align: 'right',
+    className: 'w-160 truncate'
   },
   {
     key: 'tick',
@@ -55,23 +59,6 @@ const genIssuedAssetRowCells = (issuedAsset: IssuedAsset) => [
   }
 ]
 
-function IssuedAssetRowCell({
-  children,
-  className,
-  ...rest
-}: React.HTMLAttributes<HTMLTableCellElement> & { className?: string }) {
-  return (
-    <td
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...rest}
-      align="center"
-      className={clsxTwMerge('p-6 text-xxs xs:text-xs md:px-12 md:py-10', className)}
-    >
-      {children}
-    </td>
-  )
-}
-
 type Props = Readonly<{
   issuedAsset: IssuedAsset
 }>
@@ -81,10 +68,10 @@ function IssuedAssetRow({ issuedAsset }: Props) {
 
   return (
     <tr className="even:bg-primary-60/30">
-      {issuedAssetRowCells.map(({ key, content, className }) => (
-        <IssuedAssetRowCell key={`issued-asset-row-cell-${key}`} className={className}>
+      {issuedAssetRowCells.map(({ key, content, className, align }) => (
+        <TableRowCell key={`issued-asset-row-cell-${key}`} className={className} align={align}>
           {content}
-        </IssuedAssetRowCell>
+        </TableRowCell>
       ))}
     </tr>
   )
@@ -93,13 +80,13 @@ function IssuedAssetRow({ issuedAsset }: Props) {
 IssuedAssetRow.Skeleton = function IssuedAssetRowSkeleton() {
   return (
     <tr className="animate-pulse border-b border-primary-60">
-      <IssuedAssetRowCell>
+      <TableRowCell>
         <Skeleton className="h-13 w-32 xs:h-16" />
-      </IssuedAssetRowCell>
+      </TableRowCell>
       {Array.from({ length: 6 }).map((_, index) => (
-        <IssuedAssetRowCell key={String(`issued-asset-row-cell-skeleton-${index}`)}>
+        <TableRowCell key={String(`issued-asset-row-cell-skeleton-${index}`)}>
           <Skeleton className="h-13 min-w-88 xs:h-16" />
-        </IssuedAssetRowCell>
+        </TableRowCell>
       ))}
     </tr>
   )

@@ -73,17 +73,17 @@ function AssetPage() {
         <section className="flex flex-col gap-24">
           <h2 className="text-center text-xl font-bold">{t('entity_page.open_ask_orders')}</h2>
           <AssetOrdersTable
-            assetOrders={bidOrders.data}
-            isLoading={bidOrders.isFetching}
-            hasError={bidOrders.isError}
+            assetOrders={askOrders.data}
+            isLoading={askOrders.isFetching}
+            hasError={askOrders.isError}
           />
         </section>
         <section className="flex flex-col gap-24">
           <h2 className="text-center text-xl font-bold">{t('entity_page.open_bid_orders')}</h2>
           <AssetOrdersTable
-            assetOrders={askOrders.data}
-            isLoading={askOrders.isFetching}
-            hasError={askOrders.isError}
+            assetOrders={bidOrders.data}
+            isLoading={bidOrders.isFetching}
+            hasError={bidOrders.isError}
           />
         </section>
       </section>

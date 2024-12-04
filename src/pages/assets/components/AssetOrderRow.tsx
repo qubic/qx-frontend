@@ -2,44 +2,32 @@ import { useMemo } from 'react'
 
 import { Skeleton } from '@app/components/ui'
 import { EntityLink } from '@app/components/ui/links'
+import { TableRowCell } from '@app/components/ui/tables'
 import type { AssetOrder } from '@app/store/apis/qx'
-import { clsxTwMerge, formatString } from '@app/utils'
+import type { TableRows } from '@app/types'
+import { formatString } from '@app/utils'
 
-const genAssetOrderRowCells = (assetOrder: AssetOrder) => [
+const genAssetOrderRowCells = (assetOrder: AssetOrder): TableRows => [
   {
     key: 'entity',
     content: <EntityLink value={assetOrder.entityId} showTooltip ellipsis />
   },
   {
-    key: 'shares',
-    content: formatString(assetOrder.numberOfShares)
+    key: 'amount',
+    content: formatString(assetOrder.numberOfShares),
+    align: 'right'
   },
   {
     key: 'price',
-    content: formatString(assetOrder.price)
+    content: formatString(assetOrder.price),
+    align: 'right'
   },
   {
     key: 'total',
-    content: formatString(assetOrder.numberOfShares * assetOrder.price)
+    content: formatString(assetOrder.numberOfShares * assetOrder.price),
+    align: 'right'
   }
 ]
-
-function AssetOrderRowCell({
-  children,
-  className,
-  ...rest
-}: React.HTMLAttributes<HTMLTableCellElement> & { className?: string }) {
-  return (
-    <td
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...rest}
-      align="center"
-      className={clsxTwMerge('p-6 text-xxs xs:text-xs md:px-12 md:py-10', className)}
-    >
-      {children}
-    </td>
-  )
-}
 
 type Props = Readonly<{
   assetOrder: AssetOrder
@@ -50,8 +38,10 @@ function AssetOrderRow({ assetOrder }: Props) {
 
   return (
     <tr className="even:bg-primary-60/30">
-      {assetOrderRowCells.map(({ key, content }) => (
-        <AssetOrderRowCell key={`asset-order-row-cell-${key}`}>{content}</AssetOrderRowCell>
+      {assetOrderRowCells.map(({ key, content, align }) => (
+        <TableRowCell key={`asset-order-row-cell-${key}`} align={align}>
+          {content}
+        </TableRowCell>
       ))}
     </tr>
   )
@@ -61,9 +51,9 @@ AssetOrderRow.Skeleton = function AssetOrderRowSkeleton() {
   return (
     <tr className="animate-pulse border-b border-primary-60">
       {Array.from({ length: 4 }).map((_, index) => (
-        <AssetOrderRowCell key={String(`asset-order-row-cell-skeleton-${index}`)}>
+        <TableRowCell key={String(`asset-order-row-cell-skeleton-${index}`)}>
           <Skeleton className="h-13 min-w-88 xs:h-16" />
-        </AssetOrderRowCell>
+        </TableRowCell>
       ))}
     </tr>
   )
