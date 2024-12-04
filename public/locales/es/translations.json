@@ -37,7 +37,8 @@
     "check_on_explorer": "Verificar en el explorador",
     "chart_avg_price": "Gráfico (Precio promedio)",
     "address": "Dirección",
-    "entity": "Entidad"
+    "entity": "Entidad",
+    "amount": "Cantidad"
   },
   "home_page": {
     "qx_dashboard": "Panel de control de QX",

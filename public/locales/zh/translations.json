@@ -37,7 +37,8 @@
     "check_on_explorer": "在区块浏览器查看",
     "chart_avg_price": "图表（平均价格）",
     "address": "地址",
-    "entity": "实体"
+    "entity": "实体",
+    "amount": "金额"
   },
   "home_page": {
     "qx_dashboard": "QX仪表板",

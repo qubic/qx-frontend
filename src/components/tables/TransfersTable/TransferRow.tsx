@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 
 import { Skeleton } from '@app/components/ui'
 import { EntityLink, ExplorerLink } from '@app/components/ui/links'
+import { TableRowCell } from '@app/components/ui/tables'
 import { PublicRoutes } from '@app/router'
 import type { Transfer } from '@app/store/apis/qx'
+import type { TableRows } from '@app/types'
 import { ExplorerLinkType } from '@app/types/enums'
-import { clsxTwMerge, formatDate, formatString } from '@app/utils'
+import { formatDate, formatString } from '@app/utils'
 
-const genTransferRowCells = (transfer: Transfer) => [
+const genTransferRowCells = (transfer: Transfer): TableRows => [
   {
     key: 'asset',
     content: (
@@ -21,8 +23,9 @@ const genTransferRowCells = (transfer: Transfer) => [
     )
   },
   {
-    key: 'shares',
-    content: formatString(transfer.extraData.numberOfShares)
+    key: 'amount',
+    content: formatString(transfer.extraData.numberOfShares),
+    align: 'right'
   },
   {
     key: 'tick',
@@ -56,23 +59,6 @@ const genTransferRowCells = (transfer: Transfer) => [
   }
 ]
 
-function TransferRowCell({
-  children,
-  className,
-  ...rest
-}: React.HTMLAttributes<HTMLTableCellElement> & { className?: string }) {
-  return (
-    <td
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...rest}
-      align="center"
-      className={clsxTwMerge('p-6 text-xxs xs:text-xs md:px-12 md:py-10', className)}
-    >
-      {children}
-    </td>
-  )
-}
-
 type Props = Readonly<{
   transfer: Transfer
 }>
@@ -82,10 +68,10 @@ function TransferRow({ transfer }: Props) {
 
   return (
     <tr className="even:bg-primary-60/30">
-      {transferRowCells.map(({ key, content, className }) => (
-        <TransferRowCell key={`transfer-row-cell-${key}`} className={className}>
+      {transferRowCells.map(({ key, content, className, align }) => (
+        <TableRowCell key={`transfer-row-cell-${key}`} className={className} align={align}>
           {content}
-        </TransferRowCell>
+        </TableRowCell>
       ))}
     </tr>
   )
@@ -94,16 +80,16 @@ function TransferRow({ transfer }: Props) {
 TransferRow.Skeleton = function TransferRowSkeleton() {
   return (
     <tr className="animate-pulse border-b border-primary-60">
-      <TransferRowCell>
+      <TableRowCell>
         <Skeleton className="h-13 w-32 xs:h-16" />
-      </TransferRowCell>
-      <TransferRowCell>
+      </TableRowCell>
+      <TableRowCell>
         <Skeleton className="h-13 w-32 xs:h-16" />
-      </TransferRowCell>
+      </TableRowCell>
       {Array.from({ length: 7 }).map((_, index) => (
-        <TransferRowCell key={String(`transfer-row-cell-skeleton-${index}`)}>
+        <TableRowCell key={String(`transfer-row-cell-skeleton-${index}`)}>
           <Skeleton className="h-13 min-w-88 xs:h-16" />
-        </TransferRowCell>
+        </TableRowCell>
       ))}
     </tr>
   )

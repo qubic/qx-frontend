@@ -2,8 +2,8 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
+import { TableHeadCell } from '@app/components/ui/tables'
 import type { IssuedAsset } from '@app/store/apis/qx'
-import { clsxTwMerge } from '@app/utils'
 import {
   ISSUED_ASSETS_TABLE_COLUMNS,
   ISSUED_ASSETS_TABLE_COLUMNS_COUNT,
@@ -15,14 +15,6 @@ const IssuedAssetsSkeleton = memo(() =>
   Array.from({ length: ISSUED_ASSETS_TABLE_SKELETON_ROWS }).map((_, index) => (
     <IssuedAssetRow.Skeleton key={String(`issued-asset-row-skeleton-${index}`)} />
   ))
-)
-
-const IssuedAssetHeadCell = memo(
-  ({ children, className }: Readonly<{ children: React.ReactNode; className?: string }>) => (
-    <th className={clsxTwMerge('p-16 text-center text-xxs font-400 xs:text-xs', className)}>
-      <span className="text-gray-50">{children}</span>
-    </th>
-  )
 )
 
 type Props = Readonly<{
@@ -37,8 +29,10 @@ export default function IssuedAssetsTable({ issuedAssets, isLoading, hasError }:
   const renderTableHeadContent = useCallback(
     () => (
       <tr>
-        {ISSUED_ASSETS_TABLE_COLUMNS.map(({ i18nkey }) => (
-          <IssuedAssetHeadCell key={i18nkey}>{t(i18nkey)}</IssuedAssetHeadCell>
+        {ISSUED_ASSETS_TABLE_COLUMNS.map(({ i18nKey, align }) => (
+          <TableHeadCell key={i18nKey} align={align}>
+            {t(i18nKey)}
+          </TableHeadCell>
         ))}
       </tr>
     ),

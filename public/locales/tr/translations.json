@@ -37,7 +37,8 @@
     "check_on_explorer": "Keşif Aracında Kontrol Et",
     "chart_avg_price": "Grafik (Ortalama Fiyat)",
     "address": "Adres",
-    "entity": "Varlık"
+    "entity": "Varlık",
+    "amount": "Tutar"
   },
   "home_page": {
     "qx_dashboard": "QX Gösterge Paneli",
