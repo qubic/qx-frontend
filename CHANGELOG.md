@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/qubic/qx-frontend/compare/v1.0.1...v1.1.0) (2024-12-04)
+
+
+### Bug Fixes
+
+* swap ask and bid orders in AssetPage and EntityPage components ([cd7342e](https://github.com/qubic/qx-frontend/commit/cd7342eb7a95e413e45b4ea144b541504a20bd5f))
+
+
+### Features
+
+* enhance tables with proper formating ([8c54953](https://github.com/qubic/qx-frontend/commit/8c549534e66c17c81ae902e6c9cf2e2e86d331ac))
+
 ## [1.0.1](https://github.com/qubic/qx-frontend/compare/v1.0.0...v1.0.1) (2024-12-02)
 
 
