@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/qubic/qx-frontend/compare/v1.1.0...v1.1.1) (2024-12-05)
+
+
+### Bug Fixes
+
+* update Turkish translations for trades and transactions ([1da1c22](https://github.com/qubic/qx-frontend/commit/1da1c2209268b0435fe9ed09e02743160bd888e7))
+
 # [1.1.0](https://github.com/qubic/qx-frontend/compare/v1.0.1...v1.1.0) (2024-12-04)
 
 
