@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/qubic/qx-frontend/compare/v1.1.1...v1.1.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* add border to LightweightChart component for improved styling ([8da5293](https://github.com/qubic/qx-frontend/commit/8da5293533fef53c15e6b118c29e1c8e6bfc190e))
+* correct skeleton row key casing in TransfersTable component ([a45d0f4](https://github.com/qubic/qx-frontend/commit/a45d0f4f89d7452fc1802a8fbce9d64e662a68d5))
+
 ## [1.1.1](https://github.com/qubic/qx-frontend/compare/v1.1.0...v1.1.1) (2024-12-05)
 
 
