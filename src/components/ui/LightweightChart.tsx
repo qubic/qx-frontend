@@ -124,7 +124,7 @@ export default function LightweightChart({ priceDataSeries, volumeDataSeries, cl
     <div
       ref={chartContainerRef}
       className={clsxTwMerge(
-        'h-full min-h-[250px] w-[85vw] max-w-2xl rounded-lg bg-primary-70 p-12',
+        'h-full min-h-[250px] w-[85vw] max-w-2xl rounded-lg border-1 border-primary-60 bg-primary-70 p-12',
         className
       )}
     />
