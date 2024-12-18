@@ -14,7 +14,7 @@ import TransferRow from './TransferRow'
 
 const TransfersSkeleton = memo(() =>
   Array.from({ length: TRANSFERS_TABLE_SKELETON_ROWS }).map((_, index) => (
-    <TransferRow.Skeleton key={String(`Transfer-row-skeleton-${index}`)} />
+    <TransferRow.Skeleton key={String(`transfer-row-skeleton-${index}`)} />
   ))
 )
 
