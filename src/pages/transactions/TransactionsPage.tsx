@@ -20,14 +20,8 @@ function TransactionsPage() {
     isError: isIssuedAssetsError
   } = useGetIssuedAssetsQuery()
 
-  const latestIssuedAssets = useMemo(
-    () => issuedAssets?.filter((tx) => tx.moneyFlew).slice(0, 10),
-    [issuedAssets]
-  )
-  const latestTransfers = useMemo(
-    () => transfers?.filter((tx) => tx.moneyFlew).slice(0, 25),
-    [transfers]
-  )
+  const latestIssuedAssets = useMemo(() => issuedAssets?.slice(0, 10), [issuedAssets])
+  const latestTransfers = useMemo(() => transfers?.slice(0, 25), [transfers])
 
   return (
     <PageLayout>
