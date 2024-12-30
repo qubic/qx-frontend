@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/qubic/qx-frontend/compare/v1.1.2...v1.1.3) (2024-12-30)
+
+
+### Bug Fixes
+
+* remove filter by moneflew and latest issued assets and transfers ([2994a3b](https://github.com/qubic/qx-frontend/commit/2994a3bab451d3d167cb4c445ce20f167967f587))
+
 ## [1.1.2](https://github.com/qubic/qx-frontend/compare/v1.1.1...v1.1.2) (2024-12-18)
 
 
