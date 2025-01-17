@@ -27,13 +27,21 @@ module.exports = {
     project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
     tsconfigRootDir: __dirname
   },
-  plugins: ['react-refresh', 'prettier', 'unused-imports', '@typescript-eslint'],
+  plugins: [
+    'react-refresh',
+    'prettier',
+    'unused-imports',
+    '@typescript-eslint',
+    'simple-import-sort'
+  ],
   settings: {
     react: {
       version: 'detect'
     },
     'import/resolver': {
-      typescript: true,
+      typescript: {
+        project: './tsconfig.json'
+      },
       node: {
         paths: ['src'],
         extensions: ['.ts', '.tsx']
@@ -53,7 +61,26 @@ module.exports = {
         extensions: ['.ts', '.tsx']
       }
     ],
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          // Built-in Node.js modules
+          ['^node:', '^\\w'],
+          // External libraries
+          ['^@?\\w'],
+          // Internal (aliases like @app/**)
+          ['^@app(/.*|$)'],
+          // Parent imports
+          ['^\\.\\.'],
+          // Sibling imports
+          ['^\\.'],
+          // Style imports
+          ['^.+\\.s?css$']
+        ]
+      }
+    ]
   },
   overrides: [
     {
