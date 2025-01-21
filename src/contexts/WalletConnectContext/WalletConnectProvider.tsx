@@ -1,4 +1,4 @@
-import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
 
@@ -6,23 +6,9 @@ import type { EventListener, QubicAccount } from '@app/services/wallet-connect-c
 import { WalletConnectClient } from '@app/services/wallet-connect-client'
 import { useGetEpochComputorsQuery, useGetLatestStatsQuery } from '@app/store/apis/qubic-rpc'
 
-export interface IWalletConnectContext {
-  walletClient: WalletConnectClient | null
-  session: SessionTypes.Struct | null
-  wcUri: string
-  connect: () => Promise<void>
-  disconnect: () => Promise<void>
-  loading: boolean
-  accounts: QubicAccount[]
-  selectedAccount: QubicAccount | null
-  setSelectedAccount: (account: QubicAccount | null) => void
-  isWalletConnected: boolean
-  isComputor: boolean
-}
+import { WalletConnectContext } from './WalletConnectContext'
 
-export const WalletConnectContext = createContext<IWalletConnectContext | undefined>(undefined)
-
-export function WalletConnectProvider({ children }: { children: React.ReactNode }) {
+export default function WalletConnectProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<SessionTypes.Struct | null>(null)
   const [wcUri, setWcUri] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
