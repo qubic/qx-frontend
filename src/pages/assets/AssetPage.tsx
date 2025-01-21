@@ -1,13 +1,15 @@
 import type { SingleValueData } from 'lightweight-charts'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
 import { withHelmet } from '@app/components/hocs'
+import type { OrderPayload } from '@app/components/modals/TradeModal/trade-modal.types'
 import { TradesTable, TransfersTable } from '@app/components/tables'
 import { LightweightChart } from '@app/components/ui'
 import { PageLayout } from '@app/components/ui/layouts'
 import { EntityLink } from '@app/components/ui/links'
+import { useAppDispatch, useWalletConnect } from '@app/hooks'
 import {
   useGetAssetAskOrdersQuery,
   useGetAssetBidOrdersQuery,
@@ -15,13 +17,22 @@ import {
   useGetAssetTradesQuery,
   useGetAssetTransfersQuery
 } from '@app/store/apis/qx'
+import { ModalType, showModal } from '@app/store/modalSlice'
+import { OrderType } from '@app/types/enums'
+
 import { AssetOrdersTable } from './components'
 
 function AssetPage() {
   const { assetIssuer = '', assetName = '' } = useParams()
   const { t } = useTranslation()
+  const dispatch = useAppDispatch()
 
-  const commonArgs = { issuer: assetIssuer, asset: assetName }
+  const { isWalletConnected } = useWalletConnect()
+
+  const commonArgs = useMemo(
+    () => ({ issuer: assetIssuer, asset: assetName }),
+    [assetIssuer, assetName]
+  )
   const commonOptions = { skip: !assetIssuer || !assetName }
 
   const askOrders = useGetAssetAskOrdersQuery(commonArgs, commonOptions)
@@ -43,6 +54,22 @@ function AssetPage() {
   const shouldDisplayChart = useMemo(
     () => (averagePrices.data?.length ?? 0) > 1,
     [averagePrices.data]
+  )
+
+  const handleRowActionClick = useCallback(
+    (orderType: OrderType) => (orderPayload: OrderPayload) => {
+      if (!isWalletConnected) {
+        dispatch(showModal({ modalType: ModalType.CONNECT_WALLET }))
+      } else {
+        dispatch(
+          showModal({
+            modalType: ModalType.CONFIRM_TRADE,
+            modalProps: { orderType, orderPath: commonArgs, orderPayload }
+          })
+        )
+      }
+    },
+    [commonArgs, dispatch, isWalletConnected]
   )
 
   return (
@@ -74,6 +101,8 @@ function AssetPage() {
           <h2 className="text-center text-xl font-bold">{t('entity_page.open_ask_orders')}</h2>
           <AssetOrdersTable
             assetOrders={askOrders.data}
+            ordersType={OrderType.ASK}
+            onRowActionClick={handleRowActionClick(OrderType.ASK)}
             isLoading={askOrders.isFetching}
             hasError={askOrders.isError}
           />
@@ -82,6 +111,8 @@ function AssetPage() {
           <h2 className="text-center text-xl font-bold">{t('entity_page.open_bid_orders')}</h2>
           <AssetOrdersTable
             assetOrders={bidOrders.data}
+            ordersType={OrderType.BID}
+            onRowActionClick={handleRowActionClick(OrderType.BID)}
             isLoading={bidOrders.isFetching}
             hasError={bidOrders.isError}
           />

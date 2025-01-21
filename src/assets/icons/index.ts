@@ -15,6 +15,7 @@ export { default as LockIcon } from './lock.svg?react'
 export { default as PlusIcon } from './plus.svg?react'
 export { default as TradesIcon } from './trades.svg?react'
 export { default as TransactionsIcon } from './transactions.svg?react'
+export { default as TrashIcon } from './trash.svg?react'
 export { default as UnLockedIcon } from './unlocked.svg?react'
 export { default as XmarkIcon } from './xmark.svg?react'
 

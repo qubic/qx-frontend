@@ -1,6 +1,7 @@
-import { clsxTwMerge } from '@app/utils'
 import type { ReactElement, ReactNode } from 'react'
 import React, { forwardRef } from 'react'
+
+import { clsxTwMerge } from '@app/utils'
 
 interface DropdownMenuProps {
   children: ReactNode
@@ -8,11 +9,22 @@ interface DropdownMenuProps {
   className?: string
 }
 
-interface DropdownMenuTriggerProps {
-  children: ReactNode
+interface DropdownMenuTriggerPropsBase {
   onToggle?: () => void
   className?: string
 }
+
+interface DropdownMenuTriggerWithAs extends DropdownMenuTriggerPropsBase {
+  as: ReactElement<React.HTMLProps<HTMLButtonElement>>
+  children?: never
+}
+
+interface DropdownMenuTriggerWithChildren extends DropdownMenuTriggerPropsBase {
+  as?: never
+  children: ReactNode
+}
+
+type DropdownMenuTriggerProps = DropdownMenuTriggerWithAs | DropdownMenuTriggerWithChildren
 
 interface DropdownMenuOptionsProps {
   children: ReactNode
@@ -38,7 +50,15 @@ function DropdownMenu({ className, children, show }: DropdownMenuProps) {
 }
 
 DropdownMenu.Trigger = forwardRef<HTMLButtonElement, DropdownMenuTriggerProps>(
-  function DropdownMenuTrigger({ children, onToggle, className }, ref) {
+  function DropdownMenuTrigger({ children, onToggle, className, as }, ref) {
+    if (as) {
+      return React.cloneElement(as, {
+        onClick: onToggle,
+        ref,
+        className: clsxTwMerge(as.props.className, className)
+      })
+    }
+
     return (
       <button type="button" onClick={onToggle} className={className} ref={ref}>
         {children}
@@ -54,7 +74,7 @@ DropdownMenu.Content = function DropdownMenuContent({
   return (
     <div
       className={clsxTwMerge(
-        'absolute right-0 top-40 z-50 mt-2 w-fit origin-top-right rounded-md bg-primary-60 shadow-lg ring-1 ring-black ring-opacity-5 transition duration-1000 ease-in-out focus:outline-none',
+        'absolute top-40 z-50 mt-2 w-fit origin-top-right rounded-md border border-primary-60 bg-primary-70 shadow-lg ring-1 ring-black ring-opacity-5 transition duration-1000 ease-in-out focus:outline-none ltr:left-0 rtl:right-0',
         className
       )}
       role="menu"

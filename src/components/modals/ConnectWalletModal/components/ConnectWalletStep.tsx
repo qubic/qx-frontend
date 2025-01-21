@@ -1,8 +1,10 @@
-import { Skeleton } from '@app/components/ui'
-import { Button, CopyTextButton } from '@app/components/ui/buttons'
 import { QRCodeCanvas } from 'qrcode.react'
 import { useTranslation } from 'react-i18next'
-import { ModalStep } from './connect-wallet-modal.types'
+
+import { Skeleton } from '@app/components/ui'
+import { Button, CopyTextButton } from '@app/components/ui/buttons'
+
+import { ModalStep } from '../connect-wallet-modal.types'
 
 type Props = Readonly<{
   wcUri: string | null

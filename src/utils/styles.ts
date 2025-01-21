@@ -1,4 +1,4 @@
-import { clsx, type ClassValue } from 'clsx'
+import { type ClassValue, clsx } from 'clsx'
 import { extendTailwindMerge } from 'tailwind-merge'
 
 // Extending `twMerge` configuration to recognize custom Tailwind scales and classes to avoid false conflicts (E.g. `text-xxs` with `text-primary-30`)

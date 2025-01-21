@@ -70,3 +70,23 @@ export type AveragePrice = {
   totalTrades: number
   averagePrice: number
 }
+
+export interface AssetOrderPathParams {
+  issuer: string
+  asset: string
+}
+
+export interface GenAssetOrderPayload {
+  from: string
+  pricePerShare: number
+  numberOfShares: number
+}
+
+export interface AssetOrderPayload {
+  currentTick: number
+  from: string
+  to: string
+  inputType: number
+  amount: number
+  extraData: string
+}

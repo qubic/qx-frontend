@@ -1,7 +1,8 @@
+import { z } from 'zod'
+
 import type Client from '@walletconnect/sign-client'
 import { SignClient } from '@walletconnect/sign-client'
 import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
-import { z } from 'zod'
 
 import { envConfig } from '@app/configs'
 
@@ -15,6 +16,7 @@ enum QubicNsMethods {
   WALLET_REQUEST_ACCOUNTS = 'qubic_requestAccounts',
   QUBIC_SEND_QUBIC = 'qubic_sendQubic',
   QUBIC_SIGN_TRANSACTION = 'qubic_signTransaction',
+  QUBIC_SEND_TRANSACTION = 'qubic_sendTransaction',
   QUBIC_SIGN = 'qubic_sign'
 }
 
@@ -35,17 +37,24 @@ export type QubicAccount = z.infer<typeof QubicAccountSchema>
 const QubicAccountArraySchema = z.array(QubicAccountSchema)
 
 const SignTransationResultSchema = z.object({
-  signedTransaction: z.string()
+  signedTransaction: z.string(),
+  transactionId: z.string(),
+  tick: z.number()
 })
 
 export type SignTransationResult = z.infer<typeof SignTransationResultSchema>
 
+const SendTransationResultSchema = z.object({
+  transactionId: z.string(),
+  tick: z.number()
+})
+
+export type SendTransationResult = z.infer<typeof SendTransationResultSchema>
+
 const SignMessageResultSchema = z.object({
-  result: z.object({
-    signedData: z.string(),
-    digest: z.string(),
-    signature: z.string()
-  })
+  signedData: z.string(),
+  digest: z.string(),
+  signature: z.string()
 })
 
 export type SignMessageResult = z.infer<typeof SignMessageResultSchema>
@@ -280,26 +289,30 @@ export class WalletConnectClient extends SignClient {
   }
 
   // Qubic Methods
-  public sendQubic(from: string, to: string, amount: string): Promise<unknown> {
+  public sendQubic(from: string, to: string, amount: number): Promise<unknown> {
     return this.makeRequest(QubicNsMethods.QUBIC_SEND_QUBIC, {
-      fromID: from,
-      toID: to,
+      from,
+      to,
       amount
     })
   }
 
   public async signTransaction(
-    fromID: string,
-    toID: string,
-    amount: string,
-    tick?: string
+    from: string,
+    to: string,
+    amount: number,
+    tick?: number,
+    inputType?: number,
+    payload?: string
   ): Promise<SignTransationResult> {
     try {
       const result = await this.makeRequest(QubicNsMethods.QUBIC_SIGN_TRANSACTION, {
-        fromID,
-        toID,
+        from,
+        to,
         amount,
-        tick
+        tick,
+        inputType,
+        payload: payload || null
       })
 
       const validation = SignTransationResultSchema.safeParse(result)
@@ -314,10 +327,41 @@ export class WalletConnectClient extends SignClient {
     }
   }
 
-  public async signMessage(fromID: string, message: string): Promise<SignMessageResult['result']> {
+  public async sendTransaction(
+    from: string,
+    to: string,
+    amount: number,
+    tick?: number,
+    inputType?: number,
+    payload?: string
+  ): Promise<SendTransationResult> {
+    try {
+      const result = await this.makeRequest(QubicNsMethods.QUBIC_SEND_TRANSACTION, {
+        from,
+        to,
+        amount,
+        tick,
+        inputType,
+        payload: payload || null,
+        nonce: `${new Date().getTime()}`
+      })
+
+      const validation = SendTransationResultSchema.safeParse(result)
+
+      if (!validation.success) {
+        throw new Error('Schema validation error. Invalid send transaction result data format')
+      }
+
+      return validation.data
+    } catch (error) {
+      return this.handleError('Error signin transaction', error)
+    }
+  }
+
+  public async signMessage(from: string, message: string): Promise<SignMessageResult> {
     try {
       const result = await this.makeRequest(QubicNsMethods.QUBIC_SIGN, {
-        fromID,
+        from,
         message
       })
 
@@ -327,7 +371,7 @@ export class WalletConnectClient extends SignClient {
         throw new Error('Schema validation error. Invalid signed transaction result data format')
       }
 
-      return validation.data.result
+      return validation.data
     } catch (error) {
       return this.handleError('Error signin transaction', error)
     }

@@ -1,15 +1,19 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import type { OrderPayload } from '@app/components/modals/TradeModal/trade-modal.types'
 import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
 import { TableHeadCell } from '@app/components/ui/tables'
 import type { AssetOrder } from '@app/store/apis/qx'
+import type { OrderType } from '@app/types/enums'
 import { clsxTwMerge } from '@app/utils'
+
 import {
   ASSET_ORDERS_TABLE_COLUMNS,
   ASSET_ORDERS_TABLE_COLUMNS_COUNT,
   ASSET_ORDERS_TABLE_SKELETON_ROWS
 } from '../constants'
+
 import AssetOrderRow from './AssetOrderRow'
 
 const AssetOrdersSkeleton = memo(() =>
@@ -20,23 +24,33 @@ const AssetOrdersSkeleton = memo(() =>
 
 type Props = Readonly<{
   assetOrders: AssetOrder[] | undefined
+  ordersType: OrderType
+  onRowActionClick: (orderPayload: OrderPayload) => void
   isLoading: boolean
   hasError: boolean
   className?: string
 }>
 
-export default function AssetOrdersTable({ assetOrders, isLoading, hasError, className }: Props) {
+export default function AssetOrdersTable({
+  assetOrders,
+  ordersType,
+  onRowActionClick,
+  isLoading,
+  hasError,
+  className
+}: Props) {
   const { t } = useTranslation()
 
   const renderTableHeadContent = useCallback(
     () => (
       <tr>
-        {ASSET_ORDERS_TABLE_COLUMNS.map(({ i18nKey, label, align }) => (
+        {ASSET_ORDERS_TABLE_COLUMNS.map(({ i18nKey, label, align, show }) => (
           <TableHeadCell
             key={i18nKey}
             className="first:rounded-tl-lg last:rounded-tr-lg"
             label={label}
             align={align}
+            show={show}
           >
             {t(i18nKey)}
           </TableHeadCell>
@@ -66,9 +80,14 @@ export default function AssetOrdersTable({ assetOrders, isLoading, hasError, cla
       )
 
     return assetOrders?.map((assetOrder) => (
-      <AssetOrderRow key={JSON.stringify(assetOrder)} assetOrder={assetOrder} />
+      <AssetOrderRow
+        key={JSON.stringify(assetOrder)}
+        assetOrder={assetOrder}
+        orderType={ordersType}
+        onRowActionClick={onRowActionClick}
+      />
     ))
-  }, [isLoading, assetOrders, hasError, t])
+  }, [isLoading, assetOrders, hasError, t, ordersType, onRowActionClick])
 
   return (
     <div

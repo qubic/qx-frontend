@@ -13,7 +13,7 @@ export default function Tooltip({ tooltipId, children, content }: Props) {
   const tooltipIdWithId = useMemo(() => `${tooltipId}-${id}`, [tooltipId, id])
 
   return (
-    <div className="group relative w-fit">
+    <div className="group relative h-fit w-fit">
       <div data-tooltip-id={tooltipIdWithId}>{children}</div>
       <ReactTooltip
         id={tooltipIdWithId}

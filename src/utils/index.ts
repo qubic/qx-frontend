@@ -1,9 +1,12 @@
-const formatString = (string: string | number | undefined | null) => {
+const formatString = (
+  string: string | number | undefined | null,
+  maximumFractionDigits: number | undefined = 2
+) => {
   if (string === undefined || string === null) return '0'
 
   if (!Number.isNaN(Number(string)))
     return Number(string).toLocaleString('en-US', {
-      maximumFractionDigits: 2
+      maximumFractionDigits
     })
 
   return String(string)
