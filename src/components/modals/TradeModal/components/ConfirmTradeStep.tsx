@@ -6,7 +6,7 @@ import { useGetLatestStatsQuery } from '@app/store/apis/qubic-rpc'
 import { OrderType } from '@app/types/enums'
 import { formatString } from '@app/utils'
 
-import type { OrderPath } from './trade-modal.types'
+import type { OrderPath } from '../trade-modal.types'
 
 type Props = {
   orderType: OrderType
