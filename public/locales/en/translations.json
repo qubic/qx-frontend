@@ -1,17 +1,25 @@
 {
   "global": {
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "connect_wallet": "Connect Wallet",
+    "disconnect_wallet": "Disconnect Wallet",
     "lock_wallet": "Lock Wallet",
     "unlock_wallet": "Unlock Wallet",
     "paste": "Paste",
     "cancel": "Cancel",
+    "cancelled": "Cancelled",
+    "success": "Success",
     "close": "Close",
     "confirm": "Confirm",
+    "try_again": "Try Again",
     "select_account": "Select Account",
     "change_account": "Change Account",
     "beta": "Beta",
     "learn_more": "Learn More",
     "home": "Home",
     "tokens": "Tokens",
+    "actions": "Actions",
     "asset": "Asset",
     "assets": "Assets",
     "asset_transfers": "Asset Transfers",
@@ -62,7 +70,8 @@
   },
   "entity_page": {
     "open_ask_orders": "Open Ask Orders",
-    "open_bid_orders": "Open Bid Orders"
+    "open_bid_orders": "Open Bid Orders",
+    "open_orders": "Open Orders"
   },
   "error_page": {
     "page_not_found": "Page not found",
@@ -97,5 +106,14 @@
   },
   "errors": {
     "error_fetching_data": "Something went wrong while fetching the data. Please try again later."
+  },
+  "trade_modal": {
+    "place_buy_order": "Place Buy Order",
+    "place_sell_order": "Place Sell Order",
+    "placing_order": "Placing Order...",
+    "order_confirmation": "Order Confirmation",
+    "success_state_cta": "Place another order",
+    "success_state_desc": "Your order has been placed successfully and is now active in the market. It will be fulfilled based on the availability of matching bids or asks. Feel free to monitor its status or check back later for updates on its progress.",
+    "error_state_desc": "The transaction was unsuccessful, but your funds remain safe in your wallet. Feel free to attempt the transaction again. If the problem continues, please reach out to support for assistance."
   }
 }
