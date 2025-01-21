@@ -1,5 +1,6 @@
-import loaderAnimation from '@app/assets/animations/qubic-loader-animation.json'
 import Lottie from 'lottie-react'
+
+import loaderAnimation from '@app/assets/animations/qubic-loader-animation.json'
 
 type Props = {
   width?: number

@@ -1,5 +1,6 @@
-import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
 import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
+
+import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
 
 import type { EventListener, QubicAccount } from '@app/services/wallet-connect-client'
 import { WalletConnectClient } from '@app/services/wallet-connect-client'

@@ -5,7 +5,9 @@ import { type WithTranslation, withTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import { PublicRoutes } from '@app/router'
+
 import { Button } from '../buttons'
+
 import ErrorDisplay from './ErrorDisplay'
 
 interface ErrorBoundaryProps extends WithTranslation {

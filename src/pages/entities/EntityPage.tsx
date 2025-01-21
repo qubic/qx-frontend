@@ -13,6 +13,7 @@ import {
   useGetEntityTransfersQuery
 } from '@app/store/apis/qx'
 import { ExplorerLinkType } from '@app/types/enums'
+
 import { EntityOrdersTable } from './components'
 
 function EntityPage() {

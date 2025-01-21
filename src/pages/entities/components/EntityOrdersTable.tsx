@@ -5,11 +5,13 @@ import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
 import { TableHeadCell } from '@app/components/ui/tables'
 import type { EntityOrder } from '@app/store/apis/qx'
 import { clsxTwMerge } from '@app/utils'
+
 import {
   ENTITY_ORDERS_TABLE_COLUMNS,
   ENTITY_ORDERS_TABLE_COLUMNS_COUNT,
   ENTITY_ORDERS_TABLE_SKELETON_ROWS
 } from '../constants'
+
 import EntityOrderRow from './EntityOrderRow'
 
 const EntityOrdersSkeleton = memo(() =>

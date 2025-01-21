@@ -1,7 +1,8 @@
+import { useLocation, useNavigate } from 'react-router-dom'
+
 import { ArrowLeftIcon } from '@app/assets/icons'
 import { PublicRoutes } from '@app/router'
 import { clsxTwMerge } from '@app/utils'
-import { useLocation, useNavigate } from 'react-router-dom'
 
 type Props = {
   className?: string
