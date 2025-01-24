@@ -46,7 +46,8 @@
     "chart_avg_price": "Chart (Avg Price)",
     "address": "Address",
     "entity": "Entity",
-    "amount": "Amount"
+    "amount": "Amount",
+    "view_on_explorer": "View on Explorer"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
@@ -113,7 +114,16 @@
     "placing_order": "Placing Order...",
     "order_confirmation": "Order Confirmation",
     "success_state_cta": "Place another order",
-    "success_state_desc": "Your order has been placed successfully and is now active in the market. It will be fulfilled based on the availability of matching bids or asks. Feel free to monitor its status or check back later for updates on its progress.",
+    "success_state_desc": "Your order transaction has been successfully submitted. You can track its status in your wallet to ensure it has been placed correctly. The order will be processed based on the availability of matching bids or asks. Feel free to monitor its progress or check back later for updates.",
     "error_state_desc": "The transaction was unsuccessful, but your funds remain safe in your wallet. Feel free to attempt the transaction again. If the problem continues, please reach out to support for assistance."
+  },
+  "cancel_order_modal": {
+    "cancel_order": "Cancel Order",
+    "cancel_sell_order": "Cancel Sell Order",
+    "cancel_buy_order": "Cancel Buy Order",
+    "cancelling_order": "Cancelling Order...",
+    "error_cancelling_order": "Failed to cancel the order. Please try again.",
+    "cancel_order_desc": "Are you sure you want to cancel your <side>{{side}}</side> order for <amount>{{amount}}</amount> <asset>{{asset}}</asset> at <price>{{price}}</price> QUBIC each, totaling <total>{{total}}</total> QUBIC?",
+    "cancel_order_success": "Transaction sent successfully, Order will be cancelled at tick <tick>{{tick}}</tick>"
   }
 }
