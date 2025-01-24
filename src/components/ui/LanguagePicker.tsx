@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { GlobeGrayIcon } from '@app/assets/icons'
+import { Alert, DropdownMenu } from '@app/components/ui'
+import { ErrorBoundary } from '@app/components/ui/error-boundaries'
 import { LANGUAGES } from '@app/constants/i18n'
 import { useAppDispatch, useAppSelector } from '@app/hooks/redux'
 import { selectLocale, setLanguage } from '@app/store/localeSlice'
 import type { Language } from '@app/types'
 import { clsxTwMerge } from '@app/utils'
-import Alert from './Alert'
-import DropdownMenu from './DropdownMenu'
-import { ErrorBoundary } from './error-boundaries'
 
 export default function LanguagePicker() {
   const dispatch = useAppDispatch()
@@ -41,11 +40,11 @@ export default function LanguagePicker() {
       <DropdownMenu show={showDropdown}>
         <DropdownMenu.Trigger
           onToggle={handleDropdownToggle}
-          className="rounded-full p-8 hover:bg-primary-60/80"
+          className="rounded-full p-8 transition-colors duration-500 ease-in-out hover:bg-primary-70"
         >
           <GlobeGrayIcon className="h-24 w-24" />
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content>
+        <DropdownMenu.Content className="ltr:left-auto ltr:right-0">
           <ul className="grid" ref={dropdownRef}>
             {LANGUAGES.map((lng, index) => (
               <li key={lng.id}>

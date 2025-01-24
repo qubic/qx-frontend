@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
+
 import { Skeleton } from '@app/components/ui'
 import { PublicRoutes } from '@app/router'
 import type { Asset } from '@app/store/apis/qx'
-import { Link } from 'react-router-dom'
 
 type Props = {
   asset: Asset

@@ -8,7 +8,7 @@ import { clsxTwMerge, formatEllipsis } from '@app/utils'
 
 type Props = {
   value: string
-  label?: string
+  label?: React.ReactNode
   copy?: boolean
   ellipsis?: boolean
   className?: string

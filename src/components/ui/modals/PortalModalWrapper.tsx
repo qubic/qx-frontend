@@ -1,6 +1,7 @@
-import { clsxTwMerge } from '@app/utils'
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+
+import { clsxTwMerge } from '@app/utils'
 
 type ModalProps = {
   id: string

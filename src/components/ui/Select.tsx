@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react'
+
+import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
+
 import { ChevronDownIcon } from '@app/assets/icons'
 import { clsxTwMerge } from '@app/utils'
-import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
-import { useEffect, useState } from 'react'
 
 export type Option = {
   readonly label: string

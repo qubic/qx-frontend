@@ -3,7 +3,7 @@ export enum FeatureFlag {
 }
 
 const FEATURE_FLAGS: Record<FeatureFlag, boolean> = {
-  [FeatureFlag.CONNECT_WALLET]: false
+  [FeatureFlag.CONNECT_WALLET]: true
 }
 
 export const isFeatureEnabled = (flag: FeatureFlag): boolean => FEATURE_FLAGS[flag] || false

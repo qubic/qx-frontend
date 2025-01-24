@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next'
 
 import { TableHeadCell } from '@app/components/ui/tables'
 import type { Trade } from '@app/store/apis/qx'
+
 import ErrorRow from '../ErrorRow'
 import NoItemsFoundRow from '../NoItemsFoundRow'
+
 import {
   TRADES_TABLE_COLUMNS,
   TRADES_TABLE_COLUMNS_COUNT,
@@ -59,7 +61,7 @@ export default function TradesTable({ trades, isLoading, hasError }: Props) {
         />
       )
 
-    return trades?.map((trade) => <TradeRow key={trade.transactionHash} trade={trade} />)
+    return trades?.map((trade) => <TradeRow key={JSON.stringify(trade)} trade={trade} />)
   }, [isLoading, trades, hasError, t])
 
   return (
