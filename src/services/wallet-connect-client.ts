@@ -5,6 +5,9 @@ import { SignClient } from '@walletconnect/sign-client'
 import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
 
 import { envConfig } from '@app/configs'
+import { LogFeature, makeLog } from '@app/utils/logger'
+
+const log = makeLog(LogFeature.WALLET_CONNECT_CLIENT)
 
 enum WcLocalStorageKeys {
   SESSION_TOPIC = 'sessionTopic',
@@ -76,12 +79,6 @@ export class WalletConnectClient extends SignClient {
   public sessionTopic = ''
 
   // eslint-disable-next-line class-methods-use-this
-  private log(message: string, payload?: unknown): void {
-    // eslint-disable-next-line no-console
-    console.log('[ WalletConnectClient ] - ', message, payload || '')
-  }
-
-  // eslint-disable-next-line class-methods-use-this
   private handleError(message: string, error: unknown): Promise<never> {
     // eslint-disable-next-line no-console
     console.error('[ WalletConnectClient ] - ', message, error)
@@ -91,23 +88,23 @@ export class WalletConnectClient extends SignClient {
   private handleSessionConnected(sessionInfo: SessionTypes.Struct): void {
     this.sessionTopic = sessionInfo.topic
     localStorage.setItem(WcLocalStorageKeys.SESSION_TOPIC, this.sessionTopic)
-    this.log('Session connected', sessionInfo)
+    log('Session connected', sessionInfo)
   }
 
   private isSessionActive(): boolean {
     if (!this.signClient) {
-      this.log('WalletConnect Client not initialized')
+      log('WalletConnect Client not initialized')
       return false
     }
 
     if (!this.sessionTopic) {
-      this.log('No session topic is set')
+      log('No session topic is set')
       return false
     }
 
     const session = this.signClient.session.get(this.sessionTopic)
     if (session && session.expiry * 1000 > Date.now()) {
-      this.log('Session is still valid')
+      log('Session is still valid')
       return true
     }
 
@@ -131,7 +128,7 @@ export class WalletConnectClient extends SignClient {
         request: { method, params }
       })
 
-      this.log(`Request ${method} result:`, result)
+      log(`Request ${method} result:`, result)
       return result
     } catch (error) {
       return this.handleError(`Failed to execute ${method}`, error)
@@ -141,7 +138,7 @@ export class WalletConnectClient extends SignClient {
   public async initClient(
     eventListeners: EventListener<SignClientTypes.Event>[] = []
   ): Promise<Client> {
-    this.log('Initializing Client...')
+    log('Initializing Client...')
     try {
       this.signClient = await SignClient.init({
         projectId: envConfig.WALLET_CONNECT_PROJECT_ID,
@@ -157,7 +154,7 @@ export class WalletConnectClient extends SignClient {
         throw new Error('Failed to initialize WalletConnect Client')
       }
 
-      this.log('Client Initialized!')
+      log('Client Initialized!')
 
       if (eventListeners.length > 0) {
         eventListeners.forEach(({ event, listener }) => {
@@ -234,7 +231,7 @@ export class WalletConnectClient extends SignClient {
       }
 
       if (!this.approval) {
-        this.log('No pending approval found')
+        log('No pending approval found')
         throw new Error('No pending approval found')
       }
       const session = await this.approval()
@@ -262,7 +259,7 @@ export class WalletConnectClient extends SignClient {
   }
 
   public clearSession(message: string, payload?: unknown): void {
-    this.log(message, payload)
+    log(message, payload)
     this.sessionTopic = ''
     localStorage.removeItem(WcLocalStorageKeys.SESSION_TOPIC)
   }
