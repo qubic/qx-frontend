@@ -1,8 +1,6 @@
 import { z } from 'zod'
 
-import { OrderType } from '@app/types/enums'
-
-export const OrderTypeSchema = z.nativeEnum(OrderType)
+import { OrderTypeSchema } from '@app/schemas'
 
 export const OrderPathSchema = z.object({
   issuer: z.string(),

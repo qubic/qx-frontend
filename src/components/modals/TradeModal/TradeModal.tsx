@@ -81,12 +81,7 @@ export default function TradeModal({ orderType, orderPath, orderPayload }: Trade
   }
 
   return (
-    <PortalModalWrapper
-      id="connect-wallet-modal"
-      isOpen
-      onClose={handleCloseModal}
-      closeOnOutsideClick
-    >
+    <PortalModalWrapper id="trade-modal" isOpen onClose={handleCloseModal} closeOnOutsideClick>
       <div className="relative mx-16 flex min-h-[405px] w-full max-w-480 flex-col rounded-12 border border-primary-60 bg-primary-70 sm:mx-0">
         <header className="relative flex h-fit justify-between p-24">
           <QubicConnectLogo />

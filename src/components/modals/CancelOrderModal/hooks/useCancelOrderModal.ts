@@ -1,46 +1,47 @@
 import { useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
-import { useWalletConnect } from '@app/hooks'
+import { useAppDispatch, useWalletConnect } from '@app/hooks'
 import type { AssetOrderPathParams } from '@app/store/apis/qx'
-import { useAddAssetAskOrderMutation, useAddAssetBidOrderMutation } from '@app/store/apis/qx'
+import { useRemoveAssetAskOrderMutation, useRemoveAssetBidOrderMutation } from '@app/store/apis/qx'
+import { hideModal } from '@app/store/modalSlice'
 import { OrderType } from '@app/types/enums'
 import { LogFeature, makeLog } from '@app/utils/logger'
 import { formatRTKError } from '@app/utils/rtk'
+import { toaster } from '@app/utils/toaster'
 
-import type { OrderPayload } from '../trade-modal.types'
-import { TradeModalStep } from '../trade-modal.types'
+import type { OrderPayload } from '../cancel-order-modal.types'
 
-const log = makeLog(LogFeature.TRADE_MODAL)
+const log = makeLog(LogFeature.CANCEL_ORDER_MODAL)
 
-type UseTradeModalInput = Readonly<{
+type UseCancelOrderModalInput = Readonly<{
   orderType: OrderType
   orderPath: AssetOrderPathParams
   orderPayload: OrderPayload
 }>
 
-type UseTradeModalOutput = Readonly<{
-  modalStep: TradeModalStep
-  handleModalStepChange: (step: TradeModalStep) => void
-  handleTrade: () => Promise<void>
+type UseCancelOrderModalOutput = Readonly<{
+  handleCancelOrder: () => Promise<void>
   isLoading: boolean
   error: string | null
 }>
 
-export default function useTradeModal({
+export default function useCancelOrderModal({
   orderType,
   orderPath,
   orderPayload
-}: UseTradeModalInput): UseTradeModalOutput {
-  const [modalStep, setModalStep] = useState<TradeModalStep>(TradeModalStep.CONFIRM_TRADE)
+}: UseCancelOrderModalInput): UseCancelOrderModalOutput {
+  const dispatch = useAppDispatch()
+  const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const { walletClient, isWalletConnected, selectedAccount } = useWalletConnect()
 
-  const [triggerBidOrder] = useAddAssetBidOrderMutation()
-  const [triggerAskOrder] = useAddAssetAskOrderMutation()
+  const [triggerRemoveBidOrder] = useRemoveAssetBidOrderMutation()
+  const [triggerRemoveAskOrder] = useRemoveAssetAskOrderMutation()
 
-  const handleTrade = useCallback(async () => {
+  const handleCancelOrder = useCallback(async () => {
     try {
       if (!walletClient) {
         throw new Error('Wallet client not found')
@@ -53,7 +54,7 @@ export default function useTradeModal({
       setIsLoading(true)
 
       const transactionPayload = await (
-        orderType === OrderType.BID ? triggerAskOrder : triggerBidOrder
+        orderType === OrderType.BID ? triggerRemoveBidOrder : triggerRemoveAskOrder
       )({
         path: orderPath,
         payload: { from: selectedAccount.address, ...orderPayload }
@@ -73,33 +74,32 @@ export default function useTradeModal({
         transactionPayload.data.inputType,
         transactionPayload.data.extraData
       )
-
-      log('Send transaction result', result)
-
-      setModalStep(TradeModalStep.SUCCESS_STATE)
+      log({ result })
+      toaster.cancelOrder(t, result.tick, result.transactionId)
     } catch (err) {
       // eslint-disable-next-line no-console
-      console.error('Error while sending transaction:', err)
+      console.error('Error while sending cancel order transaction:', err)
+      toaster.error('Error while sending transaction to cancel order')
       setError(err instanceof Error ? err.message : 'An error occurred')
-      setModalStep(TradeModalStep.ERROR_STATE)
     } finally {
+      dispatch(hideModal())
       setIsLoading(false)
     }
   }, [
+    dispatch,
     isWalletConnected,
     orderPath,
     orderPayload,
     orderType,
     selectedAccount,
-    triggerAskOrder,
-    triggerBidOrder,
+    t,
+    triggerRemoveAskOrder,
+    triggerRemoveBidOrder,
     walletClient
   ])
 
   return {
-    modalStep,
-    handleModalStepChange: setModalStep,
-    handleTrade,
+    handleCancelOrder,
     isLoading,
     error
   }

@@ -5,6 +5,8 @@ import { useAppSelector } from '@app/hooks'
 import type { ModalProps } from '@app/store/modalSlice'
 import { ModalType, selectModal } from '@app/store/modalSlice'
 
+import { CancelOrderModalPropsSchema } from './CancelOrderModal/cancel-order-modal.schemas'
+import CancelOrderModal from './CancelOrderModal/CancelOrderModal'
 import { ConnectWalletModal } from './ConnectWalletModal'
 import { TradeModal } from './TradeModal'
 import { TradeModalPropsSchema } from './TradeModal/trade-modal.schemas'
@@ -12,7 +14,8 @@ import { TradeModalPropsSchema } from './TradeModal/trade-modal.schemas'
 const MODAL_SCHEMAS = {
   [ModalType.NONE]: z.undefined(),
   [ModalType.CONNECT_WALLET]: z.undefined(),
-  [ModalType.CONFIRM_TRADE]: TradeModalPropsSchema
+  [ModalType.CONFIRM_TRADE]: TradeModalPropsSchema,
+  [ModalType.CANCEL_ORDER]: CancelOrderModalPropsSchema
 }
 
 function isValidModalProps<T extends ModalType>(
@@ -39,6 +42,9 @@ export default function ModalManager() {
 
     case ModalType.CONFIRM_TRADE:
       return <TradeModal {...(modalProps as ModalProps[ModalType.CONFIRM_TRADE])} />
+
+    case ModalType.CANCEL_ORDER:
+      return <CancelOrderModal {...(modalProps as ModalProps[ModalType.CANCEL_ORDER])} />
 
     case ModalType.NONE:
     default:

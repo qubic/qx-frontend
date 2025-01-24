@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 
 import { Tooltip } from '@app/components/ui'
 import { CopyTextButton } from '@app/components/ui/buttons'
-import { EXPLORER_URL } from '@app/constants/urls'
 import { ExplorerLinkType } from '@app/types/enums'
 import { clsxTwMerge, formatEllipsis } from '@app/utils'
+import { makeExplorerAddressUrl, makeExplorerTickUrl, makeExplorerTxUrl } from '@app/utils/explorer'
 
 type Props = {
   value: string
@@ -16,12 +16,6 @@ type Props = {
   showTooltip?: boolean
   tooltipContent?: string
 }
-
-const makeExplorerTxUrl = (tx: string) => `${EXPLORER_URL}/network/tx/${tx}`
-
-const makeExplorerTickUrl = (tick: string) => `${EXPLORER_URL}/network/tick/${tick}`
-
-const makeExplorerAddressUrl = (address: string) => `${EXPLORER_URL}/network/address/${address}`
 
 const getExplorerLinkUrl = (value: string, type: ExplorerLinkType) => {
   switch (type) {

@@ -1,16 +1,16 @@
-import { memo, useCallback } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
 import { TableHeadCell } from '@app/components/ui/tables'
-import type { EntityOrder } from '@app/store/apis/qx'
 import { clsxTwMerge } from '@app/utils'
 
 import {
   ENTITY_ORDERS_TABLE_COLUMNS,
-  ENTITY_ORDERS_TABLE_COLUMNS_COUNT,
-  ENTITY_ORDERS_TABLE_SKELETON_ROWS
+  ENTITY_ORDERS_TABLE_SKELETON_ROWS,
+  PRIVATE_ENTITY_ORDERS_TABLE_COLUMNS_KEYS
 } from '../constants'
+import type { EntityOrderWithType } from '../types'
 
 import EntityOrderRow from './EntityOrderRow'
 
@@ -21,32 +21,48 @@ const EntityOrdersSkeleton = memo(() =>
 )
 
 type Props = Readonly<{
-  entityOrders: EntityOrder[] | undefined
+  entityOrders: EntityOrderWithType[] | undefined
+  isEntityOwner: boolean
   isLoading: boolean
   hasError: boolean
   className?: string
 }>
 
-export default function EntityOrdersTable({ entityOrders, isLoading, hasError, className }: Props) {
+export default function EntityOrdersTable({
+  entityOrders,
+  isEntityOwner,
+  isLoading,
+  hasError,
+  className
+}: Props) {
   const { t } = useTranslation()
 
-  const renderTableHeadContent = useCallback(
-    () => (
+  const tableCols = useMemo(() => {
+    if (!isEntityOwner) {
+      return ENTITY_ORDERS_TABLE_COLUMNS.filter(
+        ({ i18nKey }) => !PRIVATE_ENTITY_ORDERS_TABLE_COLUMNS_KEYS.includes(i18nKey)
+      )
+    }
+    return ENTITY_ORDERS_TABLE_COLUMNS
+  }, [isEntityOwner])
+
+  const renderTableHeadContent = useCallback(() => {
+    return (
       <tr>
-        {ENTITY_ORDERS_TABLE_COLUMNS.map(({ i18nKey, label, align }) => (
+        {tableCols.map(({ i18nKey, label, align, show }) => (
           <TableHeadCell
             key={i18nKey}
             className="first:rounded-tl-lg last:rounded-tr-lg"
             label={label}
             align={align}
+            show={show}
           >
             {t(i18nKey)}
           </TableHeadCell>
         ))}
       </tr>
-    ),
-    [t]
-  )
+    )
+  }, [t, tableCols])
 
   const renderTableContent = useCallback(() => {
     if (isLoading) return <EntityOrdersSkeleton />
@@ -54,7 +70,7 @@ export default function EntityOrdersTable({ entityOrders, isLoading, hasError, c
     if (!entityOrders || hasError)
       return (
         <ErrorRow
-          colSpan={ENTITY_ORDERS_TABLE_COLUMNS_COUNT}
+          colSpan={tableCols.length}
           message={t('orders_table.error_fetching_open_orders')}
         />
       )
@@ -62,20 +78,25 @@ export default function EntityOrdersTable({ entityOrders, isLoading, hasError, c
     if (!entityOrders.length)
       return (
         <NoItemsFoundRow
-          colSpan={ENTITY_ORDERS_TABLE_COLUMNS_COUNT}
+          colSpan={tableCols.length}
           message={t('orders_table.open_orders_not_found')}
         />
       )
 
     return entityOrders?.map((entityOrder) => (
-      <EntityOrderRow key={JSON.stringify(entityOrder)} entityOrder={entityOrder} />
+      <EntityOrderRow
+        key={JSON.stringify(entityOrder)}
+        entityOrder={entityOrder}
+        isEntityOwner={isEntityOwner}
+      />
     ))
-  }, [isLoading, entityOrders, hasError, t])
+  }, [isLoading, entityOrders, hasError, tableCols.length, t, isEntityOwner])
 
   return (
     <div
       className={clsxTwMerge(
         'w-full max-w-2xl rounded-12 border-1 border-primary-60 bg-primary-70 pb-16 pt-4',
+        isEntityOwner && 'w-[85vw]',
         className
       )}
     >

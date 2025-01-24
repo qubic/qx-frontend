@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
@@ -6,24 +7,87 @@ import { withHelmet } from '@app/components/hocs'
 import { TradesTable, TransfersTable } from '@app/components/tables'
 import { PageLayout } from '@app/components/ui/layouts'
 import { ExplorerLink } from '@app/components/ui/links'
+import { useWalletConnect } from '@app/hooks'
 import {
   useGetEntityAskOrdersQuery,
   useGetEntityBidOrdersQuery,
   useGetEntityTradesQuery,
   useGetEntityTransfersQuery
 } from '@app/store/apis/qx'
-import { ExplorerLinkType } from '@app/types/enums'
+import { ExplorerLinkType, OrderType } from '@app/types/enums'
 
-import { EntityOrdersTable } from './components'
+import { EntityOwnerOrders, PublicEntityOrders } from './components'
 
 function EntityPage() {
   const { entity = '' } = useParams()
   const { t } = useTranslation()
 
+  const { isWalletConnected, selectedAccount } = useWalletConnect()
+
   const bidOrders = useGetEntityBidOrdersQuery({ entity }, { skip: !entity })
   const askOrders = useGetEntityAskOrdersQuery({ entity }, { skip: !entity })
   const trades = useGetEntityTradesQuery({ entity }, { skip: !entity })
   const transfers = useGetEntityTransfersQuery({ entity }, { skip: !entity })
+
+  const isEntityOwner = useMemo(
+    () => isWalletConnected && selectedAccount?.address === entity,
+    [isWalletConnected, selectedAccount, entity]
+  )
+
+  const orders = useMemo(() => {
+    if (!askOrders.data && !bidOrders.data) {
+      return {
+        askOrdersWithType: [],
+        bidOrdersWithType: [],
+        aggregatedOrders: []
+      }
+    }
+    const askOrdersWithType =
+      askOrders.data?.map((order) => ({ ...order, orderType: OrderType.ASK })) ?? []
+
+    const bidOrdersWithType =
+      bidOrders.data?.map((order) => ({ ...order, orderType: OrderType.BID })) ?? []
+
+    const aggregatedOrders = [...askOrdersWithType, ...bidOrdersWithType].sort(
+      (a, b) => b.numberOfShares * b.price - a.numberOfShares * a.price
+    )
+
+    return { askOrdersWithType, bidOrdersWithType, aggregatedOrders }
+  }, [askOrders.data, bidOrders.data])
+
+  const renderEntityOrders = useCallback(
+    () =>
+      isEntityOwner ? (
+        <EntityOwnerOrders
+          orders={orders.aggregatedOrders}
+          isFetching={askOrders.isFetching || bidOrders.isFetching}
+          isError={askOrders.isError || bidOrders.isError}
+        />
+      ) : (
+        <PublicEntityOrders
+          askOrders={{
+            data: orders.askOrdersWithType,
+            isFetching: askOrders.isFetching,
+            isError: askOrders.isError
+          }}
+          bidOrders={{
+            data: orders.bidOrdersWithType,
+            isFetching: bidOrders.isFetching,
+            isError: bidOrders.isError
+          }}
+        />
+      ),
+    [
+      askOrders.isError,
+      askOrders.isFetching,
+      bidOrders.isError,
+      bidOrders.isFetching,
+      isEntityOwner,
+      orders.aggregatedOrders,
+      orders.askOrdersWithType,
+      orders.bidOrdersWithType
+    ]
+  )
 
   return (
     <PageLayout title="Entity Info">
@@ -41,24 +105,7 @@ function EntityPage() {
         </div>
       </section>
 
-      <section className="grid w-[85vw] max-w-2xl gap-24 md:grid-cols-2">
-        <section className="flex flex-col gap-24">
-          <h2 className="text-center text-xl font-bold">{t('entity_page.open_ask_orders')}</h2>
-          <EntityOrdersTable
-            entityOrders={askOrders.data}
-            isLoading={askOrders.isFetching}
-            hasError={askOrders.isError}
-          />
-        </section>
-        <section className="flex flex-col gap-24">
-          <h2 className="text-center text-xl font-bold">{t('entity_page.open_bid_orders')}</h2>
-          <EntityOrdersTable
-            entityOrders={bidOrders.data}
-            isLoading={bidOrders.isFetching}
-            hasError={bidOrders.isError}
-          />
-        </section>
-      </section>
+      {renderEntityOrders()}
 
       <section className="grid gap-24">
         <h2 className="text-center text-xl font-bold">{t('global.trades')}</h2>

@@ -83,6 +83,26 @@ export const qxApi = createApi({
         method: 'POST',
         body: payload
       })
+    }),
+    removeAssetAskOrder: build.mutation<
+      AssetOrderPayload,
+      { path: AssetOrderPathParams; payload: GenAssetOrderPayload }
+    >({
+      query: ({ path, payload }) => ({
+        url: `/issuer/${path.issuer}/asset/${path.asset}/remove-ask`,
+        method: 'POST',
+        body: payload
+      })
+    }),
+    removeAssetBidOrder: build.mutation<
+      AssetOrderPayload,
+      { path: AssetOrderPathParams; payload: GenAssetOrderPayload }
+    >({
+      query: ({ path, payload }) => ({
+        url: `/issuer/${path.issuer}/asset/${path.asset}/remove-bid`,
+        method: 'POST',
+        body: payload
+      })
     })
   })
 })
@@ -106,5 +126,7 @@ export const {
   useGetAssetChartAveragePriceQuery,
   // MUTATIONS
   useAddAssetAskOrderMutation,
-  useAddAssetBidOrderMutation
+  useAddAssetBidOrderMutation,
+  useRemoveAssetAskOrderMutation,
+  useRemoveAssetBidOrderMutation
 } = qxApi

@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -14,7 +15,7 @@ const genAssetOrderRowCells = (
   assetOrder: AssetOrder,
   orderType: OrderType,
   onRowActionClick: (orderPayload: OrderPayload) => void,
-  t: (key: string) => string
+  t: TFunction
 ): TableRows => [
   {
     key: 'price',
