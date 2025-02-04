@@ -1,12 +1,15 @@
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Button } from '@app/components/ui/buttons'
 import { TextInput } from '@app/components/ui/inputs'
+import { useWalletConnect } from '@app/hooks'
 import { useGetLatestStatsQuery } from '@app/store/apis/qubic-rpc'
 import { OrderType } from '@app/types/enums'
 import { formatString } from '@app/utils'
 
 import type { OrderPath } from '../trade-modal.types'
+import { confirmTradeValidator } from '../trade-modal.validators'
 
 type Props = {
   orderType: OrderType
@@ -33,11 +36,48 @@ export default function ConfirmTradeStep({
 }: Props) {
   const { t } = useTranslation()
   const { data: latestStats } = useGetLatestStatsQuery(undefined)
+  const { selectedAccount } = useWalletConnect()
 
   const totalQubic = price * amount
   const amountUsdt = totalQubic * (latestStats?.price || 0)
-  const formattedQubic = formatString(totalQubic)
-  const formattedAmountUsdt = formatString(amountUsdt, amountUsdt > 1 ? 2 : 8)
+  const formattedQubic = useMemo(() => formatString(totalQubic), [totalQubic])
+  const formattedAmountUsdt = useMemo(
+    () => formatString(amountUsdt, amountUsdt > 1 ? 2 : 8),
+    [amountUsdt]
+  )
+
+  const userAssetBalance = useMemo(
+    () => selectedAccount?.assets?.find((a) => a.assetName === orderPath.asset)?.ownedAmount ?? 0,
+    [selectedAccount, orderPath.asset]
+  )
+
+  const errors = useMemo(
+    () =>
+      confirmTradeValidator(
+        {
+          price,
+          amount
+        },
+        {
+          totalQubic,
+          userQubicBalance: selectedAccount?.amount ?? 0,
+          userAssetBalance,
+          orderType,
+          asset: orderPath.asset
+        },
+        t
+      ),
+    [
+      price,
+      amount,
+      totalQubic,
+      selectedAccount?.amount,
+      userAssetBalance,
+      orderType,
+      orderPath.asset,
+      t
+    ]
+  )
 
   return (
     <form className="grid justify-center gap-16">
@@ -55,6 +95,7 @@ export default function ConfirmTradeStep({
           onChange={onPriceChange}
           value={price}
           min={0}
+          error={errors.price}
         />
         <TextInput
           type="number"
@@ -65,6 +106,7 @@ export default function ConfirmTradeStep({
           onChange={onAmountChange}
           value={amount}
           min={0}
+          error={errors.amount}
         />
         <div className="flex space-x-4">
           <p className="w-full text-right text-sm text-slate-500">{t('global.total')}</p>
@@ -86,7 +128,7 @@ export default function ConfirmTradeStep({
           color={OrderType.BID === orderType ? 'red' : 'green'}
           isLoading={isLoading}
           loadingText={t('trade_modal.placing_order')}
-          disabled={isLoading || !price || !amount}
+          disabled={isLoading || Object.values(errors).some(Boolean)}
         >
           {OrderType.BID === orderType
             ? t('trade_modal.place_sell_order')

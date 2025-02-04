@@ -115,7 +115,14 @@
     "order_confirmation": "Order Confirmation",
     "success_state_cta": "Place another order",
     "success_state_desc": "Your order transaction has been successfully submitted. You can track its status in your wallet to ensure it has been placed correctly. The order will be processed based on the availability of matching bids or asks. Feel free to monitor its progress or check back later for updates.",
-    "error_state_desc": "The transaction was unsuccessful, but your funds remain safe in your wallet. Feel free to attempt the transaction again. If the problem continues, please reach out to support for assistance."
+    "error_state_desc": "The transaction was unsuccessful, but your funds remain safe in your wallet. Feel free to attempt the transaction again. If the problem continues, please reach out to support for assistance.",
+    "errors": {
+      "price": "Invalid price",
+      "amount": "Invalid amount",
+      "insufficient_balance": "Insufficient balance",
+      "not_enough_qubic": "Not enough QUBIC in your wallet to place this order.",
+      "not_enough_asset": "Not enough {{asset}} in your wallet to place this order."
+    }
   },
   "cancel_order_modal": {
     "cancel_order": "Cancel Order",

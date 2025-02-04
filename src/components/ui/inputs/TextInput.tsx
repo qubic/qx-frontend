@@ -31,13 +31,16 @@ const sizeClasses = {
 
 const colorVariantClasses = {
   primary: {
-    filled:
-      'bg-primary-70 text-white focus:border-primary-40 focus:ring-0 focus:outline-none placeholder:text-gray-60'
+    filled: 'bg-inherit text-white placeholder:text-gray-60'
   },
   error: {
-    filled:
-      'bg-primary-70 text-white border border-red-500 focus:border-red-500 focus:ring-0 focus:outline-none placeholder:text-gray-60'
+    filled: 'bg-primary-70 text-white placeholder:text-gray-60'
   }
+} as const
+
+const wrapperColorVariantClasses = {
+  primary: { filled: 'border-primary-60 focus:border-primary-40' },
+  error: { filled: 'border-red-500' }
 } as const
 
 const hideNumberInputClasses =
@@ -69,7 +72,7 @@ const TextInput = forwardRef(
           className={clsxTwMerge(
             'flex w-full items-center rounded-12 border border-primary-60 transition duration-300',
             sizeClasses[size],
-            colorVariantClasses[error ? 'error' : color][variant],
+            wrapperColorVariantClasses[error ? 'error' : color][variant],
             className
           )}
         >
@@ -81,7 +84,7 @@ const TextInput = forwardRef(
             ref={ref}
             placeholder={placeholder}
             className={clsxTwMerge(
-              'w-full text-end transition duration-300',
+              'w-full text-end transition duration-300 focus:outline-none focus:ring-0',
               sizeClasses[size],
               colorVariantClasses[error ? 'error' : color][variant],
               'p-0',
@@ -91,7 +94,7 @@ const TextInput = forwardRef(
           />
           {endIcon && <span className="flex items-center pl-8 text-gray-50">{endIcon}</span>}
         </div>
-        {error && <p className="mt-2 text-sm text-red-500">* {error}</p>}
+        {error && <p className="mt-4 text-xs text-red-500">* {error}</p>}
       </div>
     )
   }
