@@ -1,5 +1,6 @@
-import { theme } from '@app/theme'
 import { useCallback, useEffect, useMemo, useState } from 'react'
+
+import { theme } from '@app/theme'
 
 type Breakpoints = keyof typeof theme.breakpoints | null
 

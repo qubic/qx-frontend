@@ -4,11 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
 import { TableHeadCell } from '@app/components/ui/tables'
 import type { IssuedAsset } from '@app/store/apis/qx'
+
 import {
   ISSUED_ASSETS_TABLE_COLUMNS,
   ISSUED_ASSETS_TABLE_COLUMNS_COUNT,
   ISSUED_ASSETS_TABLE_SKELETON_ROWS
 } from '../constants'
+
 import IssuedAssetRow from './IssuedAssetRow'
 
 const IssuedAssetsSkeleton = memo(() =>

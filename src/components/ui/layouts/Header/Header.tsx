@@ -5,9 +5,11 @@ import { QubicQxWhiteLogo } from '@app/assets/icons/logo'
 import { isConnectWalletEnabled } from '@app/configs/feature-flags'
 import { PublicRoutes } from '@app/router/routes'
 import { clsxTwMerge } from '@app/utils'
+
 import LanguagePicker from '../../LanguagePicker'
-import { ConnectWalletButton } from '../../buttons'
+
 import BurgerMenu from './BurgerMenu'
+import ConnectWalletMenu from './ConnectWalletMenu/ConnectWalletMenu'
 
 export type MenuItem = {
   i18nKey: string
@@ -61,14 +63,8 @@ export default function Header() {
         </ul>
       </nav>
       <div className="absolute right-2 flex items-center gap-8 sm:right-24">
-        {isConnectWalletEnabled && (
-          <ConnectWalletButton
-            className="p-10 lg:flex"
-            variant="text"
-            showIcon
-            labelClassName="hidden text-gray-50 lg:block"
-          />
-        )}
+        {isConnectWalletEnabled && <ConnectWalletMenu />}
+
         <LanguagePicker />
         <div className="md:hidden">
           <BurgerMenu items={MENU_ITEMS} activePath={location.pathname} />

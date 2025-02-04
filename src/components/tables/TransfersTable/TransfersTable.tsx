@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next'
 
 import { TableHeadCell } from '@app/components/ui/tables'
 import type { Transfer } from '@app/store/apis/qx'
+
 import ErrorRow from '../ErrorRow'
 import NoItemsFoundRow from '../NoItemsFoundRow'
+
 import {
   TRANSFERS_TABLE_COLUMNS,
   TRANSFERS_TABLE_COLUMNS_COUNT,

@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next'
+
 import { Badge } from '@app/components/ui'
 import { Button } from '@app/components/ui/buttons'
-import { useTranslation } from 'react-i18next'
-import { ModalStep } from './connect-wallet-modal.types'
+
+import { ModalStep } from '../connect-wallet-modal.types'
 
 interface Props {
   isWalletConnected: boolean

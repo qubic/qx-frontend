@@ -1,4 +1,5 @@
 import type { Asset } from '@app/store/apis/qx'
+
 import AssetCard from './AssetCard'
 
 type Props = {

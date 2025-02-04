@@ -1,27 +1,17 @@
+import { useCallback, useEffect, useMemo, useState } from 'react'
+
 import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
-import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 
 import type { EventListener, QubicAccount } from '@app/services/wallet-connect-client'
 import { WalletConnectClient } from '@app/services/wallet-connect-client'
 import { useGetEpochComputorsQuery, useGetLatestStatsQuery } from '@app/store/apis/qubic-rpc'
+import { LogFeature, makeLog } from '@app/utils/logger'
 
-export interface IWalletConnectContext {
-  walletClient: WalletConnectClient | null
-  session: SessionTypes.Struct | null
-  wcUri: string
-  connect: () => Promise<void>
-  disconnect: () => Promise<void>
-  loading: boolean
-  accounts: QubicAccount[]
-  selectedAccount: QubicAccount | null
-  setSelectedAccount: (account: QubicAccount | null) => void
-  isWalletConnected: boolean
-  isComputor: boolean
-}
+import { WalletConnectContext } from './WalletConnectContext'
 
-export const WalletConnectContext = createContext<IWalletConnectContext | undefined>(undefined)
+const log = makeLog(LogFeature.WALLET_CONNECT_CONTEXT)
 
-export function WalletConnectProvider({ children }: { children: React.ReactNode }) {
+export default function WalletConnectProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<SessionTypes.Struct | null>(null)
   const [wcUri, setWcUri] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
@@ -88,86 +78,74 @@ export function WalletConnectProvider({ children }: { children: React.ReactNode 
         {
           event: 'proposal_expire',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('proposal_expire', payload)
+            log('proposal_expire', payload)
           }
         },
         {
           event: 'session_authenticate',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_authenticate', payload)
+            log('session_authenticate', payload)
           }
         },
         {
           event: 'session_delete',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_delete', payload)
+            log('session_delete', payload)
           }
         },
         {
           event: 'session_event',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_event', payload)
+            log('session_event', payload)
           }
         },
         {
           event: 'session_expire',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_expire', payload)
+            log('session_expire', payload)
             walletClient.clearSession('Session expired', payload)
           }
         },
         {
           event: 'session_extend',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_extend', payload)
+            log('session_extend', payload)
           }
         },
         {
           event: 'session_ping',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_ping', payload)
+            log('session_ping', payload)
           }
         },
         {
           event: 'session_proposal',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_proposal', payload)
+            log('session_proposal', payload)
           }
         },
         {
           event: 'session_request',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_request', payload)
+            log('session_request', payload)
           }
         },
         {
           event: 'session_request_expire',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_request_expire', payload)
+            log('session_request_expire', payload)
           }
         },
         {
           event: 'session_request_sent',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_request_sent', payload)
+            log('session_request_sent', payload)
           }
         },
         {
           event: 'session_update',
           listener: (payload) => {
-            // eslint-disable-next-line no-console
-            console.log('session_update', payload)
+            log('session_update', payload)
           }
         }
       ]

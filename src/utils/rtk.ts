@@ -7,7 +7,6 @@ import type { FetchBaseQueryError } from '@reduxjs/toolkit/query'
  * @param error - The error object returned by RTK Query, which can be of type `FetchBaseQueryError`, `SerializedError`, or `undefined`.
  * @returns A formatted error message string to provide user-friendly feedback.
  */
-// eslint-disable-next-line import/prefer-default-export -- Remove this comment when adding more functions
 export function formatRTKError(error: FetchBaseQueryError | SerializedError | undefined): string {
   if (!error) {
     return 'An unknown error occurred'

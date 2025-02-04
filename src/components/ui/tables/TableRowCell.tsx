@@ -1,5 +1,6 @@
-import { clsxTwMerge } from '@app/utils'
 import { memo } from 'react'
+
+import { clsxTwMerge } from '@app/utils'
 
 type Props = Readonly<
   React.HTMLAttributes<HTMLTableCellElement> & {
