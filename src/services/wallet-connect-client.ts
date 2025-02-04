@@ -25,14 +25,21 @@ enum QubicNsMethods {
 
 enum WalletEvents {
   AMOUNT_CHANGED = 'amountChanged',
-  TOKEN_AMOUNT_CHANGED = 'tokenAmountChanged',
+  ASSET_AMOUNT_CHANGED = 'assetAmountChanged',
   ACCOUNTS_CHANGED = 'accountsChanged'
 }
 
+const QubicAccountAssetSchema = z.object({
+  assetName: z.string(),
+  issuerIdentity: z.string(),
+  ownedAmount: z.number()
+})
+
 const QubicAccountSchema = z.object({
   address: z.string(),
-  name: z.string(),
-  amount: z.number()
+  amount: z.number(),
+  assets: z.array(QubicAccountAssetSchema),
+  name: z.string()
 })
 
 export type QubicAccount = z.infer<typeof QubicAccountSchema>
