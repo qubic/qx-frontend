@@ -19,8 +19,6 @@ export default function ConnectWalletModal() {
     session,
     connect: wcConnect,
     disconnect: wcDisconnect,
-    wcUri,
-    loading,
     accounts,
     selectedAccount: wcSelectedAccount,
     setSelectedAccount: setWcSelectedAccount,
@@ -70,13 +68,7 @@ export default function ConnectWalletModal() {
           />
         )
       case ModalStep.WC_CONNECT_WALLET:
-        return (
-          <ConnectWalletStep
-            wcUri={wcUri}
-            loading={loading}
-            onModalStepChange={handleModalStepChange}
-          />
-        )
+        return <ConnectWalletStep onModalStepChange={handleModalStepChange} />
       case ModalStep.WC_ACCOUNT_SELECT:
         return (
           <AccountSelectStep

@@ -4,36 +4,42 @@ import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
 
 import type { EventListener, QubicAccount } from '@app/services/wallet-connect-client'
 import { WalletConnectClient } from '@app/services/wallet-connect-client'
-import { useGetEpochComputorsQuery, useGetLatestStatsQuery } from '@app/store/apis/qubic-rpc'
+import { extractErrorMessage } from '@app/utils/errors'
 import { LogFeature, makeLog } from '@app/utils/logger'
 
-import { WalletConnectContext } from './WalletConnectContext'
+import { WalletConnectContext, WalletConnectionStatus } from './WalletConnectContext'
 
 const log = makeLog(LogFeature.WALLET_CONNECT_CONTEXT)
 
 export default function WalletConnectProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<SessionTypes.Struct | null>(null)
   const [wcUri, setWcUri] = useState<string>('')
-  const [loading, setLoading] = useState<boolean>(false)
+  const [status, setStatus] = useState<WalletConnectionStatus>(WalletConnectionStatus.IDLE)
   const [accounts, setAccounts] = useState<QubicAccount[]>([])
   const [selectedAccount, setSelectedAccount] = useState<QubicAccount | null>(null)
-  const [isComputor, setIsComputor] = useState<boolean>(false)
 
   const walletClient = useMemo(() => new WalletConnectClient(), [])
   const isWalletConnected = useMemo(() => !!session && accounts.length > 0, [session, accounts])
 
-  const { data: latestStats } = useGetLatestStatsQuery(undefined, { skip: !isWalletConnected })
-  const { data: computors } = useGetEpochComputorsQuery(latestStats?.epoch || 0, {
-    skip: !isWalletConnected || !latestStats
-  })
+  /**
+   * Helper function to update the connection status.
+   */
+  const updateStatus = useCallback((newStatus: WalletConnectionStatus) => {
+    setStatus((prevStatus) => {
+      log(`Status changed from ${prevStatus} to ${newStatus}`)
+      return newStatus
+    })
+  }, [])
 
   const connect = useCallback(async () => {
     try {
       if (!walletClient) {
         throw new Error('Wallet client not found')
       }
+      // Making sure that uri is empty before connecting
+      setWcUri('')
+      updateStatus(WalletConnectionStatus.CONNECTING)
 
-      setLoading(true)
       const { uri } = await walletClient.genConnectUrl()
 
       setWcUri(uri)
@@ -45,14 +51,19 @@ export default function WalletConnectProvider({ children }: { children: React.Re
       const requestedAccounts = await walletClient.requestAccounts()
 
       setAccounts(requestedAccounts)
+      updateStatus(WalletConnectionStatus.CONNECTED)
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Connection Error:', error)
+      updateStatus(
+        extractErrorMessage(error).includes('Proposal expired')
+          ? WalletConnectionStatus.PROPOSAL_EXPIRED
+          : WalletConnectionStatus.ERROR
+      )
     } finally {
       setWcUri('')
-      setLoading(false)
     }
-  }, [walletClient])
+  }, [updateStatus, walletClient])
 
   const disconnect = useCallback(async () => {
     try {
@@ -65,11 +76,12 @@ export default function WalletConnectProvider({ children }: { children: React.Re
       setSession(null)
       setAccounts([])
       setSelectedAccount(null)
+      updateStatus(WalletConnectionStatus.IDLE)
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Error while trying to disconnect:', error)
     }
-  }, [walletClient, session])
+  }, [walletClient, session, updateStatus])
 
   useEffect(() => {
     const initWalletClient = async () => {
@@ -79,6 +91,9 @@ export default function WalletConnectProvider({ children }: { children: React.Re
           event: 'proposal_expire',
           listener: (payload) => {
             log('proposal_expire', payload)
+            if (status !== WalletConnectionStatus.PROPOSAL_EXPIRED) {
+              updateStatus(WalletConnectionStatus.PROPOSAL_EXPIRED)
+            }
           }
         },
         {
@@ -177,43 +192,32 @@ export default function WalletConnectProvider({ children }: { children: React.Re
       walletClient.removeAllListeners('session_request_sent')
       walletClient.removeAllListeners('session_update')
     }
-  }, [walletClient])
-
-  useEffect(() => {
-    if (computors && selectedAccount) {
-      const isUserComputor = computors.identities.includes(selectedAccount.address)
-      setIsComputor(isUserComputor)
-    } else {
-      setIsComputor(false)
-    }
-  }, [computors, selectedAccount])
+  }, [status, updateStatus, walletClient])
 
   const contextValue = useMemo(
     () => ({
       walletClient,
       session,
+      status,
       wcUri,
       connect,
       disconnect,
-      loading,
       accounts,
       selectedAccount,
       setSelectedAccount,
-      isWalletConnected,
-      isComputor
+      isWalletConnected
     }),
     [
       walletClient,
       session,
+      status,
       wcUri,
       connect,
       disconnect,
-      loading,
       accounts,
       selectedAccount,
       setSelectedAccount,
-      isWalletConnected,
-      isComputor
+      isWalletConnected
     ]
   )
 
