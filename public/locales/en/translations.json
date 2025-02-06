@@ -1,17 +1,25 @@
 {
   "global": {
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "connect_wallet": "Connect Wallet",
+    "disconnect_wallet": "Disconnect Wallet",
     "lock_wallet": "Lock Wallet",
     "unlock_wallet": "Unlock Wallet",
     "paste": "Paste",
     "cancel": "Cancel",
+    "cancelled": "Cancelled",
+    "success": "Success",
     "close": "Close",
     "confirm": "Confirm",
+    "try_again": "Try Again",
     "select_account": "Select Account",
     "change_account": "Change Account",
     "beta": "Beta",
     "learn_more": "Learn More",
     "home": "Home",
     "tokens": "Tokens",
+    "actions": "Actions",
     "asset": "Asset",
     "assets": "Assets",
     "asset_transfers": "Asset Transfers",
@@ -38,7 +46,8 @@
     "chart_avg_price": "Chart (Avg Price)",
     "address": "Address",
     "entity": "Entity",
-    "amount": "Amount"
+    "amount": "Amount",
+    "view_on_explorer": "View on Explorer"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
@@ -62,7 +71,8 @@
   },
   "entity_page": {
     "open_ask_orders": "Open Ask Orders",
-    "open_bid_orders": "Open Bid Orders"
+    "open_bid_orders": "Open Bid Orders",
+    "open_orders": "Open Orders"
   },
   "error_page": {
     "page_not_found": "Page not found",
@@ -97,5 +107,30 @@
   },
   "errors": {
     "error_fetching_data": "Something went wrong while fetching the data. Please try again later."
+  },
+  "trade_modal": {
+    "place_buy_order": "Place Buy Order",
+    "place_sell_order": "Place Sell Order",
+    "placing_order": "Placing Order...",
+    "order_confirmation": "Order Confirmation",
+    "success_state_cta": "Place another order",
+    "success_state_desc": "Your order transaction has been successfully submitted. You can track its status in your wallet to ensure it has been placed correctly. The order will be processed based on the availability of matching bids or asks. Feel free to monitor its progress or check back later for updates.",
+    "error_state_desc": "The transaction was unsuccessful, but your funds remain safe in your wallet. Feel free to attempt the transaction again. If the problem continues, please reach out to support for assistance.",
+    "errors": {
+      "price": "Invalid price",
+      "amount": "Invalid amount",
+      "insufficient_balance": "Insufficient balance",
+      "not_enough_qubic": "Not enough QUBIC in your wallet to place this order.",
+      "not_enough_asset": "Not enough {{asset}} in your wallet to place this order."
+    }
+  },
+  "cancel_order_modal": {
+    "cancel_order": "Cancel Order",
+    "cancel_sell_order": "Cancel Sell Order",
+    "cancel_buy_order": "Cancel Buy Order",
+    "cancelling_order": "Cancelling Order...",
+    "error_cancelling_order": "Failed to cancel the order. Please try again.",
+    "cancel_order_desc": "Are you sure you want to cancel your <side>{{side}}</side> order for <amount>{{amount}}</amount> <asset>{{asset}}</asset> at <price>{{price}}</price> QUBIC each, totaling <total>{{total}}</total> QUBIC?",
+    "cancel_order_success": "Transaction sent successfully, Order will be cancelled at tick <tick>{{tick}}</tick>"
   }
 }

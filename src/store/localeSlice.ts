@@ -1,9 +1,10 @@
+import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+
 import i18n from '@app/configs/i18n'
 import { LANGUAGES } from '@app/constants/i18n'
 import type { RootState } from '@app/store'
 import type { Language } from '@app/types'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { createSlice } from '@reduxjs/toolkit'
 
 export interface LocaleState {
   language: string

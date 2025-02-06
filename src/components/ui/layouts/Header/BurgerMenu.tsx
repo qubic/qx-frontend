@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Bars3Icon, XmarkIcon } from '@app/assets/icons'
 import { DropdownMenu } from '@app/components/ui'
 import { clsxTwMerge } from '@app/utils'
+
 import type { MenuItem } from './Header'
 
 type Props = {
@@ -58,7 +59,7 @@ export default function BurgerMenu({ items, activePath }: Props) {
           />
         </div>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content>
+      <DropdownMenu.Content className="ltr:left-auto ltr:right-0">
         <ul className="grid gap-12 p-24" ref={menuRef}>
           {items.map(({ i18nKey, href }) => (
             <li key={i18nKey}>

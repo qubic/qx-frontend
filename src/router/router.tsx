@@ -10,6 +10,7 @@ import {
   TradesPageLazy,
   TransactionsPageLazy
 } from '@app/pages'
+
 import { PublicRoutes } from './routes'
 
 const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([

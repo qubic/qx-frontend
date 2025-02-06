@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -11,7 +12,7 @@ import type { TableRows } from '@app/types'
 import { ExplorerLinkType } from '@app/types/enums'
 import { formatDate, formatString } from '@app/utils'
 
-const genTradeRowCells = (trade: Trade, t: (key: string) => string): TableRows => [
+const genTradeRowCells = (trade: Trade, t: TFunction): TableRows => [
   {
     key: 'asset',
     content: (
