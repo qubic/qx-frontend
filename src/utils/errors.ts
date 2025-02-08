@@ -1,3 +1,5 @@
+import { JSON_RPC_ERROR_MESSAGES } from '@app/constants/errors'
+
 /**
  * Extracts a human-readable error message from different error types.
  *
@@ -24,4 +26,20 @@ export const extractErrorMessage = (error: unknown): string => {
   }
 
   return 'Unexpected error type'
+}
+/**
+ * Extracts a user-friendly toast error message based on JSON-RPC error codes.
+ *
+ * @param {unknown} error - The error object to extract the message from.
+ * @param {(key: string) => string} t - Translation function.
+ * @returns {string} - The localized error message.
+ */
+export function getRPCErrorMessage(error: unknown, t: (key: string) => string): string {
+  if (typeof error === 'object' && error !== null && 'code' in error) {
+    const errorCode = (error as { code: number }).code
+    if (JSON_RPC_ERROR_MESSAGES[errorCode]) {
+      return t(JSON_RPC_ERROR_MESSAGES[errorCode])
+    }
+  }
+  return t('errors.unexpected_error')
 }

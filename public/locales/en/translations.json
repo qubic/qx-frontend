@@ -102,11 +102,13 @@
     "account_connected": "Account Connected Successfully",
     "copy_uri": "Copy URI",
     "scan_qr": "Scan this QR code with your Qubic Wallet or copy the link below:",
+    "metamask_cooming_soon": "MetaMask (coming soon)",
     "wallet_connection_gen_url_error": "Failed to generate WalletConnect URI. Please try again.",
-    "metamask_cooming_soon": "MetaMask (coming soon)"
+    "wallet_connection_expired": "Your connection request has expired. Please generate a new QR code to try again."
   },
   "errors": {
-    "error_fetching_data": "Something went wrong while fetching the data. Please try again later."
+    "error_fetching_data": "Something went wrong while fetching the data. Please try again later.",
+    "unexpected_error": "An unexpected error has occurred. Please try again later."
   },
   "trade_modal": {
     "place_buy_order": "Place Buy Order",
@@ -124,13 +126,20 @@
       "not_enough_asset": "Not enough {{asset}} in your wallet to place this order."
     }
   },
-  "cancel_order_modal": {
-    "cancel_order": "Cancel Order",
-    "cancel_sell_order": "Cancel Sell Order",
-    "cancel_buy_order": "Cancel Buy Order",
-    "cancelling_order": "Cancelling Order...",
-    "error_cancelling_order": "Failed to cancel the order. Please try again.",
-    "cancel_order_desc": "Are you sure you want to cancel your <side>{{side}}</side> order for <amount>{{amount}}</amount> <asset>{{asset}}</asset> at <price>{{price}}</price> QUBIC each, totaling <total>{{total}}</total> QUBIC?",
-    "cancel_order_success": "Transaction sent successfully, Order will be cancelled at tick <tick>{{tick}}</tick>"
+  "remove_order_modal": {
+    "remove_order": "Remove Order",
+    "remove_sell_order": "Remove Sell Order",
+    "remove_buy_order": "Remove Buy Order",
+    "removing_order": "Removing Order...",
+    "remove_order_desc": "Are you sure you want to remove your <side>{{side}}</side> order for <amount>{{amount}}</amount> <asset>{{asset}}</asset> at <price>{{price}}</price> QUBIC each, totaling <total>{{total}}</total> QUBIC?",
+    "remove_order_success": "Transaction sent successfully, Order will be removed at tick <tick>{{tick}}</tick>",
+    "error_removing_order": "Error while sending transaction to remove order"
+  },
+  "rpc_errors": {
+    "user_unavailable": "You're currently busy with another request. Please complete or cancel it before trying again.",
+    "tick_expired": "This transaction took too long and tick has expired. Please try again.",
+    "invalid_arguments": "Something's off with the request. Double-check your inputs and try again.",
+    "internal_error": "Oops! Something went wrong on our end. Please try again in a moment.",
+    "user_rejected": "You declined the transaction."
   }
 }

@@ -16,7 +16,7 @@ export const toaster = {
     toast.success(
       <div>
         <Trans
-          i18nKey="cancel_order_modal.cancel_order_success"
+          i18nKey="remove_order_modal.remove_order_success"
           values={{ tick: formatString(tick) }}
           components={{
             tick: (

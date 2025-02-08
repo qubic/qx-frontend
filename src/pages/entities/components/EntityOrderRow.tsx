@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import { TrashIcon } from '@app/assets/icons'
-import type { OrderPayload } from '@app/components/modals/CancelOrderModal/cancel-order-modal.types'
+import type { OrderPayload } from '@app/components/modals/RemoveOrderModal/remove-order-modal.types'
 import { Skeleton } from '@app/components/ui'
 import { EntityLink } from '@app/components/ui/links'
 import { TableRowCell } from '@app/components/ui/tables'
@@ -102,11 +102,11 @@ function EntityOrderRow({ entityOrder, isEntityOwner }: Props) {
   const handleRowActionClick = useCallback(
     (orderType: OrderType, orderPayload: OrderPayload) => {
       if (!isWalletConnected) {
-        dispatch(showModal({ modalType: ModalType.CANCEL_ORDER }))
+        dispatch(showModal({ modalType: ModalType.REMOVE_ORDER }))
       } else {
         dispatch(
           showModal({
-            modalType: ModalType.CANCEL_ORDER,
+            modalType: ModalType.REMOVE_ORDER,
             modalProps: {
               orderType,
               orderPath: {

@@ -6,31 +6,32 @@ import type { AssetOrderPathParams } from '@app/store/apis/qx'
 import { useRemoveAssetAskOrderMutation, useRemoveAssetBidOrderMutation } from '@app/store/apis/qx'
 import { hideModal } from '@app/store/modalSlice'
 import { OrderType } from '@app/types/enums'
+import { getRPCErrorMessage } from '@app/utils/errors'
 import { LogFeature, makeLog } from '@app/utils/logger'
 import { formatRTKError } from '@app/utils/rtk'
 import { toaster } from '@app/utils/toaster'
 
-import type { OrderPayload } from '../cancel-order-modal.types'
+import type { OrderPayload } from '../remove-order-modal.types'
 
-const log = makeLog(LogFeature.CANCEL_ORDER_MODAL)
+const log = makeLog(LogFeature.REMOVE_ORDER_MODAL)
 
-type UseCancelOrderModalInput = Readonly<{
+type UseRemoveOrderModalInput = Readonly<{
   orderType: OrderType
   orderPath: AssetOrderPathParams
   orderPayload: OrderPayload
 }>
 
-type UseCancelOrderModalOutput = Readonly<{
-  handleCancelOrder: () => Promise<void>
+type UseRemoveOrderModalOutput = Readonly<{
+  handleRemoveOrder: () => Promise<void>
   isLoading: boolean
   error: string | null
 }>
 
-export default function useCancelOrderModal({
+export default function useRemoveOrderModal({
   orderType,
   orderPath,
   orderPayload
-}: UseCancelOrderModalInput): UseCancelOrderModalOutput {
+}: UseRemoveOrderModalInput): UseRemoveOrderModalOutput {
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
@@ -41,7 +42,7 @@ export default function useCancelOrderModal({
   const [triggerRemoveBidOrder] = useRemoveAssetBidOrderMutation()
   const [triggerRemoveAskOrder] = useRemoveAssetAskOrderMutation()
 
-  const handleCancelOrder = useCallback(async () => {
+  const handleRemoveOrder = useCallback(async () => {
     try {
       if (!walletClient) {
         throw new Error('Wallet client not found')
@@ -78,8 +79,10 @@ export default function useCancelOrderModal({
       toaster.cancelOrder(t, result.tick, result.transactionId)
     } catch (err) {
       // eslint-disable-next-line no-console
-      console.error('Error while sending cancel order transaction:', err)
-      toaster.error('Error while sending transaction to cancel order')
+      console.error('Error removing order:', err)
+      toaster.error(
+        `${t('remove_order_modal.error_removing_order')}, ${getRPCErrorMessage(err, t)}`
+      )
       setError(err instanceof Error ? err.message : 'An error occurred')
     } finally {
       dispatch(hideModal())
@@ -99,7 +102,7 @@ export default function useCancelOrderModal({
   ])
 
   return {
-    handleCancelOrder,
+    handleRemoveOrder,
     isLoading,
     error
   }

@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
-import type { CancelOrderModalProps } from '@app/components/modals/CancelOrderModal'
+import type { RemoveOrderModalProps } from '@app/components/modals/RemoveOrderModal'
 import type { TradeModalProps } from '@app/components/modals/TradeModal'
 import type { RootState } from '@app/store'
 
@@ -9,14 +9,14 @@ export enum ModalType {
   NONE = 'NONE',
   CONNECT_WALLET = 'CONNECT_WALLET',
   CONFIRM_TRADE = 'CONFIRM_TRADE',
-  CANCEL_ORDER = 'CANCEL_ORDER'
+  REMOVE_ORDER = 'REMOVE_ORDER'
 }
 
 export type ModalProps = {
   [ModalType.NONE]: undefined
   [ModalType.CONNECT_WALLET]: undefined
   [ModalType.CONFIRM_TRADE]: TradeModalProps
-  [ModalType.CANCEL_ORDER]: CancelOrderModalProps
+  [ModalType.REMOVE_ORDER]: RemoveOrderModalProps
 }
 
 export interface ModalState {

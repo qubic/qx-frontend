@@ -89,7 +89,7 @@ export class WalletConnectClient extends SignClient {
   private handleError(message: string, error: unknown): Promise<never> {
     // eslint-disable-next-line no-console
     console.error('[ WalletConnectClient ] - ', message, error)
-    return Promise.reject(error instanceof Error ? error : new Error(String(error)))
+    return Promise.reject(error)
   }
 
   private handleSessionConnected(sessionInfo: SessionTypes.Struct): void {
@@ -358,7 +358,7 @@ export class WalletConnectClient extends SignClient {
 
       return validation.data
     } catch (error) {
-      return this.handleError('Error signin transaction', error)
+      return this.handleError('Error sending transaction', error)
     }
   }
 
@@ -377,7 +377,7 @@ export class WalletConnectClient extends SignClient {
 
       return validation.data
     } catch (error) {
-      return this.handleError('Error signin transaction', error)
+      return this.handleError('Error signin message', error)
     }
   }
 }

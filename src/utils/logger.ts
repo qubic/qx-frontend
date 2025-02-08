@@ -2,14 +2,14 @@ export const LogFeature = {
   WALLET_CONNECT_CLIENT: 'WALLET_CONNECT_CLIENT',
   WALLET_CONNECT_CONTEXT: 'WALLET_CONNECT_CONTEXT',
   TRADE_MODAL: 'TRADE_MODAL',
-  CANCEL_ORDER_MODAL: 'CANCEL_ORDER_MODAL'
+  REMOVE_ORDER_MODAL: 'REMOVE_ORDER_MODAL'
 } as const
 
 const enabledLogs: (typeof LogFeature)[keyof typeof LogFeature][] = [
   LogFeature.WALLET_CONNECT_CLIENT,
   LogFeature.WALLET_CONNECT_CONTEXT,
   LogFeature.TRADE_MODAL,
-  LogFeature.CANCEL_ORDER_MODAL
+  LogFeature.REMOVE_ORDER_MODAL
 ]
 
 export const makeLog =
