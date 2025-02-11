@@ -86,7 +86,7 @@ export default function TradeModal({ orderType, orderPath, orderPayload }: Trade
         <header className="relative flex h-fit justify-between p-24">
           <QubicConnectLogo />
           <button type="button" onClick={handleCloseModal} aria-label="close-button">
-            <XmarkIcon className="absolute top-14 size-20 text-gray-50 ltr:right-14 rtl:right-14" />
+            <XmarkIcon className="absolute top-14 size-20 text-gray-50 ltr:right-14 rtl:left-14" />
           </button>
         </header>
 

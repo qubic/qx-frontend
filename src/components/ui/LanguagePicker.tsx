@@ -44,7 +44,7 @@ export default function LanguagePicker() {
         >
           <GlobeGrayIcon className="h-24 w-24" />
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content className="ltr:left-auto ltr:right-0">
+        <DropdownMenu.Content>
           <ul className="grid" ref={dropdownRef}>
             {LANGUAGES.map((lng, index) => (
               <li key={lng.id}>

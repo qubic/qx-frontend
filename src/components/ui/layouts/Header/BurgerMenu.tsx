@@ -59,7 +59,7 @@ export default function BurgerMenu({ items, activePath }: Props) {
           />
         </div>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content className="ltr:left-auto ltr:right-0">
+      <DropdownMenu.Content>
         <ul className="grid gap-12 p-24" ref={menuRef}>
           {items.map(({ i18nKey, href }) => (
             <li key={i18nKey}>
