@@ -36,7 +36,9 @@ export default function AccountsSection({
                 {account.name}
               </span>
             </div>
-            <p className="mt-4 text-xs text-slate-500">{formatString(account.amount)} QUBIC</p>
+            {account.amount !== -1 && (
+              <p className="mt-4 text-xs text-slate-500">{formatString(account.amount)} QUBIC</p>
+            )}
           </div>
 
           <AccountActions

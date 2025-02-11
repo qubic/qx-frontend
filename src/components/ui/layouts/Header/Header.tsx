@@ -41,7 +41,10 @@ export default function Header() {
 
   return (
     <header className="relative mx-auto flex h-[var(--header-height)] items-center justify-center gap-6 border-b border-primary-60 p-12 sm:h-[var(--desktop-header-height)]">
-      <Link to={PublicRoutes.HOME} className="absolute left-12 sm:left-24">
+      <Link
+        to={PublicRoutes.HOME}
+        className="absolute ltr:left-12 ltr:right-auto ltr:sm:left-24 rtl:left-auto rtl:right-12 sm:rtl:right-24"
+      >
         <QubicQxWhiteLogo />
       </Link>
 
@@ -62,7 +65,7 @@ export default function Header() {
           ))}
         </ul>
       </nav>
-      <div className="absolute right-2 flex items-center gap-8 sm:right-24">
+      <div className="absolute flex items-center gap-8 ltr:right-2 sm:ltr:right-24 rtl:left-2 rtl:flex-row-reverse sm:rtl:left-24">
         {isConnectWalletEnabled && <ConnectWalletMenu />}
 
         <LanguagePicker />

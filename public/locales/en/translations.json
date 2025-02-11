@@ -47,7 +47,8 @@
     "address": "Address",
     "entity": "Entity",
     "amount": "Amount",
-    "view_on_explorer": "View on Explorer"
+    "view_on_explorer": "View on Explorer",
+    "account_changed": "Changed to {{account}} account"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",

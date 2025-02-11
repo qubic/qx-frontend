@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useTranslation } from 'react-i18next'
 
-import { ChevronDownIcon, QubicIconDark } from '@app/assets/icons'
+import { ChevronDownIcon, QubicIconDark, WalletIcon } from '@app/assets/icons'
 import { useAppDispatch, useWalletConnect } from '@app/hooks'
 import { ModalType, showModal } from '@app/store/modalSlice'
 import { formatEllipsis } from '@app/utils'
@@ -16,7 +16,6 @@ type ConnectWalletButtonProps = Omit<ButtonProps, 'onClick' | 'children'> & {
 
 export default function ConnectWalletButton({
   labelClassName,
-  showArrowIcon = false,
   onClick,
   ...buttonProps
 }: ConnectWalletButtonProps) {
@@ -39,7 +38,11 @@ export default function ConnectWalletButton({
       <span className={labelClassName}>
         {isWalletConnected ? formatEllipsis(selectedAccount?.address) : t('global.connect_wallet')}
       </span>
-      {showArrowIcon && <ChevronDownIcon className="ml-2 size-20" />}
+      {isWalletConnected ? (
+        <ChevronDownIcon className="ml-2 size-20" />
+      ) : (
+        <WalletIcon className="size-24 sm:hidden lg:block lg:size-20" />
+      )}
     </Button>
   )
 }
