@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import type { SessionTypes, SignClientTypes } from '@walletconnect/types'
+import type { SessionTypes } from '@walletconnect/types'
 
-import type { EventListener, QubicAccount } from '@app/services/wallet-connect-client'
-import { WalletConnectClient } from '@app/services/wallet-connect-client'
+import type { QubicAccount, WalletConnectEventListeners } from '@app/services/wallet-connect-client'
+import { WalletConnectClient, WalletEvents } from '@app/services/wallet-connect-client'
 import { extractErrorMessage } from '@app/utils/errors'
 import { LogFeature, makeLog } from '@app/utils/logger'
 
@@ -18,7 +18,7 @@ export default function WalletConnectProvider({ children }: { children: React.Re
   const [accounts, setAccounts] = useState<QubicAccount[]>([])
   const [selectedAccount, setSelectedAccount] = useState<QubicAccount | null>(null)
 
-  const walletClient = useMemo(() => new WalletConnectClient(), [])
+  const walletClient = useRef(new WalletConnectClient()).current
   const isWalletConnected = useMemo(() => !!session && accounts.length > 0, [session, accounts])
 
   /**
@@ -85,8 +85,7 @@ export default function WalletConnectProvider({ children }: { children: React.Re
 
   useEffect(() => {
     const initWalletClient = async () => {
-      // TODO: Check and remove not needed listeners
-      const eventListeners: EventListener<SignClientTypes.Event>[] = [
+      const eventListeners: WalletConnectEventListeners[] = [
         {
           event: 'proposal_expire',
           listener: (payload) => {
@@ -111,7 +110,12 @@ export default function WalletConnectProvider({ children }: { children: React.Re
         {
           event: 'session_event',
           listener: (payload) => {
-            log('session_event', payload)
+            log('session_event', payload.params.event.name)
+            if (Object.values(WalletEvents).includes(payload.params.event.name as WalletEvents)) {
+              walletClient.requestAccounts().then((requestedAccounts) => {
+                setAccounts(requestedAccounts)
+              })
+            }
           }
         },
         {
@@ -170,6 +174,7 @@ export default function WalletConnectProvider({ children }: { children: React.Re
       const restoredSession = await walletClient.restoreSession()
 
       if (restoredSession) {
+        log('Restored session:', restoredSession)
         setSession(restoredSession)
         const requestedAccounts = await walletClient.requestAccounts()
         setAccounts(requestedAccounts)
@@ -220,6 +225,8 @@ export default function WalletConnectProvider({ children }: { children: React.Re
       isWalletConnected
     ]
   )
+
+  log({ session, status, accounts, selectedAccount })
 
   return (
     <WalletConnectContext.Provider value={contextValue}>{children}</WalletConnectContext.Provider>

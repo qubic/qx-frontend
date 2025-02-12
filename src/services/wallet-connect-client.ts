@@ -23,7 +23,7 @@ enum QubicNsMethods {
   QUBIC_SIGN = 'qubic_sign'
 }
 
-enum WalletEvents {
+export enum WalletEvents {
   AMOUNT_CHANGED = 'amountChanged',
   ASSET_AMOUNT_CHANGED = 'assetAmountChanged',
   ACCOUNTS_CHANGED = 'accountsChanged'
@@ -69,10 +69,14 @@ const SignMessageResultSchema = z.object({
 
 export type SignMessageResult = z.infer<typeof SignMessageResultSchema>
 
-export type EventListener<E extends SignClientTypes.Event> = {
+export type EventListener<E extends SignClientTypes.Event = SignClientTypes.Event> = {
   event: E
   listener: (args: SignClientTypes.EventArguments[E]) => void
 }
+
+export type WalletConnectEventListeners = Readonly<{
+  [E in SignClientTypes.Event]: EventListener<E>
+}>[SignClientTypes.Event]
 
 export class WalletConnectClient extends SignClient {
   private signClient: Client | null = null
@@ -142,9 +146,7 @@ export class WalletConnectClient extends SignClient {
     }
   }
 
-  public async initClient(
-    eventListeners: EventListener<SignClientTypes.Event>[] = []
-  ): Promise<Client> {
+  public async initClient(eventListeners: WalletConnectEventListeners[] = []): Promise<Client> {
     log('Initializing Client...')
     try {
       this.signClient = await SignClient.init({
@@ -165,7 +167,10 @@ export class WalletConnectClient extends SignClient {
 
       if (eventListeners.length > 0) {
         eventListeners.forEach(({ event, listener }) => {
-          this.signClient?.on(event, listener)
+          this.signClient?.on(
+            event as SignClientTypes.Event,
+            listener as (args: SignClientTypes.EventArguments[typeof event]) => void
+          )
         })
       }
 
