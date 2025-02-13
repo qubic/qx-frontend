@@ -105,6 +105,7 @@ export default function WalletConnectProvider({ children }: { children: React.Re
           event: 'session_delete',
           listener: (payload) => {
             log('session_delete', payload)
+            disconnect()
           }
         },
         {
@@ -197,7 +198,7 @@ export default function WalletConnectProvider({ children }: { children: React.Re
       walletClient.removeAllListeners('session_request_sent')
       walletClient.removeAllListeners('session_update')
     }
-  }, [status, updateStatus, walletClient])
+  }, [disconnect, status, updateStatus, walletClient])
 
   const contextValue = useMemo(
     () => ({
