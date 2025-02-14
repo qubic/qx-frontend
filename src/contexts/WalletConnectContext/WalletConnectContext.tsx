@@ -7,6 +7,7 @@ import type { QubicAccount, WalletConnectClient } from '@app/services/wallet-con
 export enum WalletConnectionStatus {
   IDLE = 'IDLE',
   CONNECTING = 'CONNECTING',
+  REQUESTING_ACCOUNTS = 'REQUESTING_ACCOUNTS',
   CONNECTED = 'CONNECTED',
   PROPOSAL_EXPIRED = 'PROPOSAL_EXPIRED',
   ERROR = 'ERROR'

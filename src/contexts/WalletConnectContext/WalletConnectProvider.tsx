@@ -2,14 +2,17 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import type { SessionTypes } from '@walletconnect/types'
 
-import type { QubicAccount, WalletConnectEventListeners } from '@app/services/wallet-connect-client'
-import { WalletConnectClient, WalletEvents } from '@app/services/wallet-connect-client'
+import type { QubicAccount } from '@app/services/wallet-connect-client'
+import { WalletConnectClient } from '@app/services/wallet-connect-client'
 import { extractErrorMessage } from '@app/utils/errors'
 import { LogFeature, makeLog } from '@app/utils/logger'
 
+import { createWalletConnectListeners, removeWalletConnectListeners } from './wallet-connect-events'
 import { WalletConnectContext, WalletConnectionStatus } from './WalletConnectContext'
 
 const log = makeLog(LogFeature.WALLET_CONNECT_CONTEXT)
+
+const walletClient = new WalletConnectClient()
 
 export default function WalletConnectProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<SessionTypes.Struct | null>(null)
@@ -18,8 +21,13 @@ export default function WalletConnectProvider({ children }: { children: React.Re
   const [accounts, setAccounts] = useState<QubicAccount[]>([])
   const [selectedAccount, setSelectedAccount] = useState<QubicAccount | null>(null)
 
-  const walletClient = useRef(new WalletConnectClient()).current
   const isWalletConnected = useMemo(() => !!session && accounts.length > 0, [session, accounts])
+
+  const statusRef = useRef(status)
+  const sessionRef = useRef(session)
+
+  statusRef.current = status
+  sessionRef.current = session
 
   /**
    * Helper function to update the connection status.
@@ -33,9 +41,6 @@ export default function WalletConnectProvider({ children }: { children: React.Re
 
   const connect = useCallback(async () => {
     try {
-      if (!walletClient) {
-        throw new Error('Wallet client not found')
-      }
       // Making sure that uri is empty before connecting
       setWcUri('')
       updateStatus(WalletConnectionStatus.CONNECTING)
@@ -48,6 +53,7 @@ export default function WalletConnectProvider({ children }: { children: React.Re
 
       setSession(newSession)
 
+      updateStatus(WalletConnectionStatus.REQUESTING_ACCOUNTS)
       const requestedAccounts = await walletClient.requestAccounts()
 
       setAccounts(requestedAccounts)
@@ -63,12 +69,12 @@ export default function WalletConnectProvider({ children }: { children: React.Re
     } finally {
       setWcUri('')
     }
-  }, [updateStatus, walletClient])
+  }, [updateStatus])
 
   const disconnect = useCallback(async () => {
     try {
-      if (!walletClient || !session) {
-        throw new Error('Wallet client or session not found')
+      if (!sessionRef.current) {
+        throw new Error('No active session to disconnect')
       }
 
       await walletClient.disconnectWallet()
@@ -81,96 +87,19 @@ export default function WalletConnectProvider({ children }: { children: React.Re
       // eslint-disable-next-line no-console
       console.error('Error while trying to disconnect:', error)
     }
-  }, [walletClient, session, updateStatus])
+  }, [updateStatus])
 
   useEffect(() => {
     const initWalletClient = async () => {
-      const eventListeners: WalletConnectEventListeners[] = [
-        {
-          event: 'proposal_expire',
-          listener: (payload) => {
-            log('proposal_expire', payload)
-            if (status !== WalletConnectionStatus.PROPOSAL_EXPIRED) {
-              updateStatus(WalletConnectionStatus.PROPOSAL_EXPIRED)
-            }
-          }
-        },
-        {
-          event: 'session_authenticate',
-          listener: (payload) => {
-            log('session_authenticate', payload)
-          }
-        },
-        {
-          event: 'session_delete',
-          listener: (payload) => {
-            log('session_delete', payload)
-            disconnect()
-          }
-        },
-        {
-          event: 'session_event',
-          listener: (payload) => {
-            log('session_event', payload.params.event.name)
-            if (Object.values(WalletEvents).includes(payload.params.event.name as WalletEvents)) {
-              walletClient.requestAccounts().then((requestedAccounts) => {
-                setAccounts(requestedAccounts)
-              })
-            }
-          }
-        },
-        {
-          event: 'session_expire',
-          listener: (payload) => {
-            log('session_expire', payload)
-            walletClient.clearSession('Session expired', payload)
-          }
-        },
-        {
-          event: 'session_extend',
-          listener: (payload) => {
-            log('session_extend', payload)
-          }
-        },
-        {
-          event: 'session_ping',
-          listener: (payload) => {
-            log('session_ping', payload)
-          }
-        },
-        {
-          event: 'session_proposal',
-          listener: (payload) => {
-            log('session_proposal', payload)
-          }
-        },
-        {
-          event: 'session_request',
-          listener: (payload) => {
-            log('session_request', payload)
-          }
-        },
-        {
-          event: 'session_request_expire',
-          listener: (payload) => {
-            log('session_request_expire', payload)
-          }
-        },
-        {
-          event: 'session_request_sent',
-          listener: (payload) => {
-            log('session_request_sent', payload)
-          }
-        },
-        {
-          event: 'session_update',
-          listener: (payload) => {
-            log('session_update', payload)
-          }
-        }
-      ]
-
-      await walletClient.initClient(eventListeners)
+      await walletClient.initClient(
+        createWalletConnectListeners({
+          updateStatus,
+          disconnect,
+          walletClient,
+          statusRef,
+          setAccounts
+        })
+      )
 
       const restoredSession = await walletClient.restoreSession()
 
@@ -185,20 +114,10 @@ export default function WalletConnectProvider({ children }: { children: React.Re
     initWalletClient()
 
     return () => {
-      walletClient.removeAllListeners('proposal_expire')
-      walletClient.removeAllListeners('session_authenticate')
-      walletClient.removeAllListeners('session_delete')
-      walletClient.removeAllListeners('session_event')
-      walletClient.removeAllListeners('session_expire')
-      walletClient.removeAllListeners('session_extend')
-      walletClient.removeAllListeners('session_ping')
-      walletClient.removeAllListeners('session_proposal')
-      walletClient.removeAllListeners('session_request')
-      walletClient.removeAllListeners('session_request_expire')
-      walletClient.removeAllListeners('session_request_sent')
-      walletClient.removeAllListeners('session_update')
+      removeWalletConnectListeners(walletClient)
     }
-  }, [disconnect, status, updateStatus, walletClient])
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- We only want to run this effect once
+  }, [])
 
   const contextValue = useMemo(
     () => ({
@@ -214,7 +133,6 @@ export default function WalletConnectProvider({ children }: { children: React.Re
       isWalletConnected
     }),
     [
-      walletClient,
       session,
       status,
       wcUri,
