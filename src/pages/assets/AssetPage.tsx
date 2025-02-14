@@ -97,7 +97,7 @@ function AssetPage() {
       )}
 
       <section className="grid w-[85vw] max-w-2xl gap-24 md:grid-cols-2">
-        <section className="flex flex-col gap-24">
+        <section className="flex w-[85vw] max-w-2xl flex-col gap-24 md:w-full">
           <h2 className="text-center text-xl font-bold">{t('entity_page.open_ask_orders')}</h2>
           <AssetOrdersTable
             assetOrders={askOrders.data}
@@ -107,7 +107,7 @@ function AssetPage() {
             hasError={askOrders.isError}
           />
         </section>
-        <section className="flex flex-col gap-24">
+        <section className="flex w-[85vw] max-w-2xl flex-col gap-24 md:w-full">
           <h2 className="text-center text-xl font-bold">{t('entity_page.open_bid_orders')}</h2>
           <AssetOrdersTable
             assetOrders={bidOrders.data}
