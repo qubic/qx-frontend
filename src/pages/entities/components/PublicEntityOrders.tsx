@@ -22,7 +22,7 @@ export default function PublicEntityOrders({ askOrders, bidOrders }: Props) {
 
   return (
     <section className="grid w-[85vw] max-w-2xl gap-24 md:grid-cols-2">
-      <section className="flex flex-col gap-24">
+      <section className="flex w-[85vw] max-w-2xl flex-col gap-24 md:w-full">
         <h2 className="text-center text-xl font-bold">{t('entity_page.open_ask_orders')}</h2>
         <EntityOrdersTable
           entityOrders={askOrders.data}
@@ -31,7 +31,7 @@ export default function PublicEntityOrders({ askOrders, bidOrders }: Props) {
           isEntityOwner={false}
         />
       </section>
-      <section className="flex flex-col gap-24">
+      <section className="flex w-[85vw] max-w-2xl flex-col gap-24 md:w-full">
         <h2 className="text-center text-xl font-bold">{t('entity_page.open_bid_orders')}</h2>
         <EntityOrdersTable
           entityOrders={bidOrders.data}
