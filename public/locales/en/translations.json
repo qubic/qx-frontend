@@ -48,7 +48,10 @@
     "entity": "Entity",
     "amount": "Amount",
     "view_on_explorer": "View on Explorer",
-    "account_changed": "Changed to {{account}} account"
+    "account_changed": "Changed to {{account}} account",
+    "connected_accounts": "Connected Accounts",
+    "available_accounts": "Available Accounts",
+    "no_additional_accounts": "No additional accounts available"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",

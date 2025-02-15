@@ -79,14 +79,16 @@ export default function ConnectWalletMenu() {
       <DropdownMenu.Content className="top-52 min-w-320 bg-primary-70 ltr:-left-144 sm:ltr:left-auto sm:ltr:right-0 rtl:right-144 sm:rtl:left-0 sm:rtl:right-auto">
         <div className="grid gap-20 p-16" ref={dropdownRef}>
           <AccountsSection
-            title="Connected Account"
+            title={t('global.connected_accounts')}
+            type="ConnectedAccounts"
             accounts={[selectedAccount]}
             isConnectedAccount={isWalletConnected}
             onConnect={handleChangeAccount}
             onDisconnect={disconnect}
           />
           <AccountsSection
-            title="Available Accounts"
+            title={t('global.available_accounts')}
+            type="AvailableAccounts"
             accounts={availableAccounts}
             isConnectedAccount={false}
             onConnect={handleChangeAccount}
