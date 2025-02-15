@@ -14,6 +14,7 @@ type Props = {
   ellipsis?: boolean
   className?: string
   showTooltip?: boolean
+  noWrap?: boolean
   tooltipContent?: string
 }
 
@@ -38,6 +39,7 @@ export default function ExplorerLink({
   copy = false,
   ellipsis = false,
   showTooltip = false,
+  noWrap = false,
   tooltipContent = value
 }: Props) {
   const txLink = useMemo(() => {
@@ -56,6 +58,7 @@ export default function ExplorerLink({
         <a
           className={clsxTwMerge(
             'break-all font-space text-xxs text-primary-30 xs:text-xs',
+            noWrap && 'whitespace-nowrap',
             className
           )}
           href={getExplorerLinkUrl(value, type)}
@@ -67,7 +70,7 @@ export default function ExplorerLink({
         {copy && <CopyTextButton text={value} />}
       </div>
     )
-  }, [className, value, type, copy, label, ellipsis])
+  }, [noWrap, className, value, type, copy, label, ellipsis])
 
   return showTooltip ? (
     <Tooltip tooltipId={value} content={tooltipContent}>

@@ -38,7 +38,7 @@ const genEntityOrderRowCells = (
     },
     {
       key: 'issuer',
-      content: <EntityLink value={entityOrder.issuerId} showTooltip ellipsis />
+      content: <EntityLink value={entityOrder.issuerId} showTooltip ellipsis noWrap />
     },
     {
       key: 'side',

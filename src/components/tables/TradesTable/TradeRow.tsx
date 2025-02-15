@@ -50,16 +50,22 @@ const genTradeRowCells = (trade: Trade, t: TFunction): TableRows => [
   {
     key: 'hash',
     content: (
-      <ExplorerLink type={ExplorerLinkType.TX} value={trade.transactionHash} ellipsis showTooltip />
+      <ExplorerLink
+        type={ExplorerLinkType.TX}
+        value={trade.transactionHash}
+        ellipsis
+        showTooltip
+        noWrap
+      />
     )
   },
   {
     key: 'taker',
-    content: <EntityLink value={trade.taker} ellipsis showTooltip />
+    content: <EntityLink value={trade.taker} ellipsis showTooltip noWrap />
   },
   {
     key: 'maker',
-    content: <EntityLink value={trade.maker} ellipsis showTooltip />
+    content: <EntityLink value={trade.maker} ellipsis showTooltip noWrap />
   },
   {
     key: 'date_and_time',

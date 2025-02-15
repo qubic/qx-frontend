@@ -24,7 +24,7 @@ const genIssuedAssetRowCells = (issuedAsset: IssuedAsset): TableRows => [
   },
   {
     key: 'issuer',
-    content: <EntityLink value={issuedAsset.source} showTooltip ellipsis />
+    content: <EntityLink value={issuedAsset.source} showTooltip ellipsis noWrap />
   },
   {
     key: 'amount',
@@ -39,13 +39,20 @@ const genIssuedAssetRowCells = (issuedAsset: IssuedAsset): TableRows => [
         type={ExplorerLinkType.TICK}
         label={formatString(issuedAsset.tick)}
         value={String(issuedAsset.tick)}
+        noWrap
       />
     )
   },
   {
     key: 'hash',
     content: (
-      <ExplorerLink type={ExplorerLinkType.TX} value={issuedAsset.hash} ellipsis showTooltip />
+      <ExplorerLink
+        type={ExplorerLinkType.TX}
+        value={issuedAsset.hash}
+        ellipsis
+        showTooltip
+        noWrap
+      />
     )
   },
 
