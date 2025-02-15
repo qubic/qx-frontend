@@ -93,8 +93,8 @@ export default function ConfirmTradeStep({
           endIcon="QUBIC"
           hideNumberInputArrows
           onChange={onPriceChange}
-          value={price}
-          min={0}
+          value={price === 0 ? '' : price}
+          min={1}
           error={errors.price}
         />
         <TextInput
@@ -104,8 +104,8 @@ export default function ConfirmTradeStep({
           endIcon={orderPath.asset}
           hideNumberInputArrows
           onChange={onAmountChange}
-          value={amount}
-          min={0}
+          value={amount === 0 ? '' : amount}
+          min={1}
           error={errors.amount}
         />
         <div className="flex space-x-4">
