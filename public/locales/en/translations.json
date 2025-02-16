@@ -75,8 +75,8 @@
     "latest_asset_transfers": "Latest asset transfers"
   },
   "entity_page": {
-    "open_ask_orders": "Open Ask Orders",
-    "open_bid_orders": "Open Bid Orders",
+    "open_ask_orders": "Open Sell Orders",
+    "open_bid_orders": "Open Buy Orders",
     "open_orders": "Open Orders"
   },
   "error_page": {
