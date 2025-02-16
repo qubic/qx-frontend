@@ -1,7 +1,7 @@
 import type { TableColumns } from '@app/types'
 
 export const ASSET_ORDERS_TABLE_COLUMNS: TableColumns = [
-  { i18nKey: 'global.price', label: '(QUBIC)', align: 'right' },
+  { i18nKey: 'global.price', label: '(QUBIC)', align: 'left' },
   { i18nKey: 'global.amount', align: 'right' },
   { i18nKey: 'global.total', label: '(QUBIC)', align: 'right' },
   { i18nKey: 'global.actions', show: false }

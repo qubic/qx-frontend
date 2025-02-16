@@ -24,7 +24,7 @@ const genAssetOrderRowCells = (
         {formatString(assetOrder.price)}
       </span>
     ),
-    align: 'right'
+    align: 'left'
   },
   {
     key: 'amount',

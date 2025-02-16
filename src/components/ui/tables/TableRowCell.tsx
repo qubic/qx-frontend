@@ -14,7 +14,7 @@ const TableRowCell = memo(({ children, className, align = 'center', ...rest }: P
     // eslint-disable-next-line react/jsx-props-no-spreading
     {...rest}
     align={align}
-    className={clsxTwMerge('px-12 py-10 text-xxs xs:text-xs', className)}
+    className={clsxTwMerge('px-14 py-10 text-xxs xs:text-xs', className)}
   >
     {children}
   </td>

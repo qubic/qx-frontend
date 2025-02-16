@@ -12,7 +12,7 @@ type Props = Readonly<{
 
 const TableHeadCell = memo(
   ({ children, label, className, align = 'center', show = true }: Props) => (
-    <th className={clsxTwMerge('p-16 text-xxs font-400 xs:text-xs', className)} align={align}>
+    <th className={clsxTwMerge('p-14 text-xxs font-400 xs:text-xs', className)} align={align}>
       {show && (
         <span className="text-gray-50">
           {children}
