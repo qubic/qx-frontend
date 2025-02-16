@@ -10,6 +10,12 @@ import { WalletConnectionStatus } from './WalletConnectContext'
 
 const log = makeLog(LogFeature.WALLET_CONNECT_CONTEXT)
 
+const PROPOSAL_EXPIRE_EXCLUDED_STATUSES = [
+  WalletConnectionStatus.PROPOSAL_EXPIRED,
+  WalletConnectionStatus.USER_REJECTED_CONNECTION,
+  WalletConnectionStatus.ERROR
+]
+
 type CreateWalletConnectListenersInput = {
   updateStatus: (status: WalletConnectionStatus) => void
   disconnect: () => void
@@ -30,7 +36,7 @@ export function createWalletConnectListeners({
       event: 'proposal_expire',
       listener: (payload) => {
         log('proposal_expire', payload)
-        if (statusRef.current !== WalletConnectionStatus.PROPOSAL_EXPIRED) {
+        if (!PROPOSAL_EXPIRE_EXCLUDED_STATUSES.includes(statusRef.current)) {
           updateStatus(WalletConnectionStatus.PROPOSAL_EXPIRED)
         }
       }
