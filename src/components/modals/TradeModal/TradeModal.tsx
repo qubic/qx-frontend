@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { QubicConnectLogo, XmarkIcon } from '@app/assets/icons'
 import { PortalModalWrapper } from '@app/components/ui/modals'
@@ -18,6 +19,7 @@ export type TradeModalProps = Readonly<{
 }>
 
 export default function TradeModal({ orderType, orderPath, orderPayload }: TradeModalProps) {
+  const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const [price, setPrice] = useState<number>(orderPayload.pricePerShare)
   const [amount, setAmount] = useState<number>(orderPayload.numberOfShares)
@@ -67,9 +69,21 @@ export default function TradeModal({ orderType, orderPath, orderPayload }: Trade
             }}
           />
         )
+      case TradeModalStep.DECLINED_STATE:
+        return (
+          <ErrorStep
+            title={t('global.declined')}
+            description={t('trade_modal.declined_state_desc')}
+            onTryAgain={() => {
+              handleModalStepChange(TradeModalStep.CONFIRM_TRADE)
+            }}
+          />
+        )
       case TradeModalStep.ERROR_STATE:
         return (
           <ErrorStep
+            title={t('global.cancelled')}
+            description={t('trade_modal.error_state_desc')}
             onTryAgain={() => {
               handleModalStepChange(TradeModalStep.CONFIRM_TRADE)
             }}

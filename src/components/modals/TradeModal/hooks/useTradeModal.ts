@@ -81,7 +81,11 @@ export default function useTradeModal({
       // eslint-disable-next-line no-console
       console.error('Error while sending transaction:', err)
       setError(err instanceof Error ? err.message : 'An error occurred')
-      setModalStep(TradeModalStep.ERROR_STATE)
+      setModalStep(
+        err && typeof err === 'object' && 'code' in err && err.code === 5000
+          ? TradeModalStep.DECLINED_STATE
+          : TradeModalStep.ERROR_STATE
+      )
     } finally {
       setIsLoading(false)
     }

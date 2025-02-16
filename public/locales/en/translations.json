@@ -124,6 +124,7 @@
     "success_state_cta": "Place another order",
     "success_state_desc": "Your order transaction has been successfully submitted. You can track its status in your wallet to ensure it has been placed correctly. The order will be processed based on the availability of matching bids or asks. Feel free to monitor its progress or check back later for updates.",
     "error_state_desc": "The transaction was unsuccessful, but your funds remain safe in your wallet. Feel free to attempt the transaction again. If the problem continues, please reach out to support for assistance.",
+    "declined_state_desc": "You declined the transaction. Your funds remain safe in your wallet.",
     "errors": {
       "price": "Invalid price",
       "amount": "Invalid amount",
