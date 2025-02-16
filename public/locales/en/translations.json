@@ -9,6 +9,7 @@
     "paste": "Paste",
     "cancel": "Cancel",
     "cancelled": "Cancelled",
+    "declined": "Declined",
     "success": "Success",
     "close": "Close",
     "confirm": "Confirm",
@@ -108,7 +109,8 @@
     "scan_qr": "Scan this QR code with your Qubic Wallet or copy the link below:",
     "metamask_cooming_soon": "MetaMask (coming soon)",
     "wallet_connection_gen_url_error": "Failed to generate WalletConnect URI. Please try again.",
-    "wallet_connection_expired": "Your connection request has expired. Please generate a new QR code to try again."
+    "wallet_connection_expired": "Your connection request has expired. Please generate a new QR code to try again.",
+    "user_rejected_connection": "You declined the connection request."
   },
   "errors": {
     "error_fetching_data": "Something went wrong while fetching the data. Please try again later.",

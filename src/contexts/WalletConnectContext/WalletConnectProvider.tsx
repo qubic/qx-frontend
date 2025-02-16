@@ -61,11 +61,15 @@ export default function WalletConnectProvider({ children }: { children: React.Re
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Connection Error:', error)
-      updateStatus(
-        extractErrorMessage(error).includes('Proposal expired')
-          ? WalletConnectionStatus.PROPOSAL_EXPIRED
-          : WalletConnectionStatus.ERROR
-      )
+
+      const errorMessage = extractErrorMessage(error)
+      if (errorMessage.includes('Proposal expired')) {
+        updateStatus(WalletConnectionStatus.PROPOSAL_EXPIRED)
+      } else if (error && typeof error === 'object' && 'code' in error && error.code === 5000) {
+        updateStatus(WalletConnectionStatus.USER_REJECTED_CONNECTION)
+      } else {
+        updateStatus(WalletConnectionStatus.ERROR)
+      }
     } finally {
       setWcUri('')
     }

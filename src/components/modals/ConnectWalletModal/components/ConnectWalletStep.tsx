@@ -1,13 +1,20 @@
 import { QRCodeCanvas } from 'qrcode.react'
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { XmarkIcon } from '@app/assets/icons'
 import { Skeleton } from '@app/components/ui'
 import { Button, CopyTextButton } from '@app/components/ui/buttons'
 import { WalletConnectionStatus } from '@app/contexts'
 import { useWalletConnect } from '@app/hooks'
 
 import { ModalStep } from '../connect-wallet-modal.types'
+
+const RETRYABLE_STATUSES = [
+  WalletConnectionStatus.USER_REJECTED_CONNECTION,
+  WalletConnectionStatus.PROPOSAL_EXPIRED,
+  WalletConnectionStatus.ERROR
+]
 
 type Props = Readonly<{
   onModalStepChange: (step: ModalStep) => void
@@ -31,23 +38,34 @@ function ConnectWalletContent({
 }) {
   const { t } = useTranslation()
 
-  if (status === WalletConnectionStatus.CONNECTING && !wcUri) {
-    return (
+  const statusContentMap: Partial<Record<WalletConnectionStatus, React.JSX.Element | null>> = {
+    [WalletConnectionStatus.CONNECTING]: !wcUri ? (
       <>
         <p>{t('connect_wallet_modal.scan_qr')}</p>
         <QrCodeSkeleton />
       </>
-    )
-  }
-
-  if (status === WalletConnectionStatus.PROPOSAL_EXPIRED) {
-    return <p>{t('connect_wallet_modal.wallet_connection_expired')}</p>
-  }
-
-  if (status === WalletConnectionStatus.ERROR) {
-    return (
+    ) : null,
+    [WalletConnectionStatus.USER_REJECTED_CONNECTION]: (
+      <>
+        <div className="flex flex-col items-center gap-12">
+          <h2 className="text-24 font-bold">{t('global.declined')}</h2>
+          <div className="size-fit rounded-full bg-red-500">
+            <XmarkIcon className="size-64 text-primary-70" />
+          </div>
+        </div>
+        <p>{t('connect_wallet_modal.user_rejected_connection')}</p>
+      </>
+    ),
+    [WalletConnectionStatus.PROPOSAL_EXPIRED]: (
+      <p>{t('connect_wallet_modal.wallet_connection_expired')}</p>
+    ),
+    [WalletConnectionStatus.ERROR]: (
       <p className="text-red-500">{t('connect_wallet_modal.wallet_connection_gen_url_error')}</p>
     )
+  }
+
+  if (statusContentMap[status]) {
+    return statusContentMap[status]
   }
 
   if (wcUri) {
@@ -76,6 +94,8 @@ export default function ConnectWalletStep({ onModalStepChange }: Props) {
     [onModalStepChange]
   )
 
+  const shouldShowRetry = useMemo(() => RETRYABLE_STATUSES.includes(status), [status])
+
   return (
     <div className="grid place-items-center gap-24">
       <ConnectWalletContent wcUri={wcUri} status={status} />
@@ -83,10 +103,7 @@ export default function ConnectWalletStep({ onModalStepChange }: Props) {
         <Button variant="outlined" onClick={handleCancel}>
           {t('global.cancel')}
         </Button>
-        {(status === WalletConnectionStatus.PROPOSAL_EXPIRED ||
-          status === WalletConnectionStatus.ERROR) && (
-          <Button onClick={connect}>{t('global.try_again')}</Button>
-        )}
+        {shouldShowRetry && <Button onClick={connect}>{t('global.try_again')}</Button>}
       </div>
     </div>
   )
