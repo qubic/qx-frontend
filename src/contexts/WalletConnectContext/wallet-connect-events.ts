@@ -42,12 +42,6 @@ export function createWalletConnectListeners({
       }
     },
     {
-      event: 'session_authenticate',
-      listener: (payload) => {
-        log('session_authenticate', payload)
-      }
-    },
-    {
       event: 'session_delete',
       listener: (payload) => {
         log('session_delete', payload)
@@ -71,63 +65,71 @@ export function createWalletConnectListeners({
         log('session_expire', payload)
         walletClient.clearSession('Session expired', payload)
       }
-    },
-    {
-      event: 'session_extend',
-      listener: (payload) => {
-        log('session_extend', payload)
-      }
-    },
-    {
-      event: 'session_ping',
-      listener: (payload) => {
-        log('session_ping', payload)
-      }
-    },
-    {
-      event: 'session_proposal',
-      listener: (payload) => {
-        log('session_proposal', payload)
-      }
-    },
-    {
-      event: 'session_request',
-      listener: (payload) => {
-        log('session_request', payload)
-      }
-    },
-    {
-      event: 'session_request_expire',
-      listener: (payload) => {
-        log('session_request_expire', payload)
-      }
-    },
-    {
-      event: 'session_request_sent',
-      listener: (payload) => {
-        log('session_request_sent', payload)
-      }
-    },
-    {
-      event: 'session_update',
-      listener: (payload) => {
-        log('session_update', payload)
-      }
     }
+    // Available events that are not used yet in the app. Need to check if we are going to use them in the future
+    // {
+    //   event: 'session_authenticate',
+    //   listener: (payload) => {
+    //     log('session_authenticate', payload)
+    //   }
+    // },
+    // {
+    //   event: 'session_extend',
+    //   listener: (payload) => {
+    //     log('session_extend', payload)
+    //   }
+    // },
+    // {
+    //   event: 'session_ping',
+    //   listener: (payload) => {
+    //     log('session_ping', payload)
+    //   }
+    // },
+    // {
+    //   event: 'session_proposal',
+    //   listener: (payload) => {
+    //     log('session_proposal', payload)
+    //   }
+    // },
+    // {
+    //   event: 'session_request',
+    //   listener: (payload) => {
+    //     log('session_request', payload)
+    //   }
+    // },
+    // {
+    //   event: 'session_request_expire',
+    //   listener: (payload) => {
+    //     log('session_request_expire', payload)
+    //   }
+    // },
+    // {
+    //   event: 'session_request_sent',
+    //   listener: (payload) => {
+    //     log('session_request_sent', payload)
+    //   }
+    // },
+    // {
+    //   event: 'session_update',
+    //   listener: (payload) => {
+    //     log('session_update', payload)
+    //   }
+    // }
   ]
 }
 
 export function removeWalletConnectListeners(walletClient: WalletConnectClient) {
   walletClient.removeAllListeners('proposal_expire')
-  walletClient.removeAllListeners('session_authenticate')
   walletClient.removeAllListeners('session_delete')
   walletClient.removeAllListeners('session_event')
   walletClient.removeAllListeners('session_expire')
-  walletClient.removeAllListeners('session_extend')
-  walletClient.removeAllListeners('session_ping')
-  walletClient.removeAllListeners('session_proposal')
-  walletClient.removeAllListeners('session_request')
-  walletClient.removeAllListeners('session_request_expire')
-  walletClient.removeAllListeners('session_request_sent')
-  walletClient.removeAllListeners('session_update')
+  // Available events that are not used yet in the app. Need to check if we are going to use them in the future
+  // walletClient.removeAllListeners('session_authenticate')
+  // walletClient.removeAllListeners('session_extend')
+  // walletClient.removeAllListeners('session_ping')
+  // walletClient.removeAllListeners('session_proposal')
+  // walletClient.removeAllListeners('session_request')
+  // walletClient.removeAllListeners('session_request_expire')
+  // walletClient.removeAllListeners('session_request_sent')
+  // walletClient.removeAllListeners('session_update')
 }
