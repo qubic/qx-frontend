@@ -15,7 +15,7 @@ export default function EntityOwnerOrders({ orders, isFetching, isError }: Props
 
   return (
     <section className="grid gap-24">
-      <h2 className="text-center text-xl font-bold">{t('entity_page.open_orders')}</h2>
+      <h2 className="text-center text-xl font-bold">{t('entity_page.my_open_orders')}</h2>
       <EntityOrdersTable
         entityOrders={orders}
         isLoading={isFetching}

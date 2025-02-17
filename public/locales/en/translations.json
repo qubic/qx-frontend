@@ -52,7 +52,9 @@
     "account_changed": "Changed to {{account}} account",
     "connected_accounts": "Connected Accounts",
     "available_accounts": "Available Accounts",
-    "no_additional_accounts": "No additional accounts available"
+    "no_additional_accounts": "No additional accounts available",
+    "open_buy_order": "Open Buy Order",
+    "open_sell_order": "Open Sell Order"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
@@ -77,7 +79,7 @@
   "entity_page": {
     "open_ask_orders": "Open Sell Orders",
     "open_bid_orders": "Open Buy Orders",
-    "open_orders": "Open Orders"
+    "my_open_orders": "My Open Orders"
   },
   "error_page": {
     "page_not_found": "Page not found",
@@ -140,13 +142,13 @@
     "removing_order": "Removing Order...",
     "remove_order_desc": "Are you sure you want to remove your <side>{{side}}</side> order for <amount>{{amount}}</amount> <asset>{{asset}}</asset> at <price>{{price}}</price> QUBIC each, totaling <total>{{total}}</total> QUBIC?",
     "remove_order_success": "Transaction sent successfully, Order will be removed at tick <tick>{{tick}}</tick>",
-    "error_removing_order": "Error while sending transaction to remove order"
+    "error_removing_order": "Remove order has failed"
   },
   "rpc_errors": {
     "user_unavailable": "You're currently busy with another request. Please complete or cancel it before trying again.",
     "tick_expired": "This transaction took too long and tick has expired. Please try again.",
     "invalid_arguments": "Something's off with the request. Double-check your inputs and try again.",
     "internal_error": "Oops! Something went wrong on our end. Please try again in a moment.",
-    "user_rejected": "You declined the transaction."
+    "user_rejected": "You rejected the transaction."
   }
 }
