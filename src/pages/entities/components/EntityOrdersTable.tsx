@@ -100,7 +100,7 @@ export default function EntityOrdersTable({
         className
       )}
     >
-      <div className="overflow-x-scroll md:h-200">
+      <div className="h-200 overflow-x-scroll">
         <table className="h-fit w-full">
           <thead className="sticky top-0 z-10 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
             {renderTableHeadContent()}

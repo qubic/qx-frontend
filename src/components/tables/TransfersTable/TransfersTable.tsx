@@ -66,9 +66,9 @@ export default function TransfersTable({ transfers, isLoading, hasError }: Props
 
   return (
     <div className="w-[85vw] max-w-2xl rounded-12 border-1 border-primary-60 bg-primary-70 pb-16">
-      <div className="overflow-x-scroll">
+      <div className="h-200 overflow-x-scroll">
         <table className="w-full">
-          <thead className="border-b-1 border-primary-60 text-left font-space text-sm text-gray-50">
+          <thead className="sticky top-0 z-10 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
             {renderTableHeadContent()}
           </thead>
           <tbody>{renderTableContent()}</tbody>
