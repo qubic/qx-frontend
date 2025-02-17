@@ -4,7 +4,7 @@ import { LoadingSpinner } from '../loaders'
 
 type Variant = 'filled' | 'outlined' | 'text' | 'link'
 type Color = 'primary' | 'secondary' | 'red' | 'green'
-type Size = 'xs' | 'sm' | 'md' | 'lg'
+type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg'
 
 export type ButtonProps<T extends React.ElementType = 'button'> = {
   children: React.ReactNode
@@ -18,7 +18,8 @@ export type ButtonProps<T extends React.ElementType = 'button'> = {
 } & React.ComponentPropsWithoutRef<T>
 
 const sizeClasses = {
-  xs: 'px-12 py-8 text-xs',
+  xxs: 'px-8 py-6 text-xxs gap-4',
+  xs: 'px-12 py-8 text-xs gap-6',
   sm: 'px-16 py-8 text-sm',
   md: 'px-24 py-12 text-base',
   lg: 'px-28 py-14 text-lg'
