@@ -125,14 +125,14 @@ export default function ConfirmTradeStep({
         <Button
           type="button"
           onClick={onConfirmTrade}
-          color={OrderType.BID === orderType ? 'red' : 'green'}
+          color={OrderType.BID === orderType ? 'green' : 'red'}
           isLoading={isLoading}
           loadingText={t('trade_modal.placing_order')}
           disabled={isLoading || Object.values(errors).some(Boolean)}
         >
           {OrderType.BID === orderType
-            ? t('trade_modal.place_sell_order')
-            : t('trade_modal.place_buy_order')}
+            ? t('trade_modal.place_buy_order')
+            : t('trade_modal.place_sell_order')}
         </Button>
       </div>
     </form>

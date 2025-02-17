@@ -29,10 +29,10 @@ export const confirmTradeValidator = (
       errors[err.path[0] as keyof typeof data] = t(`trade_modal.errors.${err.path[0]}`)
     })
   }
-  if (ctx.totalQubic > ctx.userQubicBalance && ctx.orderType === OrderType.ASK) {
+  if (ctx.totalQubic > ctx.userQubicBalance && ctx.orderType === OrderType.BID) {
     errors.price = t('trade_modal.errors.not_enough_qubic')
   }
-  if (data.amount > ctx.userAssetBalance && ctx.orderType === OrderType.BID) {
+  if (data.amount > ctx.userAssetBalance && ctx.orderType === OrderType.ASK) {
     errors.amount = t('trade_modal.errors.not_enough_asset', { asset: ctx.asset })
   }
 

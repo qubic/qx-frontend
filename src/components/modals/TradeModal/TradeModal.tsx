@@ -1,9 +1,9 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { QubicConnectLogo, XmarkIcon } from '@app/assets/icons'
 import { PortalModalWrapper } from '@app/components/ui/modals'
-import { useAppDispatch } from '@app/hooks'
+import { useAppDispatch, useWalletConnect } from '@app/hooks'
 import { hideModal } from '@app/store/modalSlice'
 import type { OrderType } from '@app/types/enums'
 
@@ -23,6 +23,8 @@ export default function TradeModal({ orderType, orderPath, orderPayload }: Trade
   const dispatch = useAppDispatch()
   const [price, setPrice] = useState<number>(orderPayload.pricePerShare)
   const [amount, setAmount] = useState<number>(orderPayload.numberOfShares)
+
+  const { isWalletConnected } = useWalletConnect()
 
   const { modalStep, handleModalStepChange, handleTrade, isLoading } = useTradeModal({
     orderType,
@@ -44,6 +46,12 @@ export default function TradeModal({ orderType, orderPath, orderPayload }: Trade
   const handleCloseModal = useCallback(() => {
     dispatch(hideModal())
   }, [dispatch])
+
+  useEffect(() => {
+    if (!isWalletConnected) {
+      dispatch(hideModal())
+    }
+  }, [isWalletConnected, dispatch])
 
   const renderModalContent = () => {
     switch (modalStep) {

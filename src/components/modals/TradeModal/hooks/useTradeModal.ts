@@ -53,7 +53,7 @@ export default function useTradeModal({
       setIsLoading(true)
 
       const transactionPayload = await (
-        orderType === OrderType.BID ? triggerAskOrder : triggerBidOrder
+        orderType === OrderType.BID ? triggerBidOrder : triggerAskOrder
       )({
         path: orderPath,
         payload: { from: selectedAccount.address, ...orderPayload }
