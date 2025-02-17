@@ -2,11 +2,10 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import type { OrderPayload } from '@app/components/modals/TradeModal/trade-modal.types'
-import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
+import { ErrorRow, NoItemsFoundRow, TableHead, TableWrapper } from '@app/components/tables'
 import { TableHeadCell } from '@app/components/ui/tables'
 import type { AssetOrder } from '@app/store/apis/qx'
 import type { OrderType } from '@app/types/enums'
-import { clsxTwMerge } from '@app/utils'
 
 import {
   ASSET_ORDERS_TABLE_COLUMNS,
@@ -28,7 +27,6 @@ type Props = Readonly<{
   onRowActionClick: (orderPayload: OrderPayload) => void
   isLoading: boolean
   hasError: boolean
-  className?: string
 }>
 
 export default function AssetOrdersTable({
@@ -36,8 +34,7 @@ export default function AssetOrdersTable({
   ordersType,
   onRowActionClick,
   isLoading,
-  hasError,
-  className
+  hasError
 }: Props) {
   const { t } = useTranslation()
 
@@ -90,20 +87,9 @@ export default function AssetOrdersTable({
   }, [isLoading, assetOrders, hasError, t, ordersType, onRowActionClick])
 
   return (
-    <div
-      className={clsxTwMerge(
-        'w-full max-w-2xl rounded-12 border-1 border-primary-60 bg-primary-70 pb-16 pt-4',
-        className
-      )}
-    >
-      <div className="h-200 overflow-x-scroll">
-        <table className="h-fit w-full">
-          <thead className="sticky top-0 z-10 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
-            {renderTableHeadContent()}
-          </thead>
-          <tbody>{renderTableContent()}</tbody>
-        </table>
-      </div>
-    </div>
+    <TableWrapper className="w-full">
+      <TableHead>{renderTableHeadContent()}</TableHead>
+      <tbody>{renderTableContent()}</tbody>
+    </TableWrapper>
   )
 }

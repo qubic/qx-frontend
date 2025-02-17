@@ -6,6 +6,8 @@ import type { Trade } from '@app/store/apis/qx'
 
 import ErrorRow from '../ErrorRow'
 import NoItemsFoundRow from '../NoItemsFoundRow'
+import TableHead from '../TableHead'
+import TableWrapper from '../TableWrapper'
 
 import {
   TRADES_TABLE_COLUMNS,
@@ -65,15 +67,9 @@ export default function TradesTable({ trades, isLoading, hasError }: Props) {
   }, [isLoading, trades, hasError, t])
 
   return (
-    <div className="w-[85vw] max-w-2xl rounded-12 border-1 border-primary-60 bg-primary-70 pb-16">
-      <div className="h-200 overflow-x-scroll">
-        <table className="w-full">
-          <thead className="sticky top-0 z-10 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
-            {renderTableHeadContent()}
-          </thead>
-          <tbody>{renderTableContent()}</tbody>
-        </table>
-      </div>
-    </div>
+    <TableWrapper>
+      <TableHead>{renderTableHeadContent()}</TableHead>
+      <tbody>{renderTableContent()}</tbody>
+    </TableWrapper>
   )
 }

@@ -1,9 +1,8 @@
 import { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
+import { ErrorRow, NoItemsFoundRow, TableHead, TableWrapper } from '@app/components/tables'
 import { TableHeadCell } from '@app/components/ui/tables'
-import { clsxTwMerge } from '@app/utils'
 
 import {
   ENTITY_ORDERS_TABLE_COLUMNS,
@@ -25,15 +24,13 @@ type Props = Readonly<{
   isEntityOwner: boolean
   isLoading: boolean
   hasError: boolean
-  className?: string
 }>
 
 export default function EntityOrdersTable({
   entityOrders,
   isEntityOwner,
   isLoading,
-  hasError,
-  className
+  hasError
 }: Props) {
   const { t } = useTranslation()
 
@@ -93,21 +90,11 @@ export default function EntityOrdersTable({
   }, [isLoading, entityOrders, hasError, tableCols.length, t, isEntityOwner])
 
   return (
-    <div
-      className={clsxTwMerge(
-        'w-full max-w-2xl rounded-12 border-1 border-primary-60 bg-primary-70 pb-16 pt-4',
-        isEntityOwner && 'w-[85vw]',
-        className
-      )}
-    >
-      <div className="h-200 overflow-x-scroll">
-        <table className="h-fit w-full">
-          <thead className="sticky top-0 z-10 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
-            {renderTableHeadContent()}
-          </thead>
-          <tbody>{renderTableContent()}</tbody>
-        </table>
-      </div>
-    </div>
+    <TableWrapper className={!isEntityOwner ? 'w-full' : ''}>
+      <TableHead className="sticky top-0 z-10 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
+        {renderTableHeadContent()}
+      </TableHead>
+      <tbody>{renderTableContent()}</tbody>
+    </TableWrapper>
   )
 }

@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ErrorRow, NoItemsFoundRow } from '@app/components/tables'
+import { ErrorRow, NoItemsFoundRow, TableHead, TableWrapper } from '@app/components/tables'
 import { TableHeadCell } from '@app/components/ui/tables'
 import type { IssuedAsset } from '@app/store/apis/qx'
 
@@ -66,15 +66,9 @@ export default function IssuedAssetsTable({ issuedAssets, isLoading, hasError }:
   }, [isLoading, issuedAssets, hasError, t])
 
   return (
-    <div className="w-[85vw] max-w-2xl rounded-12 border-1 border-primary-60 bg-primary-70 pb-16">
-      <div className="h-200 overflow-x-scroll">
-        <table className="w-full">
-          <thead className="sticky top-0 z-10 border-b-1 border-primary-60 bg-primary-70 text-left font-space text-sm text-gray-50">
-            {renderTableHeadContent()}
-          </thead>
-          <tbody>{renderTableContent()}</tbody>
-        </table>
-      </div>
-    </div>
+    <TableWrapper>
+      <TableHead>{renderTableHeadContent()}</TableHead>
+      <tbody>{renderTableContent()}</tbody>
+    </TableWrapper>
   )
 }
