@@ -3,10 +3,12 @@ import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
+import { PlusIcon } from '@app/assets/icons'
 import { withHelmet } from '@app/components/hocs'
 import type { OrderPayload } from '@app/components/modals/TradeModal/trade-modal.types'
 import { TradesTable, TransfersTable } from '@app/components/tables'
 import { LightweightChart } from '@app/components/ui'
+import { Button } from '@app/components/ui/buttons'
 import { PageLayout } from '@app/components/ui/layouts'
 import { EntityLink } from '@app/components/ui/links'
 import { useAppDispatch, useWalletConnect } from '@app/hooks'
@@ -56,6 +58,29 @@ function AssetPage() {
     [averagePrices.data]
   )
 
+  const handleAddOrderClick = useCallback(
+    (orderType: OrderType) => {
+      if (!isWalletConnected) {
+        dispatch(showModal({ modalType: ModalType.CONNECT_WALLET }))
+      } else {
+        dispatch(
+          showModal({
+            modalType: ModalType.CONFIRM_TRADE,
+            modalProps: {
+              orderType,
+              orderPath: commonArgs,
+              orderPayload: {
+                numberOfShares: 1,
+                pricePerShare: 1
+              }
+            }
+          })
+        )
+      }
+    },
+    [commonArgs, dispatch, isWalletConnected]
+  )
+
   const handleRowActionClick = useCallback(
     (orderType: OrderType) => (orderPayload: OrderPayload) => {
       if (!isWalletConnected) {
@@ -96,26 +121,48 @@ function AssetPage() {
         </section>
       )}
 
-      <section className="grid w-[85vw] max-w-2xl gap-24 md:grid-cols-2">
-        <section className="flex w-[85vw] max-w-2xl flex-col gap-24 md:w-full">
-          <h2 className="text-center text-xl font-bold">{t('entity_page.open_ask_orders')}</h2>
-          <AssetOrdersTable
-            assetOrders={askOrders.data}
-            ordersType={OrderType.ASK}
-            onRowActionClick={handleRowActionClick(OrderType.ASK)}
-            isLoading={askOrders.isFetching}
-            hasError={askOrders.isError}
-          />
-        </section>
-        <section className="flex w-[85vw] max-w-2xl flex-col gap-24 md:w-full">
-          <h2 className="text-center text-xl font-bold">{t('entity_page.open_bid_orders')}</h2>
-          <AssetOrdersTable
-            assetOrders={bidOrders.data}
-            ordersType={OrderType.BID}
-            onRowActionClick={handleRowActionClick(OrderType.BID)}
-            isLoading={bidOrders.isFetching}
-            hasError={bidOrders.isError}
-          />
+      <section>
+        <section className="grid w-[85vw] max-w-2xl gap-24 md:grid-cols-2">
+          <section className="relative flex w-[85vw] max-w-2xl flex-col gap-8 md:w-full lg:gap-24">
+            <h2 className="text-center text-xl font-bold">{t('entity_page.open_ask_orders')}</h2>
+            <Button
+              size="xxs"
+              variant="outlined"
+              color="secondary"
+              onClick={() => handleAddOrderClick(OrderType.ASK)}
+              className="right-0 top-10 flex w-fit self-end lg:absolute"
+            >
+              <PlusIcon className="size-16" />
+              {t('global.open_sell_order')}
+            </Button>
+            <AssetOrdersTable
+              assetOrders={askOrders.data}
+              ordersType={OrderType.ASK}
+              onRowActionClick={handleRowActionClick(OrderType.BID)}
+              isLoading={askOrders.isFetching}
+              hasError={askOrders.isError}
+            />
+          </section>
+          <section className="flex w-[85vw] max-w-2xl flex-col gap-8 md:relative md:w-full lg:gap-24">
+            <h2 className="text-center text-xl font-bold">{t('entity_page.open_bid_orders')}</h2>
+            <Button
+              size="xxs"
+              variant="outlined"
+              color="secondary"
+              onClick={() => handleAddOrderClick(OrderType.BID)}
+              className="right-0 top-10 flex w-fit self-end lg:absolute"
+            >
+              <PlusIcon className="size-16" />
+              {t('global.open_buy_order')}
+            </Button>
+            <AssetOrdersTable
+              assetOrders={bidOrders.data}
+              ordersType={OrderType.BID}
+              onRowActionClick={handleRowActionClick(OrderType.ASK)}
+              isLoading={bidOrders.isFetching}
+              hasError={bidOrders.isError}
+            />
+          </section>
         </section>
       </section>
 
