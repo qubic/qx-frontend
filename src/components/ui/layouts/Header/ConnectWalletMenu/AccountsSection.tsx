@@ -57,7 +57,7 @@ export default function AccountsSection({
         />
       </div>
     ))
-  }, [accounts, isConnectedAccount, onConnect, onDisconnect, type])
+  }, [accounts, isConnectedAccount, onConnect, onDisconnect, t, type])
 
   return (
     <section className="space-y-10">
