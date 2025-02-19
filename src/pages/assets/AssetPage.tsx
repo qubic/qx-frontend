@@ -1,7 +1,7 @@
 import type { SingleValueData } from 'lightweight-charts'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { PlusIcon } from '@app/assets/icons'
 import { withHelmet } from '@app/components/hocs'
@@ -12,6 +12,7 @@ import { Button } from '@app/components/ui/buttons'
 import { PageLayout } from '@app/components/ui/layouts'
 import { EntityLink } from '@app/components/ui/links'
 import { useAppDispatch, useWalletConnect } from '@app/hooks'
+import { PublicRoutes } from '@app/router'
 import {
   useGetAssetAskOrdersQuery,
   useGetAssetBidOrdersQuery,
@@ -29,7 +30,7 @@ function AssetPage() {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
 
-  const { isWalletConnected } = useWalletConnect()
+  const { isWalletConnected, selectedAccount } = useWalletConnect()
 
   const commonArgs = useMemo(
     () => ({ issuer: assetIssuer, asset: assetName }),
@@ -164,6 +165,20 @@ function AssetPage() {
             />
           </section>
         </section>
+        {selectedAccount && (
+          <div className="flex w-full justify-center">
+            <Button
+              size="xs"
+              variant="outlined"
+              color="secondary"
+              as={Link}
+              to={PublicRoutes.ENTITIES.DETAILS(selectedAccount.address)}
+              className="mt-20 flex"
+            >
+              {t('global.check_my_orders')}
+            </Button>
+          </div>
+        )}
       </section>
 
       <section className="grid gap-24">
