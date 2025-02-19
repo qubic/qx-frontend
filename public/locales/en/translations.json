@@ -54,7 +54,8 @@
     "available_accounts": "Available Accounts",
     "no_additional_accounts": "No additional accounts available",
     "open_buy_order": "Open Buy Order",
-    "open_sell_order": "Open Sell Order"
+    "open_sell_order": "Open Sell Order",
+    "request_expired": "Request Expired"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
@@ -116,7 +117,7 @@
   },
   "errors": {
     "error_fetching_data": "Something went wrong while fetching the data. Please try again later.",
-    "unexpected_error": "An unexpected error has occurred. Please try again later."
+    "unexpected_error": "An unexpected error has occurred."
   },
   "trade_modal": {
     "place_buy_order": "Place Buy Order",
@@ -127,6 +128,7 @@
     "success_state_desc": "Your order transaction has been successfully submitted. You can track its status in your wallet to ensure it has been placed correctly. The order will be processed based on the availability of matching bids or asks. Feel free to monitor its progress or check back later for updates.",
     "error_state_desc": "The transaction was unsuccessful, but your funds remain safe in your wallet. Feel free to attempt the transaction again. If the problem continues, please reach out to support for assistance.",
     "declined_state_desc": "You declined the transaction. Your funds remain safe in your wallet.",
+    "request_expired_state_desc": "This transaction took too long and the request has expired. Please try again.",
     "errors": {
       "price": "Invalid price",
       "amount": "Invalid amount",

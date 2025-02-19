@@ -15,6 +15,14 @@ import type { OrderPayload } from '../remove-order-modal.types'
 
 const log = makeLog(LogFeature.REMOVE_ORDER_MODAL)
 
+const getToastErrorMessage = (error: unknown, t: (key: string) => string): string => {
+  const errorMessage = typeof error === 'string' ? error : String(error)
+  if (errorMessage.toLowerCase().includes('request expired')) {
+    return t('global.request_expired')
+  }
+  return getRPCErrorMessage(error, t)
+}
+
 type UseRemoveOrderModalInput = Readonly<{
   orderType: OrderType
   orderPath: AssetOrderPathParams
@@ -81,7 +89,7 @@ export default function useRemoveOrderModal({
       // eslint-disable-next-line no-console
       console.error('Error removing order:', err)
       toaster.error(
-        `${t('remove_order_modal.error_removing_order')}, ${getRPCErrorMessage(err, t)}`
+        `${t('remove_order_modal.error_removing_order')}. ${getToastErrorMessage(err, t)}`
       )
       setError(err instanceof Error ? err.message : 'An error occurred')
     } finally {

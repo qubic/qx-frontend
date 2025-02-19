@@ -12,6 +12,29 @@ import { TradeModalStep } from '../trade-modal.types'
 
 const log = makeLog(LogFeature.TRADE_MODAL)
 
+const getErrorStep = (error: unknown): TradeModalStep => {
+  if (typeof error === 'object' && error !== null && 'code' in error) {
+    switch (error.code) {
+      case -32001:
+        return TradeModalStep.USER_UNAVAILABLE
+      case -32002:
+        return TradeModalStep.TICK_EXPIRED
+      case 5000:
+        return TradeModalStep.DECLINED_STATE
+      default:
+        return TradeModalStep.ERROR_STATE
+    }
+  }
+
+  const errorMessage = typeof error === 'string' ? error : String(error)
+
+  if (errorMessage.toLowerCase().includes('request expired')) {
+    return TradeModalStep.REQUEST_EXPIRED
+  }
+
+  return TradeModalStep.ERROR_STATE
+}
+
 type UseTradeModalInput = Readonly<{
   orderType: OrderType
   orderPath: AssetOrderPathParams
@@ -81,11 +104,7 @@ export default function useTradeModal({
       // eslint-disable-next-line no-console
       console.error('Error while sending transaction:', err)
       setError(err instanceof Error ? err.message : 'An error occurred')
-      setModalStep(
-        err && typeof err === 'object' && 'code' in err && err.code === 5000
-          ? TradeModalStep.DECLINED_STATE
-          : TradeModalStep.ERROR_STATE
-      )
+      setModalStep(getErrorStep(err))
     } finally {
       setIsLoading(false)
     }
