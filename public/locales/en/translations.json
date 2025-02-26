@@ -50,13 +50,14 @@
     "amount": "Amount",
     "view_on_explorer": "View on Explorer",
     "account_changed": "Changed to {{account}} account",
-    "connected_accounts": "Connected Accounts",
+    "selected_account": "Selected Account",
     "available_accounts": "Available Accounts",
     "no_additional_accounts": "No additional accounts available",
     "open_buy_order": "Open Buy Order",
     "open_sell_order": "Open Sell Order",
     "request_expired": "Request Expired",
-    "check_my_orders": "Check My Orders"
+    "check_my_orders": "Check My Orders",
+    "select": "Select"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",

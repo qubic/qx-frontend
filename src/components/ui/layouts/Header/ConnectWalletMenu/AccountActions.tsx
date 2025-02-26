@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { XmarkIcon } from '@app/assets/icons'
+import { LogoutIcon } from '@app/assets/icons'
 import { Button, CopyTextButton } from '@app/components/ui/buttons'
 import Tooltip from '@app/components/ui/Tooltip'
 
@@ -18,7 +18,7 @@ const AccountActions = memo(({ address, isConnected, onConnect, onDisconnect }: 
   if (!isConnected) {
     return (
       <Button onClick={onConnect} size="xs" color="secondary" variant="outlined" className="w-fit">
-        {t('global.connect')}
+        {t('global.select')}
       </Button>
     )
   }
@@ -34,7 +34,7 @@ const AccountActions = memo(({ address, isConnected, onConnect, onDisconnect }: 
           onClick={onDisconnect}
           className="flex"
         >
-          <XmarkIcon className="size-20 shrink-0 text-gray-50" />
+          <LogoutIcon className="size-18 shrink-0 rotate-180 text-gray-50 hover:text-white" />
         </button>
       </Tooltip>
     </div>
