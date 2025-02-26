@@ -12,11 +12,13 @@ type ConnectWalletButtonProps = Omit<ButtonProps, 'onClick' | 'children'> & {
   labelClassName?: string
   showArrowIcon?: boolean
   onClick?: () => void
+  isMenuOpen?: boolean
 }
 
 export default function ConnectWalletButton({
   labelClassName,
   onClick,
+  isMenuOpen,
   ...buttonProps
 }: ConnectWalletButtonProps) {
   const { t } = useTranslation()
@@ -39,7 +41,9 @@ export default function ConnectWalletButton({
         {isWalletConnected ? formatEllipsis(selectedAccount?.address) : t('global.connect_wallet')}
       </span>
       {isWalletConnected ? (
-        <ChevronDownIcon className="ml-2 size-20" />
+        <ChevronDownIcon
+          className={`ml-2 size-20 transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : 'rotate-0'}`}
+        />
       ) : (
         <WalletIcon className="size-24 sm:hidden lg:block lg:size-20" />
       )}
