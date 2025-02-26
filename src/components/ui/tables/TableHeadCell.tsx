@@ -16,7 +16,7 @@ const TableHeadCell = memo(
       {show && (
         <span className="text-gray-50">
           {children}
-          <span className="ml-4 text-slate-500">{label}</span>
+          {label && <span className="ml-4 text-slate-500">{label}</span>}
         </span>
       )}
     </th>
