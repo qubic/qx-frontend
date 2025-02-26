@@ -14,6 +14,7 @@ type Props = {
   isConnectedAccount: boolean
   onConnect: (account: QubicAccount) => void
   onDisconnect: () => void
+  onToggleDropdown: () => void
 }
 
 export default function AccountsSection({
@@ -22,7 +23,8 @@ export default function AccountsSection({
   type,
   isConnectedAccount,
   onConnect,
-  onDisconnect
+  onDisconnect,
+  onToggleDropdown
 }: Props) {
   const { t } = useTranslation()
 
@@ -38,7 +40,9 @@ export default function AccountsSection({
       >
         <div>
           <div className="flex items-center">
-            <EntityLink value={account.address} ellipsis className="text-sm sm:text-sm" />
+            <button type="button" onClick={onToggleDropdown}>
+              <EntityLink value={account.address} ellipsis className="text-sm sm:text-sm" />
+            </button>
 
             <span className="mx-10 w-fit rounded bg-slate-50 px-6 py-1 text-xs text-slate-500">
               {account.name}
@@ -57,7 +61,7 @@ export default function AccountsSection({
         />
       </div>
     ))
-  }, [accounts, isConnectedAccount, onConnect, onDisconnect, t, type])
+  }, [accounts, isConnectedAccount, onConnect, onDisconnect, onToggleDropdown, t, type])
 
   return (
     <section className="space-y-10">
