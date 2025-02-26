@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 
 import { GlobeGrayIcon } from '@app/assets/icons'
 import { Alert, DropdownMenu } from '@app/components/ui'
@@ -13,7 +13,6 @@ export default function LanguagePicker() {
   const dispatch = useAppDispatch()
   const { language } = useAppSelector(selectLocale)
   const [showDropdown, setShowDropdown] = useState(false)
-  const dropdownRef = useRef<HTMLUListElement>(null)
 
   const handleDropdownToggle = () => setShowDropdown((prev) => !prev)
 
@@ -22,30 +21,14 @@ export default function LanguagePicker() {
     handleDropdownToggle()
   }
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setShowDropdown(false)
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
-
   return (
     <ErrorBoundary fallback={<Alert variant="error" className="mx-5 my-2.5" />}>
-      <DropdownMenu show={showDropdown}>
-        <DropdownMenu.Trigger
-          onToggle={handleDropdownToggle}
-          className="rounded-full p-8 transition-colors duration-500 ease-in-out hover:bg-primary-70"
-        >
+      <DropdownMenu show={showDropdown} onToggle={handleDropdownToggle}>
+        <DropdownMenu.Trigger className="rounded-full p-8 transition-colors duration-500 ease-in-out hover:bg-primary-70">
           <GlobeGrayIcon className="h-24 w-24" />
         </DropdownMenu.Trigger>
         <DropdownMenu.Content>
-          <ul className="grid" ref={dropdownRef}>
+          <ul className="grid">
             {LANGUAGES.map((lng, index) => (
               <li key={lng.id}>
                 <button
