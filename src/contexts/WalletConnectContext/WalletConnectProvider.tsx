@@ -112,6 +112,7 @@ export default function WalletConnectProvider({ children }: { children: React.Re
         setSession(restoredSession)
         const requestedAccounts = await walletClient.requestAccounts()
         setAccounts(requestedAccounts)
+        setSelectedAccount(requestedAccounts[0])
       }
     }
 
