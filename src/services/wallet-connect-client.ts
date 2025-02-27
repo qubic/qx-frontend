@@ -149,6 +149,11 @@ export class WalletConnectClient extends SignClient {
   public async initClient(eventListeners: WalletConnectEventListeners[] = []): Promise<Client> {
     log('Initializing Client...')
     try {
+      if (this.signClient) {
+        log('Client already initialized, returning existing instance')
+        return this.signClient
+      }
+
       this.signClient = await SignClient.init({
         projectId: envConfig.WALLET_CONNECT_PROJECT_ID,
         metadata: {
