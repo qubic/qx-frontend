@@ -1,17 +1,26 @@
 {
   "global": {
+    "connect": "Подключить",
+    "disconnect": "Отключить",
+    "connect_wallet": "Подключить кошелек",
+    "disconnect_wallet": "Отключить кошелек",
     "lock_wallet": "Заблокировать кошелек",
     "unlock_wallet": "Разблокировать кошелек",
     "paste": "Вставить",
     "cancel": "Отмена",
+    "cancelled": "Отменено",
+    "declined": "Отклонено",
+    "success": "Успешно",
     "close": "Закрыть",
     "confirm": "Подтвердить",
+    "try_again": "Попробовать снова",
     "select_account": "Выбрать аккаунт",
     "change_account": "Сменить аккаунт",
     "beta": "Бета",
     "learn_more": "Узнать больше",
     "home": "Главная",
     "tokens": "Токены",
+    "actions": "Действия",
     "asset": "Актив",
     "assets": "Активы",
     "asset_transfers": "Переводы активов",
@@ -32,26 +41,36 @@
     "from": "От",
     "to": "К",
     "issuer": "Эмитент",
-    "decimals": "Десятичные",
+    "decimals": "Десятичные знаки",
     "name": "Название",
     "check_on_explorer": "Проверить в проводнике",
-    "chart_avg_price": "График (Средняя цена)",
+    "chart_avg_price": "График (средняя цена)",
     "address": "Адрес",
     "entity": "Сущность",
-    "amount": "Сумма"
+    "amount": "Сумма",
+    "view_on_explorer": "Посмотреть в проводнике",
+    "account_changed": "Переключено на аккаунт {{account}}",
+    "selected_account": "Выбранный аккаунт",
+    "available_accounts": "Доступные аккаунты",
+    "no_additional_accounts": "Нет доступных дополнительных аккаунтов",
+    "open_buy_order": "Открыть заявку на покупку",
+    "open_sell_order": "Открыть заявку на продажу",
+    "request_expired": "Запрос истек",
+    "check_my_orders": "Проверить мои заявки",
+    "select": "Выбрать"
   },
   "home_page": {
-    "qx_dashboard": "Панель QX",
+    "qx_dashboard": "Панель управления QX",
     "description": "QX — это децентрализованная биржа, работающая как смарт-контракт в сети Qubic.",
     "entity_search": "Поиск сущности",
-    "entity_search_desc": "Отображение сделок и открытых ордеров сущности.",
+    "entity_search_desc": "Показать сделки и открытые заявки сущности.",
     "lookup_trader": "Найти трейдера"
   },
   "assets_page": {
     "qx_assets": "Активы QX"
   },
   "asset_page": {
-    "asset_order_book": "Книга ордеров {{asset}}"
+    "asset_order_book": "Книга заявок {{asset}}"
   },
   "trades_page": {
     "qx_trades": "Последние сделки QX"
@@ -61,41 +80,79 @@
     "latest_asset_transfers": "Последние переводы активов"
   },
   "entity_page": {
-    "open_ask_orders": "Открытые ордера на продажу",
-    "open_bid_orders": "Открытые ордера на покупку"
+    "open_ask_orders": "Открытые заявки на продажу",
+    "open_bid_orders": "Открытые заявки на покупку",
+    "my_open_orders": "Мои открытые заявки"
   },
   "error_page": {
     "page_not_found": "Страница не найдена",
-    "error_404_message": "Поздравляем! Вы один из немногих, кому удалось найти нашу страницу 404.",
-    "back_to_home_page": "Вернуться на главную страницу",
+    "error_404_message": "Поздравляем! Вы один из немногих, кто нашел нашу страницу 404.",
+    "back_to_home_page": "Вернуться на главную",
     "title": "Упс!",
-    "unexpected_error": "Извините, произошла непредвиденная ошибка.",
-    "retry": "Повторить"
+    "unexpected_error": "Извините, произошла неожиданная ошибка.",
+    "retry": "Повторить попытку"
   },
   "trades_table": {
-    "error_fetching_trades": "Произошла ошибка при получении последних сделок. Попробуйте позже.",
+    "error_fetching_trades": "Произошла ошибка при загрузке последних сделок. Попробуйте позже.",
     "trades_not_found": "Сделки не найдены."
   },
   "orders_table": {
-    "open_orders_not_found": "Открытые ордера не найдены.",
-    "error_fetching_open_orders": "Произошла ошибка при получении открытых ордеров. Попробуйте позже."
+    "open_orders_not_found": "Открытые заявки не найдены.",
+    "error_fetching_open_orders": "Произошла ошибка при загрузке открытых заявок. Попробуйте позже."
   },
   "issued_assets_table": {
     "issued_assets_not_found": "Выпущенные активы не найдены.",
-    "error_fetching_issued_assets": "Произошла ошибка при получении последних выпущенных активов. Попробуйте позже."
+    "error_fetching_issued_assets": "Произошла ошибка при загрузке выпущенных активов. Попробуйте позже."
   },
   "transfers_table": {
     "transfers_not_found": "Переводы не найдены.",
-    "error_fetching_transfers": "Произошла ошибка при получении последних переводов. Попробуйте позже."
+    "error_fetching_transfers": "Произошла ошибка при загрузке последних переводов. Попробуйте позже."
   },
   "connect_wallet_modal": {
     "account_connected": "Аккаунт успешно подключен",
     "copy_uri": "Скопировать URI",
-    "scan_qr": "Сканируйте этот QR-код с помощью вашего кошелька Qubic или скопируйте ссылку ниже:",
-    "wallet_connection_gen_url_error": "Не удалось создать URI WalletConnect. Попробуйте позже.",
-    "metamask_cooming_soon": "MetaMask (скоро)"
+    "scan_qr": "Отсканируйте этот QR-код с помощью Qubic Wallet или скопируйте ссылку ниже:",
+    "metamask_cooming_soon": "MetaMask (скоро)",
+    "wallet_connection_gen_url_error": "Не удалось сгенерировать URI WalletConnect. Попробуйте снова.",
+    "wallet_connection_expired": "Срок действия запроса на подключение истек. Сгенерируйте новый QR-код и попробуйте снова.",
+    "user_rejected_connection": "Вы отклонили запрос на подключение."
   },
   "errors": {
-    "error_fetching_data": "Произошла ошибка при получении данных. Попробуйте позже."
+    "error_fetching_data": "Произошла ошибка при загрузке данных. Попробуйте позже.",
+    "unexpected_error": "Произошла неожиданная ошибка."
+  },
+  "trade_modal": {
+    "place_buy_order": "Разместить заявку на покупку",
+    "place_sell_order": "Разместить заявку на продажу",
+    "placing_order": "Размещение заявки...",
+    "order_confirmation": "Подтверждение заявки",
+    "success_state_cta": "Разместить еще одну заявку",
+    "success_state_desc": "Ваша транзакция заявки была успешно отправлена. Вы можете отслеживать ее статус в своем кошельке.",
+    "error_state_desc": "Транзакция не удалась, но ваши средства остаются в безопасности в вашем кошельке.",
+    "declined_state_desc": "Вы отклонили транзакцию. Ваши средства остаются в безопасности в вашем кошельке.",
+    "request_expired_state_desc": "Эта транзакция заняла слишком много времени, и запрос истек. Попробуйте снова.",
+    "errors": {
+      "price": "Неверная цена",
+      "amount": "Неверное количество",
+      "insufficient_balance": "Недостаточный баланс",
+      "not_enough_qubic": "Недостаточно QUBIC в вашем кошельке для размещения этой заявки.",
+      "not_enough_asset": "Недостаточно {{asset}} в вашем кошельке для размещения этой заявки."
+    }
+  },
+  "remove_order_modal": {
+    "remove_order": "Удалить заявку",
+    "remove_sell_order": "Удалить заявку на продажу",
+    "remove_buy_order": "Удалить заявку на покупку",
+    "removing_order": "Удаление заявки...",
+    "remove_order_desc": "Вы уверены, что хотите удалить вашу заявку <side>{{side}}</side> на <amount>{{amount}}</amount> <asset>{{asset}}</asset> по цене <price>{{price}}</price> QUBIC за единицу, общая сумма <total>{{total}}</total> QUBIC?",
+    "remove_order_success": "Транзакция успешно отправлена.\nЗаявка будет удалена на тике <tick>{{tick}}</tick>",
+    "error_removing_order": "Ошибка при удалении заявки"
+  },
+  "rpc_errors": {
+    "user_unavailable": "Вы заняты другой операцией. Завершите или отмените её перед повторной попыткой.",
+    "tick_expired": "Эта транзакция заняла слишком много времени, тик истек. Попробуйте снова.",
+    "invalid_arguments": "Что-то не так с запросом. Проверьте вводимые данные и попробуйте снова.",
+    "internal_error": "Упс! Произошла ошибка на нашей стороне. Попробуйте позже.",
+    "user_rejected": "Вы отклонили транзакцию."
   }
 }

@@ -1,23 +1,32 @@
 {
   "global": {
+    "connect": "اتصال",
+    "disconnect": "قطع الاتصال",
+    "connect_wallet": "اتصال بالمحفظة",
+    "disconnect_wallet": "قطع الاتصال بالمحفظة",
     "lock_wallet": "قفل المحفظة",
     "unlock_wallet": "فتح المحفظة",
     "paste": "لصق",
     "cancel": "إلغاء",
+    "cancelled": "تم الإلغاء",
+    "declined": "مرفوض",
+    "success": "نجاح",
     "close": "إغلاق",
     "confirm": "تأكيد",
+    "try_again": "حاول مرة أخرى",
     "select_account": "اختر الحساب",
     "change_account": "تغيير الحساب",
-    "beta": "نسخة تجريبية",
-    "learn_more": "اعرف المزيد",
-    "home": "الصفحة الرئيسية",
+    "beta": "بيتا",
+    "learn_more": "تعرف على المزيد",
+    "home": "الرئيسية",
     "tokens": "الرموز",
+    "actions": "الإجراءات",
     "asset": "الأصل",
     "assets": "الأصول",
     "asset_transfers": "تحويلات الأصول",
     "trades": "التداولات",
     "transactions": "المعاملات",
-    "smart_contract_shares": "أسهم العقود الذكية",
+    "smart_contract_shares": "أسهم العقد الذكي",
     "side": "الجانب",
     "price": "السعر",
     "shares": "الأسهم",
@@ -31,21 +40,31 @@
     "tick": "تيك",
     "from": "من",
     "to": "إلى",
-    "issuer": "المصدر",
-    "decimals": "الأرقام العشرية",
+    "issuer": "المُصدر",
+    "decimals": "الكسور العشرية",
     "name": "الاسم",
-    "check_on_explorer": "التحقق عبر المستكشف",
+    "check_on_explorer": "التحقق على المستكشف",
     "chart_avg_price": "الرسم البياني (متوسط السعر)",
-    "address": "عنوان",
-    "entity": "كيان",
-    "amount": "المبلغ"
+    "address": "العنوان",
+    "entity": "الكيان",
+    "amount": "المبلغ",
+    "view_on_explorer": "عرض على المستكشف",
+    "account_changed": "تم التغيير إلى حساب {{account}}",
+    "selected_account": "الحساب المحدد",
+    "available_accounts": "الحسابات المتاحة",
+    "no_additional_accounts": "لا توجد حسابات إضافية متاحة",
+    "open_buy_order": "فتح أمر شراء",
+    "open_sell_order": "فتح أمر بيع",
+    "request_expired": "انتهت صلاحية الطلب",
+    "check_my_orders": "تحقق من أوامري",
+    "select": "اختيار"
   },
   "home_page": {
-    "qx_dashboard": "لوحة معلومات QX",
-    "description": "QX هو تبادل لامركزي يعمل كعقد ذكي على شبكة Qubic.",
+    "qx_dashboard": "لوحة تحكم QX",
+    "description": "QX هو بورصة لامركزية تعمل كعقد ذكي على شبكة Qubic.",
     "entity_search": "بحث الكيان",
-    "entity_search_desc": "عرض التداولات والأوامر المفتوحة لكيان.",
-    "lookup_trader": "البحث عن متداول"
+    "entity_search_desc": "عرض التداولات والأوامر المفتوحة لكيان معين.",
+    "lookup_trader": "بحث عن متداول"
   },
   "assets_page": {
     "qx_assets": "أصول QX"
@@ -54,48 +73,86 @@
     "asset_order_book": "دفتر أوامر {{asset}}"
   },
   "trades_page": {
-    "qx_trades": "أحدث التداولات في QX"
+    "qx_trades": "أحدث تداولات QX"
   },
   "transactions_page": {
-    "latest_issued_assets": "أحدث الأصول المُصدرة",
+    "latest_issued_assets": "أحدث الأصول المصدرة",
     "latest_asset_transfers": "أحدث تحويلات الأصول"
   },
   "entity_page": {
-    "open_ask_orders": "طلبات البيع المفتوحة",
-    "open_bid_orders": "طلبات الشراء المفتوحة"
+    "open_ask_orders": "أوامر البيع المفتوحة",
+    "open_bid_orders": "أوامر الشراء المفتوحة",
+    "my_open_orders": "أوامري المفتوحة"
   },
   "error_page": {
     "page_not_found": "الصفحة غير موجودة",
-    "error_404_message": "تهانينا! أنت من القلة النادرة الذين تمكنوا من العثور على صفحة 404 الخاصة بنا.",
+    "error_404_message": "تهانينا! أنت من القلة القادرة على العثور على صفحة الخطأ 404 الخاصة بنا.",
     "back_to_home_page": "العودة إلى الصفحة الرئيسية",
     "title": "عذرًا!",
-    "unexpected_error": "نأسف، حدث خطأ غير متوقع.",
+    "unexpected_error": "عذرًا، حدث خطأ غير متوقع.",
     "retry": "إعادة المحاولة"
   },
   "trades_table": {
-    "error_fetching_trades": "حدث خطأ أثناء جلب أحدث التداولات. يرجى المحاولة لاحقًا.",
-    "trades_not_found": "لم يتم العثور على تداولات."
+    "error_fetching_trades": "حدث خطأ أثناء جلب أحدث التداولات. الرجاء المحاولة لاحقًا.",
+    "trades_not_found": "لم يتم العثور على أي تداولات."
   },
   "orders_table": {
-    "open_orders_not_found": "لم يتم العثور على أوامر مفتوحة.",
-    "error_fetching_open_orders": "حدث خطأ أثناء جلب الأوامر المفتوحة. يرجى المحاولة لاحقًا."
+    "open_orders_not_found": "لم يتم العثور على أي أوامر مفتوحة.",
+    "error_fetching_open_orders": "حدث خطأ أثناء جلب الأوامر المفتوحة. الرجاء المحاولة لاحقًا."
   },
   "issued_assets_table": {
     "issued_assets_not_found": "لم يتم العثور على أصول مُصدرة.",
-    "error_fetching_issued_assets": "حدث خطأ أثناء جلب أحدث الأصول المُصدرة. يرجى المحاولة لاحقًا."
+    "error_fetching_issued_assets": "حدث خطأ أثناء جلب الأصول المُصدرة. الرجاء المحاولة لاحقًا."
   },
   "transfers_table": {
-    "transfers_not_found": "لم يتم العثور على تحويلات.",
-    "error_fetching_transfers": "حدث خطأ أثناء جلب أحدث التحويلات. يرجى المحاولة لاحقًا."
+    "transfers_not_found": "لم يتم العثور على أي تحويلات.",
+    "error_fetching_transfers": "حدث خطأ أثناء جلب التحويلات الأخيرة. الرجاء المحاولة لاحقًا."
   },
   "connect_wallet_modal": {
     "account_connected": "تم الاتصال بالحساب بنجاح",
     "copy_uri": "نسخ الرابط",
-    "scan_qr": "امسح رمز الاستجابة السريعة هذا باستخدام محفظة Qubic الخاصة بك أو انسخ الرابط أدناه:",
-    "wallet_connection_gen_url_error": "فشل في إنشاء رابط WalletConnect. يرجى المحاولة لاحقًا.",
-    "metamask_cooming_soon": "MetaMask (قريبًا)"
+    "scan_qr": "امسح رمز QR هذا باستخدام محفظة Qubic الخاصة بك أو انسخ الرابط أدناه:",
+    "metamask_cooming_soon": "MetaMask (قريبًا)",
+    "wallet_connection_gen_url_error": "فشل في إنشاء رابط WalletConnect. الرجاء المحاولة مرة أخرى.",
+    "wallet_connection_expired": "انتهت صلاحية طلب الاتصال. يرجى إنشاء رمز QR جديد والمحاولة مجددًا.",
+    "user_rejected_connection": "لقد رفضت طلب الاتصال."
   },
   "errors": {
-    "error_fetching_data": "حدث خطأ أثناء جلب البيانات. يرجى المحاولة لاحقًا."
+    "error_fetching_data": "حدث خطأ أثناء جلب البيانات. الرجاء المحاولة لاحقًا.",
+    "unexpected_error": "حدث خطأ غير متوقع."
+  },
+  "trade_modal": {
+    "place_buy_order": "وضع أمر شراء",
+    "place_sell_order": "وضع أمر بيع",
+    "placing_order": "جارٍ تنفيذ الأمر...",
+    "order_confirmation": "تأكيد الأمر",
+    "success_state_cta": "ضع أمرًا آخر",
+    "success_state_desc": "تم إرسال معاملة الأمر بنجاح. يمكنك تتبع حالتها في محفظتك للتأكد من تنفيذها بشكل صحيح. سيتم تنفيذ الأمر بناءً على توفر عروض البيع أو الشراء المطابقة.",
+    "error_state_desc": "لم تنجح المعاملة، ولكن أموالك لا تزال آمنة في محفظتك. يمكنك المحاولة مرة أخرى، وإذا استمرت المشكلة، يرجى التواصل مع الدعم.",
+    "declined_state_desc": "لقد رفضت المعاملة. أموالك لا تزال آمنة في محفظتك.",
+    "request_expired_state_desc": "استغرقت هذه المعاملة وقتًا طويلاً وانتهت صلاحية الطلب. يرجى المحاولة مرة أخرى.",
+    "errors": {
+      "price": "السعر غير صالح",
+      "amount": "المبلغ غير صالح",
+      "insufficient_balance": "الرصيد غير كافٍ",
+      "not_enough_qubic": "لا يوجد ما يكفي من QUBIC في محفظتك لوضع هذا الأمر.",
+      "not_enough_asset": "لا يوجد ما يكفي من {{asset}} في محفظتك لوضع هذا الأمر."
+    }
+  },
+  "remove_order_modal": {
+    "remove_order": "إزالة الأمر",
+    "remove_sell_order": "إزالة أمر البيع",
+    "remove_buy_order": "إزالة أمر الشراء",
+    "removing_order": "جارٍ إزالة الأمر...",
+    "remove_order_desc": "هل أنت متأكد من أنك تريد إزالة أمر <side>{{side}}</side> الخاص بك لشراء <amount>{{amount}}</amount> من <asset>{{asset}}</asset> بسعر <price>{{price}}</price> QUBIC لكل وحدة، بمجموع <total>{{total}}</total> QUBIC؟",
+    "remove_order_success": "تم إرسال المعاملة بنجاح. سيتم إزالة الأمر عند <tick>{{tick}}</tick>",
+    "error_removing_order": "فشل إزالة الأمر"
+  },
+  "rpc_errors": {
+    "user_unavailable": "لديك طلب آخر قيد التنفيذ. الرجاء إكماله أو إلغاؤه قبل المحاولة مجددًا.",
+    "tick_expired": "استغرقت هذه المعاملة وقتًا طويلاً وانتهت صلاحية التيك. الرجاء المحاولة مجددًا.",
+    "invalid_arguments": "هناك خطأ في الطلب. الرجاء التحقق من الإدخالات والمحاولة مرة أخرى.",
+    "internal_error": "حدث خطأ داخلي. الرجاء المحاولة لاحقًا.",
+    "user_rejected": "لقد رفضت المعاملة."
   }
 }

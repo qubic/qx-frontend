@@ -145,7 +145,7 @@
     "remove_buy_order": "Remove Buy Order",
     "removing_order": "Removing Order...",
     "remove_order_desc": "Are you sure you want to remove your <side>{{side}}</side> order for <amount>{{amount}}</amount> <asset>{{asset}}</asset> at <price>{{price}}</price> QUBIC each, totaling <total>{{total}}</total> QUBIC?",
-    "remove_order_success": "Transaction sent successfully, Order will be removed at tick <tick>{{tick}}</tick>",
+    "remove_order_success": "Transaction sent successfully.\nOrder will be removed at tick <tick>{{tick}}</tick>",
     "error_removing_order": "Remove order has failed"
   },
   "rpc_errors": {

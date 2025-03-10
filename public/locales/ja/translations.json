@@ -1,20 +1,29 @@
 {
   "global": {
+    "connect": "接続",
+    "disconnect": "切断",
+    "connect_wallet": "ウォレットを接続",
+    "disconnect_wallet": "ウォレットを切断",
     "lock_wallet": "ウォレットをロック",
-    "unlock_wallet": "ウォレットをアンロック",
+    "unlock_wallet": "ウォレットを解除",
     "paste": "貼り付け",
     "cancel": "キャンセル",
+    "cancelled": "キャンセルされました",
+    "declined": "拒否されました",
+    "success": "成功",
     "close": "閉じる",
     "confirm": "確認",
+    "try_again": "再試行",
     "select_account": "アカウントを選択",
     "change_account": "アカウントを変更",
     "beta": "ベータ",
-    "learn_more": "詳細を確認",
+    "learn_more": "詳細を見る",
     "home": "ホーム",
     "tokens": "トークン",
-    "asset": "アセット",
-    "assets": "アセット",
-    "asset_transfers": "アセット転送",
+    "actions": "アクション",
+    "asset": "資産",
+    "assets": "資産",
+    "asset_transfers": "資産の転送",
     "trades": "取引",
     "transactions": "トランザクション",
     "smart_contract_shares": "スマートコントラクトのシェア",
@@ -32,57 +41,68 @@
     "from": "送信元",
     "to": "送信先",
     "issuer": "発行者",
-    "decimals": "小数点以下",
+    "decimals": "小数点",
     "name": "名前",
     "check_on_explorer": "エクスプローラーで確認",
-    "chart_avg_price": "チャート（平均価格）",
+    "chart_avg_price": "チャート (平均価格)",
     "address": "アドレス",
     "entity": "エンティティ",
-    "amount": "金額"
+    "amount": "数量",
+    "view_on_explorer": "エクスプローラーで見る",
+    "account_changed": "アカウントが {{account}} に変更されました",
+    "selected_account": "選択されたアカウント",
+    "available_accounts": "利用可能なアカウント",
+    "no_additional_accounts": "追加のアカウントはありません",
+    "open_buy_order": "買い注文を開く",
+    "open_sell_order": "売り注文を開く",
+    "request_expired": "リクエストの有効期限が切れました",
+    "check_my_orders": "自分の注文を確認",
+    "select": "選択"
   },
   "home_page": {
-    "qx_dashboard": "QXダッシュボード",
-    "description": "QXは、Qubicネットワーク上のスマートコントラクトとして動作する分散型取引所です。",
+    "qx_dashboard": "QX ダッシュボード",
+    "description": "QX は Qubic ネットワーク上でスマートコントラクトとして動作する分散型取引所です。",
     "entity_search": "エンティティ検索",
-    "entity_search_desc": "エンティティの取引とオープンオーダーを表示します。",
+    "entity_search_desc": "エンティティの取引や未決済注文を表示します。",
     "lookup_trader": "トレーダーを検索"
   },
   "assets_page": {
-    "qx_assets": "QXアセット"
+    "qx_assets": "QX 資産"
   },
   "asset_page": {
-    "asset_order_book": "{{asset}} オーダーブック"
+    "asset_order_book": "{{asset}} のオーダーブック"
   },
   "trades_page": {
-    "qx_trades": "最新のQX取引"
+    "qx_trades": "最新の QX 取引"
   },
   "transactions_page": {
-    "latest_issued_assets": "最新の発行アセット",
-    "latest_asset_transfers": "最新のアセット転送"
+    "latest_issued_assets": "最新の発行資産",
+    "latest_asset_transfers": "最新の資産転送"
   },
   "entity_page": {
-    "open_ask_orders": "オープン売り注文",
-    "open_bid_orders": "オープン買い注文"
+    "open_ask_orders": "未決済の売り注文",
+    "open_bid_orders": "未決済の買い注文",
+    "my_open_orders": "自分の未決済注文"
   },
   "error_page": {
     "page_not_found": "ページが見つかりません",
-    "error_404_message": "おめでとうございます！あなたは当社の404ページを見つけた数少ない人の一人です。",
+    "error_404_message": "おめでとうございます！ あなたは 404 ページを見つけた数少ない人の一人です。",
     "back_to_home_page": "ホームページに戻る",
     "title": "おっと！",
-    "unexpected_error": "申し訳ありませんが、予期しないエラーが発生しました。",
+    "unexpected_error": "申し訳ありません、予期しないエラーが発生しました。",
     "retry": "再試行"
   },
   "trades_table": {
-    "error_fetching_trades": "最新の取引を取得中に問題が発生しました。後でもう一度お試しください。",
+    "error_fetching_trades": "最新の取引データを取得中に問題が発生しました。後でもう一度お試しください。",
     "trades_not_found": "取引が見つかりませんでした。"
   },
   "orders_table": {
-    "open_orders_not_found": "オープンオーダーが見つかりません。",
-    "error_fetching_open_orders": "オープンオーダーを取得中に問題が発生しました。後でもう一度お試しください。"
+    "open_orders_not_found": "未決済の注文がありません。",
+    "error_fetching_open_orders": "未決済の注文を取得中に問題が発生しました。後でもう一度お試しください。"
   },
   "issued_assets_table": {
-    "issued_assets_not_found": "発行されたアセットが見つかりません。",
-    "error_fetching_issued_assets": "最新の発行アセットを取得中に問題が発生しました。後でもう一度お試しください。"
+    "issued_assets_not_found": "発行された資産が見つかりません。",
+    "error_fetching_issued_assets": "最新の発行資産を取得中に問題が発生しました。後でもう一度お試しください。"
   },
   "transfers_table": {
     "transfers_not_found": "転送が見つかりません。",
@@ -90,12 +110,33 @@
   },
   "connect_wallet_modal": {
     "account_connected": "アカウントが正常に接続されました",
-    "copy_uri": "URIをコピー",
-    "scan_qr": "QubicウォレットでこのQRコードをスキャンするか、以下のリンクをコピーしてください：",
-    "wallet_connection_gen_url_error": "WalletConnect URIの生成に失敗しました。後でもう一度お試しください。",
-    "metamask_cooming_soon": "MetaMask（近日公開）"
+    "copy_uri": "URI をコピー",
+    "scan_qr": "Qubic ウォレットで QR コードをスキャンするか、以下のリンクをコピーしてください。",
+    "metamask_cooming_soon": "MetaMask (近日公開)",
+    "wallet_connection_gen_url_error": "WalletConnect URI の生成に失敗しました。もう一度お試しください。",
+    "wallet_connection_expired": "接続リクエストの有効期限が切れました。新しい QR コードを生成して再試行してください。",
+    "user_rejected_connection": "接続リクエストを拒否しました。"
   },
   "errors": {
-    "error_fetching_data": "データ取得中に問題が発生しました。後でもう一度お試しください。"
+    "error_fetching_data": "データの取得中に問題が発生しました。後でもう一度お試しください。",
+    "unexpected_error": "予期しないエラーが発生しました。"
+  },
+  "trade_modal": {
+    "place_buy_order": "買い注文を出す",
+    "place_sell_order": "売り注文を出す",
+    "placing_order": "注文を処理中...",
+    "order_confirmation": "注文の確認",
+    "success_state_cta": "別の注文を出す",
+    "success_state_desc": "注文は正常に送信されました。ウォレットで注文の状態を確認できます。",
+    "error_state_desc": "取引が失敗しましたが、資金はウォレット内に安全に保持されています。",
+    "declined_state_desc": "取引を拒否しました。資金はウォレット内に安全に保持されています。",
+    "request_expired_state_desc": "取引に時間がかかりすぎたため、リクエストが期限切れになりました。再試行してください。",
+    "errors": {
+      "price": "無効な価格",
+      "amount": "無効な数量",
+      "insufficient_balance": "残高不足",
+      "not_enough_qubic": "この注文を出すための QUBIC が不足しています。",
+      "not_enough_asset": "この注文を出すための {{asset}} が不足しています。"
+    }
   }
 }

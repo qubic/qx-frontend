@@ -1,50 +1,69 @@
 {
   "global": {
+    "connect": "Bağlan",
+    "disconnect": "Bağlantıyı Kes",
+    "connect_wallet": "Cüzdanı Bağla",
+    "disconnect_wallet": "Cüzdan Bağlantısını Kes",
     "lock_wallet": "Cüzdanı Kilitle",
-    "unlock_wallet": "Cüzdanı Aç",
+    "unlock_wallet": "Cüzdanın Kilidini Aç",
     "paste": "Yapıştır",
     "cancel": "İptal",
+    "cancelled": "İptal Edildi",
+    "declined": "Reddedildi",
+    "success": "Başarılı",
     "close": "Kapat",
     "confirm": "Onayla",
+    "try_again": "Tekrar Dene",
     "select_account": "Hesap Seç",
     "change_account": "Hesabı Değiştir",
     "beta": "Beta",
     "learn_more": "Daha Fazla Bilgi",
     "home": "Ana Sayfa",
     "tokens": "Tokenler",
+    "actions": "Eylemler",
     "asset": "Varlık",
     "assets": "Varlıklar",
     "asset_transfers": "Varlık Transferleri",
-    "trades": "Piyasa İşlemleri",
-    "transactions": "Son İşlemler",
-    "smart_contract_shares": "Akıllı Sözleşme Hisseleri",
+    "trades": "İşlemler",
+    "transactions": "İşlemler",
+    "smart_contract_shares": "Akıllı Kontrat Hisseleri",
     "side": "Taraf",
     "price": "Fiyat",
     "shares": "Hisseler",
     "total": "Toplam",
     "hash": "Hash",
-    "taker": "Alan",
-    "maker": "Yapan",
-    "date_and_time": "Tarih ve Saat",
-    "buy": "Satın Al",
+    "taker": "Taker",
+    "maker": "Maker",
+    "date_and_time": "Tarih & Saat",
+    "buy": "Al",
     "sell": "Sat",
-    "tick": "Tik",
+    "tick": "Tick",
     "from": "Kimden",
     "to": "Kime",
     "issuer": "İhraç Eden",
     "decimals": "Ondalık",
     "name": "İsim",
-    "check_on_explorer": "Keşif Aracında Kontrol Et",
+    "check_on_explorer": "Explorerdan Kontrol Et",
     "chart_avg_price": "Grafik (Ortalama Fiyat)",
     "address": "Adres",
     "entity": "Varlık",
-    "amount": "Tutar"
+    "amount": "Miktar",
+    "view_on_explorer": "Explorerdan Görüntüle",
+    "account_changed": "{{account}} hesabına geçildi",
+    "selected_account": "Seçilen Hesap",
+    "available_accounts": "Mevcut Hesaplar",
+    "no_additional_accounts": "Ek hesap bulunmuyor",
+    "open_buy_order": "Alım Emri Aç",
+    "open_sell_order": "Satış Emri Aç",
+    "request_expired": "İstek Süresi Doldu",
+    "check_my_orders": "Emirlerimi Kontrol Et",
+    "select": "Seç"
   },
   "home_page": {
-    "qx_dashboard": "QX Gösterge Paneli",
-    "description": "QX, Qubic ağında bir akıllı sözleşme olarak çalışan merkezi olmayan bir borsadır.",
+    "qx_dashboard": "QX Panosu",
+    "description": "QX, Qubic ağı üzerinde akıllı kontrat olarak çalışan merkeziyetsiz bir borsadır.",
     "entity_search": "Varlık Arama",
-    "entity_search_desc": "Bir varlığın işlemlerini ve açık emirlerini gösterin.",
+    "entity_search_desc": "Bir varlığın işlemlerini ve açık emirlerini göster.",
     "lookup_trader": "Tüccar Ara"
   },
   "assets_page": {
@@ -57,45 +76,83 @@
     "qx_trades": "Son QX İşlemleri"
   },
   "transactions_page": {
-    "latest_issued_assets": "En Son Çıkarılan Varlıklar",
-    "latest_asset_transfers": "En Son Varlık Transferleri"
+    "latest_issued_assets": "Son Çıkarılan Varlıklar",
+    "latest_asset_transfers": "Son Varlık Transferleri"
   },
   "entity_page": {
     "open_ask_orders": "Açık Satış Emirleri",
-    "open_bid_orders": "Açık Alış Emirleri"
+    "open_bid_orders": "Açık Alım Emirleri",
+    "my_open_orders": "Açık Emirlerim"
   },
   "error_page": {
-    "page_not_found": "Sayfa bulunamadı",
-    "error_404_message": "Tebrikler! 404 sayfamızı bulmayı başaran seçkinlerden birisiniz.",
+    "page_not_found": "Sayfa Bulunamadı",
+    "error_404_message": "Tebrikler! 404 sayfamızı bulabilen nadir kişilerden birisiniz.",
     "back_to_home_page": "Ana Sayfaya Dön",
-    "title": "Hata!",
+    "title": "Oops!",
     "unexpected_error": "Üzgünüz, beklenmedik bir hata oluştu.",
     "retry": "Tekrar Dene"
   },
   "trades_table": {
-    "error_fetching_trades": "Son işlemleri getirirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
-    "trades_not_found": "Hiçbir işlem bulunamadı."
+    "error_fetching_trades": "Son işlemleri çekerken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    "trades_not_found": "Herhangi bir işlem bulunamadı."
   },
   "orders_table": {
     "open_orders_not_found": "Açık emir bulunamadı.",
-    "error_fetching_open_orders": "Açık emirleri getirirken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+    "error_fetching_open_orders": "Açık emirleri çekerken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
   },
   "issued_assets_table": {
-    "issued_assets_not_found": "Hiçbir çıkarılan varlık bulunamadı.",
-    "error_fetching_issued_assets": "Son çıkarılan varlıkları getirirken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+    "issued_assets_not_found": "Çıkarılmış varlık bulunamadı.",
+    "error_fetching_issued_assets": "Son çıkarılan varlıkları çekerken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
   },
   "transfers_table": {
-    "transfers_not_found": "Hiçbir transfer bulunamadı.",
-    "error_fetching_transfers": "Son transferleri getirirken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+    "transfers_not_found": "Transfer bulunamadı.",
+    "error_fetching_transfers": "Son transferleri çekerken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
   },
   "connect_wallet_modal": {
     "account_connected": "Hesap Başarıyla Bağlandı",
-    "copy_uri": "URI'yi Kopyala",
-    "scan_qr": "Bu QR kodunu Qubic Cüzdanınızla tarayın veya aşağıdaki bağlantıyı kopyalayın:",
+    "copy_uri": "URI Kopyala",
+    "scan_qr": "Bu QR kodunu Qubic Cüzdanınız ile tarayın veya aşağıdaki bağlantıyı kopyalayın:",
+    "metamask_cooming_soon": "MetaMask (Yakında)",
     "wallet_connection_gen_url_error": "WalletConnect URI oluşturulamadı. Lütfen tekrar deneyin.",
-    "metamask_cooming_soon": "MetaMask (çok yakında)"
+    "wallet_connection_expired": "Bağlantı isteğinizin süresi doldu. Yeniden bir QR kodu oluşturup tekrar deneyin.",
+    "user_rejected_connection": "Bağlantı isteğini reddettiniz."
   },
   "errors": {
-    "error_fetching_data": "Veriler getirilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+    "error_fetching_data": "Veriler çekilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    "unexpected_error": "Beklenmedik bir hata oluştu."
+  },
+  "trade_modal": {
+    "place_buy_order": "Alım Emri Ver",
+    "place_sell_order": "Satış Emri Ver",
+    "placing_order": "Emir Veriliyor...",
+    "order_confirmation": "Emir Onayı",
+    "success_state_cta": "Başka bir emir ver",
+    "success_state_desc": "Emir işleminiz başarıyla gönderildi. Cüzdanınızdaki durumunu takip edebilirsiniz.",
+    "error_state_desc": "İşlem başarısız oldu, ancak paranız cüzdanınızda güvende kalmaya devam ediyor.",
+    "declined_state_desc": "İşlemi reddettiniz. Paranızı cüzdanınızda güvende tutmaya devam edebilirsiniz.",
+    "request_expired_state_desc": "Bu işlem çok uzun sürdü ve isteğin süresi doldu. Lütfen tekrar deneyin.",
+    "errors": {
+      "price": "Geçersiz fiyat",
+      "amount": "Geçersiz miktar",
+      "insufficient_balance": "Yetersiz bakiye",
+      "not_enough_qubic": "Bu işlemi yapmak için yeterli QUBIC yok.",
+      "not_enough_asset": "Bu işlemi yapmak için yeterli {{asset}} yok."
+    }
+  },
+  "remove_order_modal": {
+    "remove_order": "Emri Kaldır",
+    "remove_sell_order": "Satış Emrini Kaldır",
+    "remove_buy_order": "Alım Emrini Kaldır",
+    "removing_order": "Emir Kaldırılıyor...",
+    "remove_order_desc": "<side>{{side}}</side> tarafındaki <amount>{{amount}}</amount> <asset>{{asset}}</asset> için <price>{{price}}</price> QUBIC fiyatlı toplam <total>{{total}}</total> QUBIC'lik emri kaldırmak istediğinize emin misiniz?",
+    "remove_order_success": "İşlem başarıyla gönderildi.\nEmir, <tick>{{tick}}</tick> tıkında kaldırılacak.",
+    "error_removing_order": "Emir kaldırma işlemi başarısız oldu"
+  },
+  "rpc_errors": {
+    "user_unavailable": "Şu anda başka bir istekle meşgulsünüz. Lütfen tamamlayın veya iptal edin ve tekrar deneyin.",
+    "tick_expired": "Bu işlem çok uzun sürdü ve süresi doldu. Lütfen tekrar deneyin.",
+    "invalid_arguments": "İstekle ilgili bir hata var. Lütfen girişlerinizi kontrol edin ve tekrar deneyin.",
+    "internal_error": "Oops! Sunucu tarafında bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    "user_rejected": "İşlemi reddettiniz."
   }
 }

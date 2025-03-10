@@ -1,30 +1,39 @@
 {
   "global": {
+    "connect": "Verbinden",
+    "disconnect": "Trennen",
+    "connect_wallet": "Wallet verbinden",
+    "disconnect_wallet": "Wallet trennen",
     "lock_wallet": "Wallet sperren",
     "unlock_wallet": "Wallet entsperren",
     "paste": "Einfügen",
     "cancel": "Abbrechen",
+    "cancelled": "Abgebrochen",
+    "declined": "Abgelehnt",
+    "success": "Erfolg",
     "close": "Schließen",
     "confirm": "Bestätigen",
+    "try_again": "Erneut versuchen",
     "select_account": "Konto auswählen",
-    "change_account": "Konto ändern",
+    "change_account": "Konto wechseln",
     "beta": "Beta",
     "learn_more": "Mehr erfahren",
     "home": "Startseite",
-    "tokens": "Tokens",
+    "tokens": "Token",
+    "actions": "Aktionen",
     "asset": "Vermögenswert",
     "assets": "Vermögenswerte",
     "asset_transfers": "Vermögensübertragungen",
     "trades": "Handel",
     "transactions": "Transaktionen",
-    "smart_contract_shares": "Smart-Contract-Anteile",
+    "smart_contract_shares": "Smart Contract Anteile",
     "side": "Seite",
     "price": "Preis",
     "shares": "Anteile",
     "total": "Gesamt",
     "hash": "Hash",
-    "taker": "Taker",
-    "maker": "Maker",
+    "taker": "Nehmer",
+    "maker": "Ersteller",
     "date_and_time": "Datum & Uhrzeit",
     "buy": "Kaufen",
     "sell": "Verkaufen",
@@ -34,27 +43,37 @@
     "issuer": "Emittent",
     "decimals": "Dezimalstellen",
     "name": "Name",
-    "check_on_explorer": "Im Explorer prüfen",
+    "check_on_explorer": "Im Explorer überprüfen",
     "chart_avg_price": "Diagramm (Durchschnittspreis)",
     "address": "Adresse",
     "entity": "Entität",
-    "amount": "Betrag"
+    "amount": "Betrag",
+    "view_on_explorer": "Im Explorer anzeigen",
+    "account_changed": "Gewechselt zu Konto {{account}}",
+    "selected_account": "Ausgewähltes Konto",
+    "available_accounts": "Verfügbare Konten",
+    "no_additional_accounts": "Keine zusätzlichen Konten verfügbar",
+    "open_buy_order": "Kaufauftrag eröffnen",
+    "open_sell_order": "Verkaufsauftrag eröffnen",
+    "request_expired": "Anfrage abgelaufen",
+    "check_my_orders": "Meine Aufträge überprüfen",
+    "select": "Auswählen"
   },
   "home_page": {
-    "qx_dashboard": "QX-Dashboard",
+    "qx_dashboard": "QX Dashboard",
     "description": "QX ist eine dezentrale Börse, die als Smart Contract auf dem Qubic-Netzwerk läuft.",
     "entity_search": "Entitätssuche",
-    "entity_search_desc": "Anzeigen von Handels- und offenen Aufträgen einer Entität.",
+    "entity_search_desc": "Zeigt Trades und offene Aufträge einer Entität an.",
     "lookup_trader": "Händler suchen"
   },
   "assets_page": {
-    "qx_assets": "QX-Vermögenswerte"
+    "qx_assets": "QX Vermögenswerte"
   },
   "asset_page": {
     "asset_order_book": "{{asset}} Orderbuch"
   },
   "trades_page": {
-    "qx_trades": "Neueste QX-Handel"
+    "qx_trades": "Neueste QX Trades"
   },
   "transactions_page": {
     "latest_issued_assets": "Neueste ausgegebene Vermögenswerte",
@@ -62,19 +81,20 @@
   },
   "entity_page": {
     "open_ask_orders": "Offene Verkaufsaufträge",
-    "open_bid_orders": "Offene Kaufaufträge"
+    "open_bid_orders": "Offene Kaufaufträge",
+    "my_open_orders": "Meine offenen Aufträge"
   },
   "error_page": {
     "page_not_found": "Seite nicht gefunden",
     "error_404_message": "Herzlichen Glückwunsch! Sie gehören zu den wenigen, die unsere 404-Seite gefunden haben.",
-    "back_to_home_page": "Zurück zur Startseite",
+    "back_to_home_page": "Zur Startseite zurückkehren",
     "title": "Hoppla!",
     "unexpected_error": "Entschuldigung, ein unerwarteter Fehler ist aufgetreten.",
     "retry": "Erneut versuchen"
   },
   "trades_table": {
-    "error_fetching_trades": "Beim Abrufen der neuesten Handel ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
-    "trades_not_found": "Keine Handel gefunden."
+    "error_fetching_trades": "Beim Abrufen der neuesten Trades ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+    "trades_not_found": "Keine Trades gefunden."
   },
   "orders_table": {
     "open_orders_not_found": "Keine offenen Aufträge gefunden.",
@@ -91,11 +111,48 @@
   "connect_wallet_modal": {
     "account_connected": "Konto erfolgreich verbunden",
     "copy_uri": "URI kopieren",
-    "scan_qr": "Scannen Sie diesen QR-Code mit Ihrer Qubic-Wallet oder kopieren Sie den unten stehenden Link:",
-    "wallet_connection_gen_url_error": "Fehler beim Generieren der WalletConnect-URI. Bitte versuchen Sie es später erneut.",
-    "metamask_cooming_soon": "MetaMask (kommt bald)"
+    "scan_qr": "Scannen Sie diesen QR-Code mit Ihrer Qubic Wallet oder kopieren Sie den unten stehenden Link:",
+    "metamask_cooming_soon": "MetaMask (bald verfügbar)",
+    "wallet_connection_gen_url_error": "WalletConnect-URI konnte nicht generiert werden. Bitte versuchen Sie es erneut.",
+    "wallet_connection_expired": "Ihre Verbindungsanfrage ist abgelaufen. Bitte generieren Sie einen neuen QR-Code, um es erneut zu versuchen.",
+    "user_rejected_connection": "Sie haben die Verbindungsanfrage abgelehnt."
   },
   "errors": {
-    "error_fetching_data": "Beim Abrufen der Daten ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+    "error_fetching_data": "Beim Abrufen der Daten ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+    "unexpected_error": "Ein unerwarteter Fehler ist aufgetreten."
+  },
+  "trade_modal": {
+    "place_buy_order": "Kaufauftrag platzieren",
+    "place_sell_order": "Verkaufsauftrag platzieren",
+    "placing_order": "Auftrag wird platziert...",
+    "order_confirmation": "Auftragsbestätigung",
+    "success_state_cta": "Einen weiteren Auftrag platzieren",
+    "success_state_desc": "Ihre Order wurde erfolgreich eingereicht. Sie können den Status in Ihrer Wallet verfolgen, um sicherzustellen, dass sie korrekt platziert wurde.",
+    "error_state_desc": "Die Transaktion war nicht erfolgreich, aber Ihr Guthaben bleibt sicher in Ihrer Wallet.",
+    "declined_state_desc": "Sie haben die Transaktion abgelehnt. Ihr Guthaben bleibt sicher in Ihrer Wallet.",
+    "request_expired_state_desc": "Diese Transaktion hat zu lange gedauert und die Anfrage ist abgelaufen. Bitte versuchen Sie es erneut.",
+    "errors": {
+      "price": "Ungültiger Preis",
+      "amount": "Ungültiger Betrag",
+      "insufficient_balance": "Unzureichendes Guthaben",
+      "not_enough_qubic": "Nicht genug QUBIC in Ihrer Wallet, um diese Order zu platzieren.",
+      "not_enough_asset": "Nicht genug {{asset}} in Ihrer Wallet, um diese Order zu platzieren."
+    }
+  },
+  "remove_order_modal": {
+    "remove_order": "Auftrag entfernen",
+    "remove_sell_order": "Verkaufsauftrag entfernen",
+    "remove_buy_order": "Kaufauftrag entfernen",
+    "removing_order": "Auftrag wird entfernt...",
+    "remove_order_desc": "Sind Sie sicher, dass Sie Ihren <side>{{side}}</side> Auftrag über <amount>{{amount}}</amount> <asset>{{asset}}</asset> zu <price>{{price}}</price> QUBIC pro Einheit mit einem Gesamtwert von <total>{{total}}</total> QUBIC entfernen möchten?",
+    "remove_order_success": "Transaktion erfolgreich gesendet.\nDer Auftrag wird bei Tick <tick>{{tick}}</tick> entfernt.",
+    "error_removing_order": "Auftrag konnte nicht entfernt werden."
+  },
+  "rpc_errors": {
+    "user_unavailable": "Sie sind derzeit mit einer anderen Anfrage beschäftigt. Bitte schließen oder brechen Sie sie ab, bevor Sie es erneut versuchen.",
+    "tick_expired": "Diese Transaktion hat zu lange gedauert und der Tick ist abgelaufen. Bitte versuchen Sie es erneut.",
+    "invalid_arguments": "Etwas stimmt mit der Anfrage nicht. Bitte überprüfen Sie Ihre Eingaben und versuchen Sie es erneut.",
+    "internal_error": "Ein interner Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
+    "user_rejected": "Sie haben die Transaktion abgelehnt."
   }
 }
