@@ -1,3 +1,63 @@
+# [1.2.0](https://github.com/qubic/qx-frontend/compare/v1.1.3...v1.2.0) (2025-03-18)
+
+
+### Bug Fixes
+
+* extract WalletConnect context and provider into separate files to fix fast refresh issues ([8a69409](https://github.com/qubic/qx-frontend/commit/8a69409d0167600c6ab52c351b28cd21251be6a9))
+* update import path for OrderPath type in ConfirmTradeStep component ([afe13a6](https://github.com/qubic/qx-frontend/commit/afe13a6d9f4f2d066f8fd3824cf0618cc3a0fa6a))
+* update TradeRow key to use JSON.stringify for improved uniqueness ([6522ef4](https://github.com/qubic/qx-frontend/commit/6522ef47b117a8ede2672e379db1948082a513c9))
+
+
+### Features
+
+* add 'Check My Orders' button in AssetPage and update translations ([bd797af](https://github.com/qubic/qx-frontend/commit/bd797af3579b1622cc1497c56beb198458b879a9))
+* add animation to PortalModalWrapper using react-spring ([df2210b](https://github.com/qubic/qx-frontend/commit/df2210b3d8f2936c49eb16bd3ee954b82ea76e1b))
+* add buttons for opening ask and bid orders in AssetPage ([0a706de](https://github.com/qubic/qx-frontend/commit/0a706de745b109022b1fd9e78159e6f7944cd1fe))
+* add declined transaction handling and update translations ([3f90aa6](https://github.com/qubic/qx-frontend/commit/3f90aa6bab031ff9106123cdf6e99fe7f85c5b45))
+* add disconnect call on session delete event in WalletConnectProvider ([d4c62ed](https://github.com/qubic/qx-frontend/commit/d4c62ed152f23d320733fafc04266b105bdde7e2))
+* add dropdown toggle functionality to AccountsSection component ([e2de418](https://github.com/qubic/qx-frontend/commit/e2de4180ab41fe80f9decff1b1ccd286e6f2a6c4))
+* add en translations ([e8730e6](https://github.com/qubic/qx-frontend/commit/e8730e69f07e950b95ffbaf294df5375786feb67))
+* add en translations ([ad47f91](https://github.com/qubic/qx-frontend/commit/ad47f914e5a174ffd8f8802b553cc8d10278713a))
+* add rollup-plugin-visualizer for build analysis and lazy load error images ([0e5e165](https://github.com/qubic/qx-frontend/commit/0e5e16599359d69d34404a1cfae8a18d15064c1a))
+* add user rejection handling in wallet connection process ([ac5cc92](https://github.com/qubic/qx-frontend/commit/ac5cc9226b0d67d750220e277e0d85833b4e464c))
+* add wallet icon, update account change notification and enhance wallet menu ([d03762e](https://github.com/qubic/qx-frontend/commit/d03762ea0ebbccd30cf03d3d9580237a11f006d0))
+* adjust layout of AssetPage ([4d48893](https://github.com/qubic/qx-frontend/commit/4d48893a07a48b24ed821873dc47d32d1c2575e0))
+* adjust layout of PublicEntityOrders ([4999820](https://github.com/qubic/qx-frontend/commit/4999820770806bc39a8f05b452d44e6d7bcf6f7f))
+* adjust table cell padding and update price alignment ([b729618](https://github.com/qubic/qx-frontend/commit/b729618ebb20dc63dc5a9cdb8d9ab46d20958557))
+* adjuts rows and tables layout ([96d4110](https://github.com/qubic/qx-frontend/commit/96d41103fe8427e5d42025acc9fbee2cb53284f3))
+* comment unused WalletConnect event listeners ([f09fe4e](https://github.com/qubic/qx-frontend/commit/f09fe4e5f7cd611d5aab259388a64e7660a76b1b))
+* conditionally render label in TableHeadCell component ([c8b009a](https://github.com/qubic/qx-frontend/commit/c8b009ab8839eec71f65c3b0cebf1a44ceccac39))
+* enhance AccountsSection to support account type distinction and localization ([c179db8](https://github.com/qubic/qx-frontend/commit/c179db8d9e8cb3bfb15af64da41c1a32de3231e4))
+* enhance ConfirmTradeStep with validation and user asset balance checks ([ea516b7](https://github.com/qubic/qx-frontend/commit/ea516b7a44f4b48907e6f82b23af85d8d2ff8a00))
+* enhance ConnectWalletButton and ConnectWalletMenu with dropdown toggle functionality ([19ddd41](https://github.com/qubic/qx-frontend/commit/19ddd418ade9af6739b5bc61595f276c7ec8ff33))
+* enhance DropdownMenu with click outside handling and toggle functionality ([3eee50b](https://github.com/qubic/qx-frontend/commit/3eee50b1cc58782cd14224468c50a67abcdd5112))
+* enhance error handling in TradeModal and RemoveOrderModal with new request expired state ([3d008fa](https://github.com/qubic/qx-frontend/commit/3d008fa7b454aaaa1d904d24747f01d496cd72b9))
+* enhance table header styling and add fixed height for scrollable areas ([a5a76da](https://github.com/qubic/qx-frontend/commit/a5a76da0197f6ecd5146c9e2d123182eeadc2afb))
+* enhance WalletConnectProvider events management ([47fcb2b](https://github.com/qubic/qx-frontend/commit/47fcb2b42f7312cf37d45833af114a8b43c06f66))
+* extend button size options to include 'xxs' and adjust size classes for better responsiveness ([37e4e25](https://github.com/qubic/qx-frontend/commit/37e4e252cbfe011e66db65a3b6562cabd2ed7a59))
+* implement development logging for WalletConnect context and client ([88c9458](https://github.com/qubic/qx-frontend/commit/88c945815b9ac5e2cb192ec02ab33fcafba6bbfe))
+* integrate add assets ask bid orders ([c07fb9f](https://github.com/qubic/qx-frontend/commit/c07fb9fd80dac43024f58f24654014cd5b1ed101))
+* integrate ask/bids orders removing ([2982b82](https://github.com/qubic/qx-frontend/commit/2982b82e64827f641c95cdf73cbd211d3a6a12e8))
+* prevent reinitialization of WalletConnectClient if already initialized ([63e6b11](https://github.com/qubic/qx-frontend/commit/63e6b11a965f1a51332b68995cb76cc95153e055))
+* refactor cancel order modal: ([e856dfa](https://github.com/qubic/qx-frontend/commit/e856dfa2dac609e66a35dcbf5bbabda49e5d7fb6))
+* refactor ConnectWalletModal and ConnectWalletStep for improved connection status handling ([c5c9d5d](https://github.com/qubic/qx-frontend/commit/c5c9d5db7e0f56d805c26bbda5fd6841538bf264))
+* refactor table components to use TableHead and TableWrapper for improved structure ([d8155d7](https://github.com/qubic/qx-frontend/commit/d8155d77f13df3a146fce71b3fbeb9fac634ebed))
+* refactor WalletConnectProvider and wallet-connect-client for improved wallet events handling ([4abd9c9](https://github.com/qubic/qx-frontend/commit/4abd9c973a48f47d81ce27803a3fff40a0a5f822))
+* refine proposal expiration handling to exclude specific statuses ([6473d2d](https://github.com/qubic/qx-frontend/commit/6473d2d8de81dd727bf9163056e181bbc1aaeb58))
+* rename TOKEN_AMOUNT_CHANGED and update QubicAccountSchema to include assets ([7b95dc3](https://github.com/qubic/qx-frontend/commit/7b95dc30311902c7f56ebab2ac54849e6afcde1b))
+* scroll to top on route change in AppLayout component ([ed85edb](https://github.com/qubic/qx-frontend/commit/ed85edb9ecf2fbeb9f3b62f4cbc7b28a6f9972d1))
+* set default selected account in WalletConnectProvider on session restoration ([9f29854](https://github.com/qubic/qx-frontend/commit/9f29854f79f7b85f7add259a7fd4f283e79abea8))
+* simplify BurgerMenu component after dowpdown updates ([df1709b](https://github.com/qubic/qx-frontend/commit/df1709bcdeab9e06cb0d6971fd4a8240c719a095))
+* simplify LanguagePicker by removing unused refs and click outside handling ([010cefd](https://github.com/qubic/qx-frontend/commit/010cefd2aa379e2551ec4e786fccf3f4dcc499bb))
+* update AccountsSection to include translation function in dependencies ([983e99c](https://github.com/qubic/qx-frontend/commit/983e99ceacb348b90fab4cc69210d7217e5a4876))
+* update ConfirmTradeStep to prevent zero values in price and amount inputs ([c9c2870](https://github.com/qubic/qx-frontend/commit/c9c2870ecfdaa44936d1b5fb923248952ff2ba80))
+* update RTL support in modals and dropdown components ([14a73e3](https://github.com/qubic/qx-frontend/commit/14a73e3c6c1e769ca4fb32c309be13205793f885))
+* update TradeModal logic to handle wallet connection and correct order type handling ([f5fca06](https://github.com/qubic/qx-frontend/commit/f5fca068d3878d335fb62671b73d09a7f1cca638))
+* update translation for ask and bid orders terminology ([91e8df1](https://github.com/qubic/qx-frontend/commit/91e8df1e904f43776c52f8c9adc54e74f94fd797))
+* update translations ([4b0abcb](https://github.com/qubic/qx-frontend/commit/4b0abcb7a1cc5eb9719128299f1e978e4369fbb0))
+* update translations and add LogoutIcon to AccountActions component ([3b60a80](https://github.com/qubic/qx-frontend/commit/3b60a80b3f5d36339a09dbbb36be956ed3de1fa4))
+* update translations for order terminology and adjust header in EntityOwnerOrders component ([d5ab8ff](https://github.com/qubic/qx-frontend/commit/d5ab8ff0164189352549f6f6ef111e7c860a5187))
+
 # [1.2.0-rc.1](https://github.com/qubic/qx-frontend/compare/v1.1.3...v1.2.0-rc.1) (2025-03-18)
 
 
