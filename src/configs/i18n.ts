@@ -1,7 +1,8 @@
-import { LANGUAGES } from '@app/constants/i18n'
 import i18n from 'i18next'
 import HttpBackend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
+
+import { LANGUAGES } from '@app/constants/i18n'
 
 const getInitialLanguage = () => {
   const storedLang = localStorage.getItem('lng')

@@ -8,11 +8,12 @@ import { clsxTwMerge, formatEllipsis } from '@app/utils'
 
 type Props = {
   value: string
-  label?: string
+  label?: React.ReactNode
   copy?: boolean
   ellipsis?: boolean
   className?: string
   showTooltip?: boolean
+  noWrap?: boolean
 }
 
 export default function EntityLink({
@@ -21,7 +22,8 @@ export default function EntityLink({
   className,
   copy = false,
   ellipsis = false,
-  showTooltip = false
+  showTooltip = false,
+  noWrap = false
 }: Props) {
   const addressLink = useMemo(() => {
     const getDisplayValue = () => {
@@ -39,6 +41,7 @@ export default function EntityLink({
         <Link
           className={clsxTwMerge(
             'break-all font-space text-xxs text-primary-30 xs:text-xs',
+            noWrap && 'whitespace-nowrap',
             className
           )}
           to={PublicRoutes.ENTITIES.DETAILS(value)}
@@ -48,7 +51,7 @@ export default function EntityLink({
         {copy && <CopyTextButton text={value} />}
       </div>
     )
-  }, [className, value, copy, label, ellipsis])
+  }, [noWrap, className, value, copy, label, ellipsis])
 
   return showTooltip ? (
     <Tooltip tooltipId={value} content={value}>

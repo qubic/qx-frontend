@@ -1,7 +1,8 @@
-import { Error404, GenericError } from '@app/assets/images/errors'
-import { Alert } from '@app/components/ui'
 import { useTranslation } from 'react-i18next'
 import type { ErrorResponse } from 'react-router-dom'
+
+import { Error404, GenericError } from '@app/assets/images/errors'
+import { Alert } from '@app/components/ui'
 
 type ErrorDisplayProps = {
   is404Error?: boolean

@@ -1,11 +1,13 @@
 import { useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Select } from '@app/components/ui'
 import { Button } from '@app/components/ui/buttons'
 import type { Option } from '@app/components/ui/Select'
 import type { QubicAccount } from '@app/services/wallet-connect-client'
-import { useTranslation } from 'react-i18next'
-import { ModalStep } from './connect-wallet-modal.types'
+import { formatEllipsis } from '@app/utils'
+
+import { ModalStep } from '../connect-wallet-modal.types'
 
 interface Props {
   accounts: QubicAccount[]
@@ -16,7 +18,7 @@ interface Props {
 }
 
 const transformAccountToSelectOption = (account: QubicAccount) => ({
-  label: `${account.name} (${account.address})`,
+  label: `${account.name} (${formatEllipsis(account.address)})`,
   value: account.address
 })
 

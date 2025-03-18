@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+
 import { qubicRpcApi } from './apis/qubic-rpc'
 import { qxApi } from './apis/qx'
 import localeReducer from './localeSlice'

@@ -1,17 +1,26 @@
 {
   "global": {
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "connect_wallet": "Connect Wallet",
+    "disconnect_wallet": "Disconnect Wallet",
     "lock_wallet": "Lock Wallet",
     "unlock_wallet": "Unlock Wallet",
     "paste": "Paste",
     "cancel": "Cancel",
+    "cancelled": "Cancelled",
+    "declined": "Declined",
+    "success": "Success",
     "close": "Close",
     "confirm": "Confirm",
+    "try_again": "Try Again",
     "select_account": "Select Account",
     "change_account": "Change Account",
     "beta": "Beta",
     "learn_more": "Learn More",
     "home": "Home",
     "tokens": "Tokens",
+    "actions": "Actions",
     "asset": "Asset",
     "assets": "Assets",
     "asset_transfers": "Asset Transfers",
@@ -38,7 +47,17 @@
     "chart_avg_price": "Chart (Avg Price)",
     "address": "Address",
     "entity": "Entity",
-    "amount": "Amount"
+    "amount": "Amount",
+    "view_on_explorer": "View on Explorer",
+    "account_changed": "Changed to {{account}} account",
+    "selected_account": "Selected Account",
+    "available_accounts": "Available Accounts",
+    "no_additional_accounts": "No additional accounts available",
+    "open_buy_order": "Open Buy Order",
+    "open_sell_order": "Open Sell Order",
+    "request_expired": "Request Expired",
+    "check_my_orders": "Check My Orders",
+    "select": "Select"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
@@ -61,8 +80,9 @@
     "latest_asset_transfers": "Latest asset transfers"
   },
   "entity_page": {
-    "open_ask_orders": "Open Ask Orders",
-    "open_bid_orders": "Open Bid Orders"
+    "open_ask_orders": "Open Sell Orders",
+    "open_bid_orders": "Open Buy Orders",
+    "my_open_orders": "My Open Orders"
   },
   "error_page": {
     "page_not_found": "Page not found",
@@ -92,10 +112,47 @@
     "account_connected": "Account Connected Successfully",
     "copy_uri": "Copy URI",
     "scan_qr": "Scan this QR code with your Qubic Wallet or copy the link below:",
+    "metamask_cooming_soon": "MetaMask (coming soon)",
     "wallet_connection_gen_url_error": "Failed to generate WalletConnect URI. Please try again.",
-    "metamask_cooming_soon": "MetaMask (coming soon)"
+    "wallet_connection_expired": "Your connection request has expired. Please generate a new QR code to try again.",
+    "user_rejected_connection": "You declined the connection request."
   },
   "errors": {
-    "error_fetching_data": "Something went wrong while fetching the data. Please try again later."
+    "error_fetching_data": "Something went wrong while fetching the data. Please try again later.",
+    "unexpected_error": "An unexpected error has occurred."
+  },
+  "trade_modal": {
+    "place_buy_order": "Place Buy Order",
+    "place_sell_order": "Place Sell Order",
+    "placing_order": "Placing Order...",
+    "order_confirmation": "Order Confirmation",
+    "success_state_cta": "Place another order",
+    "success_state_desc": "Your order transaction has been successfully submitted. You can track its status in your wallet to ensure it has been placed correctly. The order will be processed based on the availability of matching bids or asks. Feel free to monitor its progress or check back later for updates.",
+    "error_state_desc": "The transaction was unsuccessful, but your funds remain safe in your wallet. Feel free to attempt the transaction again. If the problem continues, please reach out to support for assistance.",
+    "declined_state_desc": "You declined the transaction. Your funds remain safe in your wallet.",
+    "request_expired_state_desc": "This transaction took too long and the request has expired. Please try again.",
+    "errors": {
+      "price": "Invalid price",
+      "amount": "Invalid amount",
+      "insufficient_balance": "Insufficient balance",
+      "not_enough_qubic": "Not enough QUBIC in your wallet to place this order.",
+      "not_enough_asset": "Not enough {{asset}} in your wallet to place this order."
+    }
+  },
+  "remove_order_modal": {
+    "remove_order": "Remove Order",
+    "remove_sell_order": "Remove Sell Order",
+    "remove_buy_order": "Remove Buy Order",
+    "removing_order": "Removing Order...",
+    "remove_order_desc": "Are you sure you want to remove your <side>{{side}}</side> order for <amount>{{amount}}</amount> <asset>{{asset}}</asset> at <price>{{price}}</price> QUBIC each, totaling <total>{{total}}</total> QUBIC?",
+    "remove_order_success": "Transaction sent successfully.\nOrder will be removed at tick <tick>{{tick}}</tick>",
+    "error_removing_order": "Remove order has failed"
+  },
+  "rpc_errors": {
+    "user_unavailable": "You're currently busy with another request. Please complete or cancel it before trying again.",
+    "tick_expired": "This transaction took too long and tick has expired. Please try again.",
+    "invalid_arguments": "Something's off with the request. Double-check your inputs and try again.",
+    "internal_error": "Oops! Something went wrong on our end. Please try again in a moment.",
+    "user_rejected": "You rejected the transaction."
   }
 }

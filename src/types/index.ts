@@ -7,6 +7,7 @@ export type TableColumn = {
   i18nKey: string
   label?: string
   align?: React.ThHTMLAttributes<HTMLTableCellElement>['align']
+  show?: boolean
 }
 export type TableColumns = TableColumn[]
 

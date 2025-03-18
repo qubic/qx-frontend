@@ -1,24 +1,33 @@
 {
   "global": {
+    "connect": "Verbinden",
+    "disconnect": "Verbreken",
+    "connect_wallet": "Wallet verbinden",
+    "disconnect_wallet": "Wallet verbreken",
     "lock_wallet": "Wallet vergrendelen",
     "unlock_wallet": "Wallet ontgrendelen",
     "paste": "Plakken",
     "cancel": "Annuleren",
+    "cancelled": "Geannuleerd",
+    "declined": "Geweigerd",
+    "success": "Succes",
     "close": "Sluiten",
     "confirm": "Bevestigen",
-    "select_account": "Account selecteren",
-    "change_account": "Account wijzigen",
-    "beta": "Bèta",
+    "try_again": "Opnieuw proberen",
+    "select_account": "Selecteer account",
+    "change_account": "Wijzig account",
+    "beta": "Beta",
     "learn_more": "Meer informatie",
     "home": "Home",
     "tokens": "Tokens",
-    "asset": "Vermogen",
-    "assets": "Vermogens",
-    "asset_transfers": "Vermogenoverdrachten",
-    "trades": "Handel",
+    "actions": "Acties",
+    "asset": "Activa",
+    "assets": "Activa",
+    "asset_transfers": "Activatransacties",
+    "trades": "Transacties",
     "transactions": "Transacties",
-    "smart_contract_shares": "Aandelen van slimme contracten",
-    "side": "Zijde",
+    "smart_contract_shares": "Smart Contract Aandelen",
+    "side": "Kant",
     "price": "Prijs",
     "shares": "Aandelen",
     "total": "Totaal",
@@ -34,68 +43,116 @@
     "issuer": "Uitgever",
     "decimals": "Decimalen",
     "name": "Naam",
-    "check_on_explorer": "Controleren in verkenner",
-    "chart_avg_price": "Grafiek (Gem. prijs)",
+    "check_on_explorer": "Bekijken in Explorer",
+    "chart_avg_price": "Grafiek (Gemiddelde prijs)",
     "address": "Adres",
     "entity": "Entiteit",
-    "amount": "Bedrag"
+    "amount": "Bedrag",
+    "view_on_explorer": "Bekijk in Explorer",
+    "account_changed": "Gewijzigd naar account {{account}}",
+    "selected_account": "Geselecteerd account",
+    "available_accounts": "Beschikbare accounts",
+    "no_additional_accounts": "Geen extra accounts beschikbaar",
+    "open_buy_order": "Open kooporder",
+    "open_sell_order": "Open verkooporder",
+    "request_expired": "Verzoek verlopen",
+    "check_my_orders": "Bekijk mijn orders",
+    "select": "Selecteren"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",
-    "description": "QX is een gedecentraliseerde beurs die als een slim contract op het Qubic-netwerk draait.",
+    "description": "QX is een gedecentraliseerde beurs die functioneert als een smart contract op het Qubic-netwerk.",
     "entity_search": "Entiteit zoeken",
-    "entity_search_desc": "Toon handelsactiviteiten en openstaande orders van een entiteit.",
-    "lookup_trader": "Handelaar opzoeken"
+    "entity_search_desc": "Toon transacties en open orders van een entiteit.",
+    "lookup_trader": "Zoek handelaar"
   },
   "assets_page": {
-    "qx_assets": "QX Vermogens"
+    "qx_assets": "QX Activa"
   },
   "asset_page": {
     "asset_order_book": "{{asset}} Orderboek"
   },
   "trades_page": {
-    "qx_trades": "Laatste QX-handel"
+    "qx_trades": "Laatste QX transacties"
   },
   "transactions_page": {
-    "latest_issued_assets": "Laatste uitgegeven vermogens",
-    "latest_asset_transfers": "Laatste vermogenoverdrachten"
+    "latest_issued_assets": "Laatste uitgegeven activa",
+    "latest_asset_transfers": "Laatste activatransacties"
   },
   "entity_page": {
     "open_ask_orders": "Open verkooporders",
-    "open_bid_orders": "Open kooporders"
+    "open_bid_orders": "Open kooporders",
+    "my_open_orders": "Mijn open orders"
   },
   "error_page": {
     "page_not_found": "Pagina niet gevonden",
-    "error_404_message": "Gefeliciteerd! Je behoort tot de weinigen die onze 404-pagina hebben gevonden.",
-    "back_to_home_page": "Terug naar homepagina",
+    "error_404_message": "Gefeliciteerd! Je bent een van de weinigen die onze 404-pagina heeft gevonden.",
+    "back_to_home_page": "Terug naar startpagina",
     "title": "Oeps!",
     "unexpected_error": "Sorry, er is een onverwachte fout opgetreden.",
     "retry": "Opnieuw proberen"
   },
   "trades_table": {
-    "error_fetching_trades": "Er is iets misgegaan bij het ophalen van de laatste handel. Probeer het later opnieuw.",
-    "trades_not_found": "Geen handel gevonden."
+    "error_fetching_trades": "Er is iets misgegaan bij het ophalen van de laatste transacties. Probeer het later opnieuw.",
+    "trades_not_found": "Geen transacties gevonden."
   },
   "orders_table": {
-    "open_orders_not_found": "Geen openstaande orders gevonden.",
-    "error_fetching_open_orders": "Er is iets misgegaan bij het ophalen van de openstaande orders. Probeer het later opnieuw."
+    "open_orders_not_found": "Geen open orders gevonden.",
+    "error_fetching_open_orders": "Er is iets misgegaan bij het ophalen van de open orders. Probeer het later opnieuw."
   },
   "issued_assets_table": {
-    "issued_assets_not_found": "Geen uitgegeven vermogens gevonden.",
-    "error_fetching_issued_assets": "Er is iets misgegaan bij het ophalen van de laatste uitgegeven vermogens. Probeer het later opnieuw."
+    "issued_assets_not_found": "Geen uitgegeven activa gevonden.",
+    "error_fetching_issued_assets": "Er is iets misgegaan bij het ophalen van de laatste uitgegeven activa. Probeer het later opnieuw."
   },
   "transfers_table": {
-    "transfers_not_found": "Geen overdrachten gevonden.",
-    "error_fetching_transfers": "Er is iets misgegaan bij het ophalen van de laatste overdrachten. Probeer het later opnieuw."
+    "transfers_not_found": "Geen transacties gevonden.",
+    "error_fetching_transfers": "Er is iets misgegaan bij het ophalen van de laatste transacties. Probeer het later opnieuw."
   },
   "connect_wallet_modal": {
     "account_connected": "Account succesvol verbonden",
     "copy_uri": "URI kopiëren",
     "scan_qr": "Scan deze QR-code met je Qubic Wallet of kopieer de onderstaande link:",
-    "wallet_connection_gen_url_error": "Kan WalletConnect-URI niet genereren. Probeer het later opnieuw.",
-    "metamask_cooming_soon": "MetaMask (binnenkort beschikbaar)"
+    "metamask_cooming_soon": "MetaMask (binnenkort beschikbaar)",
+    "wallet_connection_gen_url_error": "Kan WalletConnect URI niet genereren. Probeer het opnieuw.",
+    "wallet_connection_expired": "Je verbindingsverzoek is verlopen. Genereer een nieuwe QR-code om het opnieuw te proberen.",
+    "user_rejected_connection": "Je hebt het verbindingsverzoek geweigerd."
   },
   "errors": {
-    "error_fetching_data": "Er is iets misgegaan bij het ophalen van de gegevens. Probeer het later opnieuw."
+    "error_fetching_data": "Er is iets misgegaan bij het ophalen van de gegevens. Probeer het later opnieuw.",
+    "unexpected_error": "Er is een onverwachte fout opgetreden."
+  },
+  "trade_modal": {
+    "place_buy_order": "Kooporder plaatsen",
+    "place_sell_order": "Verkooporder plaatsen",
+    "placing_order": "Order wordt geplaatst...",
+    "order_confirmation": "Orderbevestiging",
+    "success_state_cta": "Nog een order plaatsen",
+    "success_state_desc": "Je order is succesvol ingediend. Je kunt de status in je wallet volgen.",
+    "error_state_desc": "De transactie is mislukt, maar je geld blijft veilig in je wallet.",
+    "declined_state_desc": "Je hebt de transactie geweigerd. Je geld blijft veilig in je wallet.",
+    "request_expired_state_desc": "Deze transactie duurde te lang en de aanvraag is verlopen. Probeer het opnieuw.",
+    "errors": {
+      "price": "Ongeldige prijs",
+      "amount": "Ongeldig bedrag",
+      "insufficient_balance": "Onvoldoende saldo",
+      "not_enough_qubic": "Niet genoeg QUBIC in je wallet om deze order te plaatsen.",
+      "not_enough_asset": "Niet genoeg {{asset}} in je wallet om deze order te plaatsen."
+    }
+  },
+  "remove_order_modal": {
+    "remove_order": "Order verwijderen",
+    "remove_sell_order": "Verkooporder verwijderen",
+    "remove_buy_order": "Kooporder verwijderen",
+    "removing_order": "Order wordt verwijderd...",
+    "remove_order_desc": "Weet je zeker dat je je <side>{{side}}</side> order van <amount>{{amount}}</amount> <asset>{{asset}}</asset> tegen <price>{{price}}</price> QUBIC per stuk wilt verwijderen, met een totaal van <total>{{total}}</total> QUBIC?",
+    "remove_order_success": "Transactie succesvol verzonden.\nDe order wordt verwijderd bij tick <tick>{{tick}}</tick>",
+    "error_removing_order": "Het verwijderen van de order is mislukt"
+  },
+  "rpc_errors": {
+    "user_unavailable": "Je bent momenteel bezig met een andere aanvraag. Voltooi of annuleer deze voordat je het opnieuw probeert.",
+    "tick_expired": "Deze transactie duurde te lang en de tick is verlopen. Probeer het opnieuw.",
+    "invalid_arguments": "Er is iets mis met de aanvraag. Controleer je invoer en probeer het opnieuw.",
+    "internal_error": "Oeps! Er is iets misgegaan aan onze kant. Probeer het later opnieuw.",
+    "user_rejected": "Je hebt de transactie geweigerd."
   }
 }

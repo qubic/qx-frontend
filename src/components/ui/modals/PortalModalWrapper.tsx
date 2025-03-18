@@ -1,6 +1,9 @@
-import { clsxTwMerge } from '@app/utils'
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+
+import { animated, config, useSpring } from '@react-spring/web'
+
+import { clsxTwMerge } from '@app/utils'
 
 type ModalProps = {
   id: string
@@ -88,6 +91,18 @@ export default function PortalModalWrapper({
 
   const modalRoot = document.getElementById('modal-root')
 
+  const modalAnimation = useSpring({
+    config: { ...config.gentle, mass: 1, damping: 15, tension: 100, clamp: true },
+    from: {
+      opacity: 0,
+      transform: 'translateY(calc(50% + 50vh))'
+    },
+    to: {
+      opacity: 1,
+      transform: 'translateY(calc(0% + 0vh))'
+    }
+  })
+
   if (!modalRoot) {
     throw new Error('Modal root element not found')
   }
@@ -100,7 +115,11 @@ export default function PortalModalWrapper({
           closeOnOutsideClick={closeOnOutsideClick}
           onClose={onClose}
         >
-          {children}
+          {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- Something wrong is happening with the types here, this works perfectly on explorer
+          @ts-ignore */}
+          <animated.div style={modalAnimation} className="flex w-full justify-center">
+            {children}
+          </animated.div>
         </ModalOverlayWrapper>,
         modalRoot
       )

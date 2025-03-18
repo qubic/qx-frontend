@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react'
 
 import { CheckIcon, CopyTextIcon } from '@app/assets/icons'
 import { clsxTwMerge, copyText } from '@app/utils'
+
 import Tooltip from '../Tooltip'
 
 type Props = {
@@ -33,7 +34,7 @@ export default function CopyTextButton({ text, children, className }: Props) {
       >
         {isCopied ? (
           <>
-            <span className="text-xs">Copied</span>
+            {children && <span className="text-xs">Copied</span>}
             <CheckIcon className="size-14 text-success-40" />
           </>
         ) : (

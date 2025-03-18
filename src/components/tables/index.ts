@@ -1,4 +1,6 @@
 export { default as ErrorRow } from './ErrorRow'
 export { default as NoItemsFoundRow } from './NoItemsFoundRow'
+export { default as TableHead } from './TableHead'
+export { default as TableWrapper } from './TableWrapper'
 export * from './TradesTable'
 export * from './TransfersTable'

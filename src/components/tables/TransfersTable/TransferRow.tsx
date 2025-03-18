@@ -34,20 +34,23 @@ const genTransferRowCells = (transfer: Transfer): TableRows => [
         type={ExplorerLinkType.TICK}
         label={formatString(transfer.tick)}
         value={String(transfer.tick)}
+        noWrap
       />
     )
   },
   {
     key: 'hash',
-    content: <ExplorerLink type={ExplorerLinkType.TX} value={transfer.hash} ellipsis showTooltip />
+    content: (
+      <ExplorerLink type={ExplorerLinkType.TX} value={transfer.hash} ellipsis showTooltip noWrap />
+    )
   },
   {
     key: 'from',
-    content: <EntityLink value={transfer.source} ellipsis showTooltip />
+    content: <EntityLink value={transfer.source} ellipsis showTooltip noWrap />
   },
   {
     key: 'to',
-    content: <EntityLink value={transfer.extraData.newOwner} ellipsis showTooltip />
+    content: <EntityLink value={transfer.extraData.newOwner} ellipsis showTooltip noWrap />
   },
   {
     key: 'date_and_time',

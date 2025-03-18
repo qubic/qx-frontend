@@ -7,6 +7,7 @@ import type { Asset } from '@app/store/apis/qx'
 import { useGetAssetsQuery } from '@app/store/apis/qx'
 import { ASSETS_ISSUER_ADDRESS } from '@app/utils/qubic'
 import { formatRTKError } from '@app/utils/rtk'
+
 import { AssetsSection } from './components'
 
 function AssetsPage() {

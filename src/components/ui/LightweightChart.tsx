@@ -1,4 +1,3 @@
-import { clsxTwMerge } from '@app/utils'
 import type {
   ChartOptions,
   DeepPartial,
@@ -9,6 +8,8 @@ import type {
 } from 'lightweight-charts'
 import { createChart } from 'lightweight-charts'
 import { useEffect, useRef } from 'react'
+
+import { clsxTwMerge } from '@app/utils'
 
 type Props = Readonly<{
   priceDataSeries: SingleValueData[]

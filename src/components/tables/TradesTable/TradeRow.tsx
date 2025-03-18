@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -11,7 +12,7 @@ import type { TableRows } from '@app/types'
 import { ExplorerLinkType } from '@app/types/enums'
 import { formatDate, formatString } from '@app/utils'
 
-const genTradeRowCells = (trade: Trade, t: (key: string) => string): TableRows => [
+const genTradeRowCells = (trade: Trade, t: TFunction): TableRows => [
   {
     key: 'asset',
     content: (
@@ -49,16 +50,22 @@ const genTradeRowCells = (trade: Trade, t: (key: string) => string): TableRows =
   {
     key: 'hash',
     content: (
-      <ExplorerLink type={ExplorerLinkType.TX} value={trade.transactionHash} ellipsis showTooltip />
+      <ExplorerLink
+        type={ExplorerLinkType.TX}
+        value={trade.transactionHash}
+        ellipsis
+        showTooltip
+        noWrap
+      />
     )
   },
   {
     key: 'taker',
-    content: <EntityLink value={trade.taker} ellipsis showTooltip />
+    content: <EntityLink value={trade.taker} ellipsis showTooltip noWrap />
   },
   {
     key: 'maker',
-    content: <EntityLink value={trade.maker} ellipsis showTooltip />
+    content: <EntityLink value={trade.maker} ellipsis showTooltip noWrap />
   },
   {
     key: 'date_and_time',
