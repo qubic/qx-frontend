@@ -1,9 +1,9 @@
+import scrollbarPlugin from 'tailwind-scrollbar'
 import type { Config } from 'tailwindcss'
 
 import aspectRatioPlugin from '@tailwindcss/aspect-ratio'
 import formsPlugin from '@tailwindcss/forms'
 import typographyPlugin from '@tailwindcss/typography'
-import scrollbarPlugin from 'tailwind-scrollbar'
 
 import { colors } from './src/theme/colors'
 import { screens } from './src/theme/screens'

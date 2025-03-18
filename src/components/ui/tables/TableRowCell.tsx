@@ -1,5 +1,6 @@
-import { clsxTwMerge } from '@app/utils'
 import { memo } from 'react'
+
+import { clsxTwMerge } from '@app/utils'
 
 type Props = Readonly<
   React.HTMLAttributes<HTMLTableCellElement> & {
@@ -13,7 +14,7 @@ const TableRowCell = memo(({ children, className, align = 'center', ...rest }: P
     // eslint-disable-next-line react/jsx-props-no-spreading
     {...rest}
     align={align}
-    className={clsxTwMerge('p-6 text-xxs xs:text-xs md:px-12 md:py-10', className)}
+    className={clsxTwMerge('px-14 py-10 text-xxs xs:text-xs', className)}
   >
     {children}
   </td>

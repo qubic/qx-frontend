@@ -1,17 +1,26 @@
 {
   "global": {
+    "connect": "连接",
+    "disconnect": "断开连接",
+    "connect_wallet": "连接钱包",
+    "disconnect_wallet": "断开钱包",
     "lock_wallet": "锁定钱包",
     "unlock_wallet": "解锁钱包",
     "paste": "粘贴",
     "cancel": "取消",
+    "cancelled": "已取消",
+    "declined": "已拒绝",
+    "success": "成功",
     "close": "关闭",
     "confirm": "确认",
+    "try_again": "重试",
     "select_account": "选择账户",
-    "change_account": "更换账户",
+    "change_account": "更改账户",
     "beta": "测试版",
     "learn_more": "了解更多",
-    "home": "首页",
+    "home": "主页",
     "tokens": "代币",
+    "actions": "操作",
     "asset": "资产",
     "assets": "资产",
     "asset_transfers": "资产转账",
@@ -22,80 +31,128 @@
     "price": "价格",
     "shares": "份额",
     "total": "总计",
-    "hash": "哈希值",
-    "taker": "接受者",
-    "maker": "提供者",
-    "date_and_time": "日期和时间",
+    "hash": "哈希",
+    "taker": "买方",
+    "maker": "卖方",
+    "date_and_time": "日期 & 时间",
     "buy": "买入",
     "sell": "卖出",
-    "tick": "滴答",
-    "from": "从",
+    "tick": "Tick",
+    "from": "来自",
     "to": "到",
-    "issuer": "发行方",
+    "issuer": "发行者",
     "decimals": "小数位",
     "name": "名称",
-    "check_on_explorer": "在区块浏览器查看",
-    "chart_avg_price": "图表（平均价格）",
+    "check_on_explorer": "在区块浏览器中查看",
+    "chart_avg_price": "图表 (平均价格)",
     "address": "地址",
     "entity": "实体",
-    "amount": "金额"
+    "amount": "数量",
+    "view_on_explorer": "在区块浏览器中查看",
+    "account_changed": "已切换至账户 {{account}}",
+    "selected_account": "已选账户",
+    "available_accounts": "可用账户",
+    "no_additional_accounts": "没有额外的账户",
+    "open_buy_order": "创建买入订单",
+    "open_sell_order": "创建卖出订单",
+    "request_expired": "请求已过期",
+    "check_my_orders": "查看我的订单",
+    "select": "选择"
   },
   "home_page": {
-    "qx_dashboard": "QX仪表板",
-    "description": "QX 是运行在 Qubic 网络上的智能合约形式的去中心化交易所。",
+    "qx_dashboard": "QX 仪表板",
+    "description": "QX 是在 Qubic 网络上运行的去中心化交易所。",
     "entity_search": "实体搜索",
-    "entity_search_desc": "显示实体的交易和未完成订单。",
-    "lookup_trader": "查找交易员"
+    "entity_search_desc": "查看实体的交易和开放订单。",
+    "lookup_trader": "查找交易者"
   },
   "assets_page": {
-    "qx_assets": "QX资产"
+    "qx_assets": "QX 资产"
   },
   "asset_page": {
-    "asset_order_book": "{{asset}}订单簿"
+    "asset_order_book": "{{asset}} 订单簿"
   },
   "trades_page": {
-    "qx_trades": "最新QX交易"
+    "qx_trades": "最新 QX 交易"
   },
   "transactions_page": {
-    "latest_issued_assets": "最新发行的资产",
+    "latest_issued_assets": "最新发行资产",
     "latest_asset_transfers": "最新资产转账"
   },
   "entity_page": {
-    "open_ask_orders": "未完成的卖单",
-    "open_bid_orders": "未完成的买单"
+    "open_ask_orders": "开放卖单",
+    "open_bid_orders": "开放买单",
+    "my_open_orders": "我的开放订单"
   },
   "error_page": {
     "page_not_found": "页面未找到",
-    "error_404_message": "恭喜！您是少数能找到我们404页面的精英之一。",
-    "back_to_home_page": "返回首页",
+    "error_404_message": "恭喜！你是少数找到我们 404 页面的人。",
+    "back_to_home_page": "返回主页",
     "title": "哎呀！",
     "unexpected_error": "抱歉，发生了意外错误。",
     "retry": "重试"
   },
   "trades_table": {
-    "error_fetching_trades": "获取最新交易时出错，请稍后再试。",
-    "trades_not_found": "未找到交易。"
+    "error_fetching_trades": "获取最新交易时出错，请稍后重试。",
+    "trades_not_found": "未找到交易记录。"
   },
   "orders_table": {
-    "open_orders_not_found": "未找到未完成订单。",
-    "error_fetching_open_orders": "获取未完成订单时出错，请稍后再试。"
+    "open_orders_not_found": "未找到开放订单。",
+    "error_fetching_open_orders": "获取开放订单时出错，请稍后重试。"
   },
   "issued_assets_table": {
-    "issued_assets_not_found": "未找到已发行的资产。",
-    "error_fetching_issued_assets": "获取最新发行的资产时出错，请稍后再试。"
+    "issued_assets_not_found": "未找到已发行资产。",
+    "error_fetching_issued_assets": "获取最新发行资产时出错，请稍后重试。"
   },
   "transfers_table": {
     "transfers_not_found": "未找到转账记录。",
-    "error_fetching_transfers": "获取最新转账记录时出错，请稍后再试。"
+    "error_fetching_transfers": "获取最新转账时出错，请稍后重试。"
   },
   "connect_wallet_modal": {
-    "account_connected": "账户连接成功",
+    "account_connected": "账户成功连接",
     "copy_uri": "复制 URI",
-    "scan_qr": "使用您的 Qubic 钱包扫描此二维码或复制以下链接：",
-    "wallet_connection_gen_url_error": "生成 WalletConnect URI 失败，请稍后再试。",
-    "metamask_cooming_soon": "MetaMask（即将推出）"
+    "scan_qr": "请使用 Qubic 钱包扫描此二维码，或复制下方链接：",
+    "metamask_cooming_soon": "MetaMask (即将推出)",
+    "wallet_connection_gen_url_error": "生成 WalletConnect URI 失败，请重试。",
+    "wallet_connection_expired": "连接请求已过期，请生成新的二维码重试。",
+    "user_rejected_connection": "你已拒绝连接请求。"
   },
   "errors": {
-    "error_fetching_data": "获取数据时出错，请稍后再试。"
+    "error_fetching_data": "获取数据时出错，请稍后重试。",
+    "unexpected_error": "发生了意外错误。"
+  },
+  "trade_modal": {
+    "place_buy_order": "下买入订单",
+    "place_sell_order": "下卖出订单",
+    "placing_order": "正在下单...",
+    "order_confirmation": "订单确认",
+    "success_state_cta": "下另一个订单",
+    "success_state_desc": "你的订单交易已成功提交，你可以在钱包中跟踪其状态。",
+    "error_state_desc": "交易失败，但你的资金仍然安全地存放在钱包中。",
+    "declined_state_desc": "你已拒绝交易，资金仍然安全。",
+    "request_expired_state_desc": "交易时间过长，请求已过期，请重试。",
+    "errors": {
+      "price": "无效的价格",
+      "amount": "无效的数量",
+      "insufficient_balance": "余额不足",
+      "not_enough_qubic": "你的钱包中没有足够的 QUBIC 来下单。",
+      "not_enough_asset": "你的钱包中没有足够的 {{asset}} 来下单。"
+    }
+  },
+  "remove_order_modal": {
+    "remove_order": "移除订单",
+    "remove_sell_order": "移除卖出订单",
+    "remove_buy_order": "移除买入订单",
+    "removing_order": "正在移除订单...",
+    "remove_order_desc": "你确定要移除 <side>{{side}}</side> 订单，涉及 <amount>{{amount}}</amount> <asset>{{asset}}</asset>，单价 <price>{{price}}</price> QUBIC，总价 <total>{{total}}</total> QUBIC 吗？",
+    "remove_order_success": "交易已成功发送。\n订单将在 Tick <tick>{{tick}}</tick> 处移除。",
+    "error_removing_order": "移除订单失败"
+  },
+  "rpc_errors": {
+    "user_unavailable": "你当前正在处理另一个请求，请完成或取消后再试。",
+    "tick_expired": "交易时间过长，Tick 已过期，请重试。",
+    "invalid_arguments": "请求参数错误，请检查输入并重试。",
+    "internal_error": "糟糕！服务器发生错误，请稍后重试。",
+    "user_rejected": "你已拒绝交易。"
   }
 }

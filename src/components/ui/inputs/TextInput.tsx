@@ -1,6 +1,7 @@
-import { clsxTwMerge } from '@app/utils'
 import type React from 'react'
 import { forwardRef } from 'react'
+
+import { clsxTwMerge } from '@app/utils'
 
 type Variant = 'filled'
 type Color = 'primary' | 'error'
@@ -14,9 +15,11 @@ type Props<T extends React.ElementType = 'input'> = {
   color?: Color
   variant?: Variant
   className?: string
+  startIcon?: React.ReactNode
   endIcon?: React.ReactNode
   error?: string
   as?: T
+  hideNumberInputArrows?: boolean
 } & Omit<React.ComponentPropsWithoutRef<T>, 'size' | 'type'>
 
 const sizeClasses = {
@@ -28,14 +31,20 @@ const sizeClasses = {
 
 const colorVariantClasses = {
   primary: {
-    filled:
-      'bg-primary-70 text-white border border-primary-60 focus:border-primary-40 focus:ring-0 focus:outline-none placeholder:text-gray-60'
+    filled: 'bg-inherit text-white placeholder:text-gray-60'
   },
   error: {
-    filled:
-      'bg-primary-70 text-white border border-red-500 focus:border-red-500 focus:ring-0 focus:outline-none placeholder:text-gray-60'
+    filled: 'bg-primary-70 text-white placeholder:text-gray-60'
   }
 } as const
+
+const wrapperColorVariantClasses = {
+  primary: { filled: 'border-primary-60 focus:border-primary-40' },
+  error: { filled: 'border-red-500' }
+} as const
+
+const hideNumberInputClasses =
+  '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
 
 const TextInput = forwardRef(
   <T extends React.ElementType = 'input'>(
@@ -46,9 +55,11 @@ const TextInput = forwardRef(
       color = 'primary',
       variant = 'filled',
       className,
+      startIcon,
       endIcon,
       error,
       as,
+      hideNumberInputArrows,
       ...restProps
     }: Props<T>,
     ref: React.Ref<unknown>
@@ -57,25 +68,33 @@ const TextInput = forwardRef(
 
     return (
       <div className="relative flex w-full flex-col items-start">
-        <div className="relative flex w-full items-center">
+        <div
+          className={clsxTwMerge(
+            'flex w-full items-center rounded-12 border border-primary-60 transition duration-300',
+            sizeClasses[size],
+            wrapperColorVariantClasses[error ? 'error' : color][variant],
+            className
+          )}
+        >
+          {startIcon && <span className="flex items-center pr-8 text-gray-50">{startIcon}</span>}
           <Component
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...restProps}
             type={type}
-            ref={ref} // Attach ref here
+            ref={ref}
             placeholder={placeholder}
             className={clsxTwMerge(
-              'w-full rounded-12 transition duration-300',
+              'w-full text-end transition duration-300 focus:outline-none focus:ring-0',
               sizeClasses[size],
               colorVariantClasses[error ? 'error' : color][variant],
+              'p-0',
+              hideNumberInputArrows && hideNumberInputClasses,
               className
             )}
           />
-          {endIcon && (
-            <span className="absolute inset-y-0 right-0 flex items-center pr-12">{endIcon}</span>
-          )}
+          {endIcon && <span className="flex items-center pl-8 text-gray-50">{endIcon}</span>}
         </div>
-        {error && <p className="mt-2 text-sm text-red-500">* {error}</p>}
+        {error && <p className="mt-4 text-xs text-red-500">* {error}</p>}
       </div>
     )
   }

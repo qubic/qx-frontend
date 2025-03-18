@@ -1,21 +1,30 @@
 {
   "global": {
+    "connect": "Connecter",
+    "disconnect": "Déconnecter",
+    "connect_wallet": "Connecter le portefeuille",
+    "disconnect_wallet": "Déconnecter le portefeuille",
     "lock_wallet": "Verrouiller le portefeuille",
     "unlock_wallet": "Déverrouiller le portefeuille",
     "paste": "Coller",
     "cancel": "Annuler",
+    "cancelled": "Annulé",
+    "declined": "Refusé",
+    "success": "Succès",
     "close": "Fermer",
     "confirm": "Confirmer",
+    "try_again": "Réessayer",
     "select_account": "Sélectionner un compte",
     "change_account": "Changer de compte",
     "beta": "Bêta",
     "learn_more": "En savoir plus",
     "home": "Accueil",
     "tokens": "Jetons",
+    "actions": "Actions",
     "asset": "Actif",
     "assets": "Actifs",
     "asset_transfers": "Transferts d'actifs",
-    "trades": "Échanges",
+    "trades": "Transactions",
     "transactions": "Transactions",
     "smart_contract_shares": "Parts de contrat intelligent",
     "side": "Côté",
@@ -24,7 +33,7 @@
     "total": "Total",
     "hash": "Hash",
     "taker": "Preneur",
-    "maker": "Fournisseur",
+    "maker": "Faiseur",
     "date_and_time": "Date & Heure",
     "buy": "Acheter",
     "sell": "Vendre",
@@ -38,13 +47,23 @@
     "chart_avg_price": "Graphique (Prix moyen)",
     "address": "Adresse",
     "entity": "Entité",
-    "amount": "Montant"
+    "amount": "Montant",
+    "view_on_explorer": "Voir sur l'explorateur",
+    "account_changed": "Changé au compte {{account}}",
+    "selected_account": "Compte sélectionné",
+    "available_accounts": "Comptes disponibles",
+    "no_additional_accounts": "Aucun compte supplémentaire disponible",
+    "open_buy_order": "Ouvrir un ordre d'achat",
+    "open_sell_order": "Ouvrir un ordre de vente",
+    "request_expired": "Demande expirée",
+    "check_my_orders": "Vérifier mes ordres",
+    "select": "Sélectionner"
   },
   "home_page": {
     "qx_dashboard": "Tableau de bord QX",
-    "description": "QX est une plateforme d'échange décentralisée fonctionnant comme un contrat intelligent sur le réseau Qubic.",
+    "description": "QX est un échange décentralisé fonctionnant comme un contrat intelligent sur le réseau Qubic.",
     "entity_search": "Recherche d'entité",
-    "entity_search_desc": "Afficher les échanges et les ordres ouverts d'une entité.",
+    "entity_search_desc": "Afficher les transactions et ordres ouverts d'une entité.",
     "lookup_trader": "Rechercher un trader"
   },
   "assets_page": {
@@ -54,7 +73,7 @@
     "asset_order_book": "Carnet d'ordres de {{asset}}"
   },
   "trades_page": {
-    "qx_trades": "Derniers échanges QX"
+    "qx_trades": "Dernières transactions QX"
   },
   "transactions_page": {
     "latest_issued_assets": "Derniers actifs émis",
@@ -62,40 +81,78 @@
   },
   "entity_page": {
     "open_ask_orders": "Ordres de vente ouverts",
-    "open_bid_orders": "Ordres d'achat ouverts"
+    "open_bid_orders": "Ordres d'achat ouverts",
+    "my_open_orders": "Mes ordres ouverts"
   },
   "error_page": {
     "page_not_found": "Page non trouvée",
-    "error_404_message": "Félicitations ! Vous êtes parmi les rares à avoir trouvé notre page 404.",
+    "error_404_message": "Félicitations ! Vous faites partie des rares à avoir trouvé notre page 404.",
     "back_to_home_page": "Retour à l'accueil",
     "title": "Oups !",
     "unexpected_error": "Désolé, une erreur inattendue s'est produite.",
     "retry": "Réessayer"
   },
   "trades_table": {
-    "error_fetching_trades": "Une erreur s'est produite lors de la récupération des derniers échanges. Veuillez réessayer plus tard.",
-    "trades_not_found": "Aucun échange trouvé."
+    "error_fetching_trades": "Une erreur est survenue lors de la récupération des transactions. Veuillez réessayer plus tard.",
+    "trades_not_found": "Aucune transaction trouvée."
   },
   "orders_table": {
     "open_orders_not_found": "Aucun ordre ouvert trouvé.",
-    "error_fetching_open_orders": "Une erreur s'est produite lors de la récupération des ordres ouverts. Veuillez réessayer plus tard."
+    "error_fetching_open_orders": "Une erreur est survenue lors de la récupération des ordres ouverts. Veuillez réessayer plus tard."
   },
   "issued_assets_table": {
     "issued_assets_not_found": "Aucun actif émis trouvé.",
-    "error_fetching_issued_assets": "Une erreur s'est produite lors de la récupération des derniers actifs émis. Veuillez réessayer plus tard."
+    "error_fetching_issued_assets": "Une erreur est survenue lors de la récupération des actifs émis. Veuillez réessayer plus tard."
   },
   "transfers_table": {
     "transfers_not_found": "Aucun transfert trouvé.",
-    "error_fetching_transfers": "Une erreur s'est produite lors de la récupération des derniers transferts. Veuillez réessayer plus tard."
+    "error_fetching_transfers": "Une erreur est survenue lors de la récupération des derniers transferts. Veuillez réessayer plus tard."
   },
   "connect_wallet_modal": {
     "account_connected": "Compte connecté avec succès",
     "copy_uri": "Copier l'URI",
     "scan_qr": "Scannez ce code QR avec votre portefeuille Qubic ou copiez le lien ci-dessous :",
+    "metamask_cooming_soon": "MetaMask (bientôt disponible)",
     "wallet_connection_gen_url_error": "Échec de la génération de l'URI WalletConnect. Veuillez réessayer.",
-    "metamask_cooming_soon": "MetaMask (bientôt disponible)"
+    "wallet_connection_expired": "Votre demande de connexion a expiré. Veuillez générer un nouveau QR code pour réessayer.",
+    "user_rejected_connection": "Vous avez refusé la demande de connexion."
   },
   "errors": {
-    "error_fetching_data": "Une erreur s'est produite lors de la récupération des données. Veuillez réessayer plus tard."
+    "error_fetching_data": "Une erreur est survenue lors de la récupération des données. Veuillez réessayer plus tard.",
+    "unexpected_error": "Une erreur inattendue s'est produite."
+  },
+  "trade_modal": {
+    "place_buy_order": "Passer un ordre d'achat",
+    "place_sell_order": "Passer un ordre de vente",
+    "placing_order": "Passation de l'ordre...",
+    "order_confirmation": "Confirmation de l'ordre",
+    "success_state_cta": "Passer un autre ordre",
+    "success_state_desc": "Votre transaction d'ordre a été soumise avec succès. Vous pouvez suivre son statut dans votre portefeuille.",
+    "error_state_desc": "La transaction a échoué, mais vos fonds restent en sécurité dans votre portefeuille.",
+    "declined_state_desc": "Vous avez refusé la transaction. Vos fonds restent en sécurité dans votre portefeuille.",
+    "request_expired_state_desc": "Cette transaction a pris trop de temps et la demande a expiré. Veuillez réessayer.",
+    "errors": {
+      "price": "Prix invalide",
+      "amount": "Montant invalide",
+      "insufficient_balance": "Solde insuffisant",
+      "not_enough_qubic": "Pas assez de QUBIC dans votre portefeuille pour passer cet ordre.",
+      "not_enough_asset": "Pas assez de {{asset}} dans votre portefeuille pour passer cet ordre."
+    }
+  },
+  "remove_order_modal": {
+    "remove_order": "Supprimer l'ordre",
+    "remove_sell_order": "Supprimer l'ordre de vente",
+    "remove_buy_order": "Supprimer l'ordre d'achat",
+    "removing_order": "Suppression de l'ordre...",
+    "remove_order_desc": "Êtes-vous sûr de vouloir supprimer votre ordre <side>{{side}}</side> de <amount>{{amount}}</amount> <asset>{{asset}}</asset> à <price>{{price}}</price> QUBIC chacun, pour un total de <total>{{total}}</total> QUBIC ?",
+    "remove_order_success": "Transaction envoyée avec succès.\nL'ordre sera supprimé au tick <tick>{{tick}}</tick>",
+    "error_removing_order": "La suppression de l'ordre a échoué"
+  },
+  "rpc_errors": {
+    "user_unavailable": "Vous êtes actuellement occupé avec une autre demande. Veuillez la terminer ou l'annuler avant de réessayer.",
+    "tick_expired": "Cette transaction a pris trop de temps et a expiré. Veuillez réessayer.",
+    "invalid_arguments": "Quelque chose ne va pas avec la demande. Vérifiez vos entrées et réessayez.",
+    "internal_error": "Oups ! Une erreur est survenue de notre côté. Veuillez réessayer plus tard.",
+    "user_rejected": "Vous avez refusé la transaction."
   }
 }

@@ -1,5 +1,6 @@
-import { clsxTwMerge } from '@app/utils'
 import { useTranslation } from 'react-i18next'
+
+import { clsxTwMerge } from '@app/utils'
 
 type Props = {
   className?: string

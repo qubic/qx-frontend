@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import { Bars3Icon, XmarkIcon } from '@app/assets/icons'
 import { DropdownMenu } from '@app/components/ui'
 import { clsxTwMerge } from '@app/utils'
+
 import type { MenuItem } from './Header'
 
 type Props = {
@@ -15,34 +16,14 @@ type Props = {
 export default function BurgerMenu({ items, activePath }: Props) {
   const [showMenu, setShowMenu] = useState(false)
   const { t } = useTranslation()
-  const menuRef = useRef<HTMLUListElement>(null)
-  const triggerRef = useRef<HTMLButtonElement>(null)
 
   const handleToggleMenu = useCallback(() => {
     setShowMenu((prev) => !prev)
   }, [])
 
-  const handleClickOutside = useCallback((event: MouseEvent) => {
-    const target = event.target as Node
-    if (!menuRef.current?.contains(target) && !triggerRef.current?.contains(target)) {
-      setShowMenu(false)
-    }
-  }, [])
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [handleClickOutside])
-
   return (
-    <DropdownMenu show={showMenu}>
-      <DropdownMenu.Trigger
-        onToggle={handleToggleMenu}
-        className="rounded-full p-8 hover:bg-primary-60/80"
-        ref={triggerRef}
-      >
+    <DropdownMenu show={showMenu} onToggle={handleToggleMenu}>
+      <DropdownMenu.Trigger className="rounded-full p-8 hover:bg-primary-60/80">
         <div className="relative size-24">
           <XmarkIcon
             className={clsxTwMerge(
@@ -59,7 +40,7 @@ export default function BurgerMenu({ items, activePath }: Props) {
         </div>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
-        <ul className="grid gap-12 p-24" ref={menuRef}>
+        <ul className="grid gap-12 p-24">
           {items.map(({ i18nKey, href }) => (
             <li key={i18nKey}>
               <Link

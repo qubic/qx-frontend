@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 
 import { Tooltip } from '@app/components/ui'
 import { CopyTextButton } from '@app/components/ui/buttons'
-import { EXPLORER_URL } from '@app/constants/urls'
 import { ExplorerLinkType } from '@app/types/enums'
 import { clsxTwMerge, formatEllipsis } from '@app/utils'
+import { makeExplorerAddressUrl, makeExplorerTickUrl, makeExplorerTxUrl } from '@app/utils/explorer'
 
 type Props = {
   value: string
@@ -14,14 +14,9 @@ type Props = {
   ellipsis?: boolean
   className?: string
   showTooltip?: boolean
+  noWrap?: boolean
   tooltipContent?: string
 }
-
-const makeExplorerTxUrl = (tx: string) => `${EXPLORER_URL}/network/tx/${tx}`
-
-const makeExplorerTickUrl = (tick: string) => `${EXPLORER_URL}/network/tick/${tick}`
-
-const makeExplorerAddressUrl = (address: string) => `${EXPLORER_URL}/network/address/${address}`
 
 const getExplorerLinkUrl = (value: string, type: ExplorerLinkType) => {
   switch (type) {
@@ -44,6 +39,7 @@ export default function ExplorerLink({
   copy = false,
   ellipsis = false,
   showTooltip = false,
+  noWrap = false,
   tooltipContent = value
 }: Props) {
   const txLink = useMemo(() => {
@@ -62,6 +58,7 @@ export default function ExplorerLink({
         <a
           className={clsxTwMerge(
             'break-all font-space text-xxs text-primary-30 xs:text-xs',
+            noWrap && 'whitespace-nowrap',
             className
           )}
           href={getExplorerLinkUrl(value, type)}
@@ -73,7 +70,7 @@ export default function ExplorerLink({
         {copy && <CopyTextButton text={value} />}
       </div>
     )
-  }, [className, value, type, copy, label, ellipsis])
+  }, [noWrap, className, value, type, copy, label, ellipsis])
 
   return showTooltip ? (
     <Tooltip tooltipId={value} content={tooltipContent}>

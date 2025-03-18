@@ -1,16 +1,30 @@
+import type { TFunction } from 'i18next'
 import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 
+import type { OrderPayload } from '@app/components/modals/TradeModal/trade-modal.types'
 import { Skeleton } from '@app/components/ui'
-import { EntityLink } from '@app/components/ui/links'
+import { Button } from '@app/components/ui/buttons'
 import { TableRowCell } from '@app/components/ui/tables'
-import type { AssetOrder } from '@app/store/apis/qx'
+import { type AssetOrder } from '@app/store/apis/qx'
 import type { TableRows } from '@app/types'
+import { OrderType } from '@app/types/enums'
 import { formatString } from '@app/utils'
 
-const genAssetOrderRowCells = (assetOrder: AssetOrder): TableRows => [
+const genAssetOrderRowCells = (
+  assetOrder: AssetOrder,
+  orderType: OrderType,
+  onRowActionClick: (orderPayload: OrderPayload) => void,
+  t: TFunction
+): TableRows => [
   {
-    key: 'entity',
-    content: <EntityLink value={assetOrder.entityId} showTooltip ellipsis />
+    key: 'price',
+    content: (
+      <span className={orderType === OrderType.BID ? 'text-green-400' : 'text-red-500'}>
+        {formatString(assetOrder.price)}
+      </span>
+    ),
+    align: 'left'
   },
   {
     key: 'amount',
@@ -18,23 +32,43 @@ const genAssetOrderRowCells = (assetOrder: AssetOrder): TableRows => [
     align: 'right'
   },
   {
-    key: 'price',
-    content: formatString(assetOrder.price),
-    align: 'right'
-  },
-  {
     key: 'total',
     content: formatString(assetOrder.numberOfShares * assetOrder.price),
     align: 'right'
+  },
+  {
+    key: 'action',
+    content: (
+      <Button
+        color={orderType === OrderType.ASK ? 'green' : 'red'}
+        size="xs"
+        className="py-2"
+        onClick={() => {
+          onRowActionClick({
+            pricePerShare: assetOrder.price,
+            numberOfShares: assetOrder.numberOfShares
+          })
+        }}
+      >
+        {orderType === OrderType.ASK ? t('global.buy') : t('global.sell')}
+      </Button>
+    )
   }
 ]
 
 type Props = Readonly<{
   assetOrder: AssetOrder
+  orderType: OrderType
+  onRowActionClick: (orderPayload: OrderPayload) => void
 }>
 
-function AssetOrderRow({ assetOrder }: Props) {
-  const assetOrderRowCells = useMemo(() => genAssetOrderRowCells(assetOrder), [assetOrder])
+function AssetOrderRow({ assetOrder, orderType, onRowActionClick }: Props) {
+  const { t } = useTranslation()
+
+  const assetOrderRowCells = useMemo(
+    () => genAssetOrderRowCells(assetOrder, orderType, onRowActionClick, t),
+    [assetOrder, onRowActionClick, orderType, t]
+  )
 
   return (
     <tr className="even:bg-primary-60/30">

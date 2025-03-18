@@ -7,10 +7,8 @@ import { PortalModalWrapper } from '@app/components/ui/modals'
 import { useAppDispatch, useWalletConnect } from '@app/hooks'
 import { hideModal } from '@app/store/modalSlice'
 
-import AccountSelectStep from './AccountSelectStep'
+import { AccountSelectStep, ConnectionMethodSelectStep, ConnectWalletStep } from './components'
 import { ModalStep } from './connect-wallet-modal.types'
-import ConnectionMethodSelectStep from './ConnectionMethodSelectStep'
-import ConnectWalletStep from './ConnectWalletStep'
 
 export default function ConnectWalletModal() {
   const { t } = useTranslation()
@@ -21,8 +19,6 @@ export default function ConnectWalletModal() {
     session,
     connect: wcConnect,
     disconnect: wcDisconnect,
-    wcUri,
-    loading,
     accounts,
     selectedAccount: wcSelectedAccount,
     setSelectedAccount: setWcSelectedAccount,
@@ -72,13 +68,7 @@ export default function ConnectWalletModal() {
           />
         )
       case ModalStep.WC_CONNECT_WALLET:
-        return (
-          <ConnectWalletStep
-            wcUri={wcUri}
-            loading={loading}
-            onModalStepChange={handleModalStepChange}
-          />
-        )
+        return <ConnectWalletStep onModalStepChange={handleModalStepChange} />
       case ModalStep.WC_ACCOUNT_SELECT:
         return (
           <AccountSelectStep
@@ -101,20 +91,15 @@ export default function ConnectWalletModal() {
       onClose={handleCloseModal}
       closeOnOutsideClick
     >
-      <div className="relative mx-16 grid w-full max-w-480 gap-16 rounded-12 border border-primary-60 bg-primary-70 p-28 sm:mx-0">
-        <header className="flex justify-between">
+      <div className="relative mx-16 grid w-full max-w-480 rounded-12 border border-primary-60 bg-primary-70 sm:mx-0">
+        <header className="relative flex h-fit justify-between p-24">
           <QubicConnectLogo />
-          <button
-            type="button"
-            className="absolute top-14 ltr:right-14 rtl:left-14"
-            onClick={handleCloseModal}
-            aria-label="close-button"
-          >
-            <XmarkIcon className="size-20 text-gray-50" />
+          <button type="button" onClick={handleCloseModal} aria-label="close-button">
+            <XmarkIcon className="absolute top-14 size-20 text-gray-50 ltr:right-14 rtl:left-14" />
           </button>
         </header>
 
-        {renderModalContent()}
+        <div className="px-28 pb-28 pt-12">{renderModalContent()}</div>
       </div>
     </PortalModalWrapper>
   )

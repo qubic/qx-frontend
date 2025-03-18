@@ -1,10 +1,11 @@
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { withHelmet } from '@app/components/hocs'
 import { TransfersTable } from '@app/components/tables'
 import { PageLayout } from '@app/components/ui/layouts'
 import { useGetIssuedAssetsQuery, useGetTransfersQuery } from '@app/store/apis/qx'
-import { useMemo } from 'react'
+
 import { IssuedAssetsTable } from './components'
 
 function TransactionsPage() {

@@ -1,21 +1,30 @@
 {
   "global": {
+    "connect": "Conectar",
+    "disconnect": "Desconectar",
+    "connect_wallet": "Conectar billetera",
+    "disconnect_wallet": "Desconectar billetera",
     "lock_wallet": "Bloquear billetera",
     "unlock_wallet": "Desbloquear billetera",
     "paste": "Pegar",
     "cancel": "Cancelar",
+    "cancelled": "Cancelado",
+    "declined": "Rechazado",
+    "success": "Éxito",
     "close": "Cerrar",
     "confirm": "Confirmar",
+    "try_again": "Intentar de nuevo",
     "select_account": "Seleccionar cuenta",
     "change_account": "Cambiar cuenta",
     "beta": "Beta",
     "learn_more": "Saber más",
     "home": "Inicio",
     "tokens": "Tokens",
+    "actions": "Acciones",
     "asset": "Activo",
     "assets": "Activos",
     "asset_transfers": "Transferencias de activos",
-    "trades": "Comercios",
+    "trades": "Operaciones",
     "transactions": "Transacciones",
     "smart_contract_shares": "Acciones de contrato inteligente",
     "side": "Lado",
@@ -23,28 +32,38 @@
     "shares": "Acciones",
     "total": "Total",
     "hash": "Hash",
-    "taker": "Tomador",
-    "maker": "Creador",
+    "taker": "Comprador",
+    "maker": "Vendedor",
     "date_and_time": "Fecha y hora",
     "buy": "Comprar",
     "sell": "Vender",
     "tick": "Tick",
     "from": "De",
-    "to": "Para",
+    "to": "A",
     "issuer": "Emisor",
     "decimals": "Decimales",
     "name": "Nombre",
-    "check_on_explorer": "Verificar en el explorador",
+    "check_on_explorer": "Ver en el explorador",
     "chart_avg_price": "Gráfico (Precio promedio)",
     "address": "Dirección",
     "entity": "Entidad",
-    "amount": "Cantidad"
+    "amount": "Cantidad",
+    "view_on_explorer": "Ver en el explorador",
+    "account_changed": "Cambiado a la cuenta {{account}}",
+    "selected_account": "Cuenta seleccionada",
+    "available_accounts": "Cuentas disponibles",
+    "no_additional_accounts": "No hay cuentas adicionales disponibles",
+    "open_buy_order": "Abrir orden de compra",
+    "open_sell_order": "Abrir orden de venta",
+    "request_expired": "Solicitud expirada",
+    "check_my_orders": "Ver mis órdenes",
+    "select": "Seleccionar"
   },
   "home_page": {
-    "qx_dashboard": "Panel de control de QX",
-    "description": "QX es un intercambio descentralizado que funciona como un contrato inteligente en la red Qubic.",
-    "entity_search": "Búsqueda de entidades",
-    "entity_search_desc": "Muestra comercios y órdenes abiertas de una entidad.",
+    "qx_dashboard": "Panel de QX",
+    "description": "QX es un exchange descentralizado que funciona como un contrato inteligente en la red Qubic.",
+    "entity_search": "Búsqueda de entidad",
+    "entity_search_desc": "Mostrar operaciones y órdenes abiertas de una entidad.",
     "lookup_trader": "Buscar comerciante"
   },
   "assets_page": {
@@ -54,7 +73,7 @@
     "asset_order_book": "Libro de órdenes de {{asset}}"
   },
   "trades_page": {
-    "qx_trades": "Últimos comercios de QX"
+    "qx_trades": "Últimas operaciones de QX"
   },
   "transactions_page": {
     "latest_issued_assets": "Últimos activos emitidos",
@@ -62,40 +81,78 @@
   },
   "entity_page": {
     "open_ask_orders": "Órdenes de venta abiertas",
-    "open_bid_orders": "Órdenes de compra abiertas"
+    "open_bid_orders": "Órdenes de compra abiertas",
+    "my_open_orders": "Mis órdenes abiertas"
   },
   "error_page": {
     "page_not_found": "Página no encontrada",
-    "error_404_message": "¡Felicidades! Eres uno de los pocos que logró encontrar nuestra página 404.",
+    "error_404_message": "¡Felicidades! Eres uno de los pocos que logró encontrar nuestra página de error 404.",
     "back_to_home_page": "Volver a la página principal",
-    "title": "¡Oops!",
+    "title": "¡Ups!",
     "unexpected_error": "Lo sentimos, ocurrió un error inesperado.",
     "retry": "Reintentar"
   },
   "trades_table": {
-    "error_fetching_trades": "Ocurrió un error al obtener los últimos comercios. Por favor, inténtalo de nuevo más tarde.",
-    "trades_not_found": "No se encontraron comercios."
+    "error_fetching_trades": "Algo salió mal al obtener las últimas operaciones. Por favor, inténtelo más tarde.",
+    "trades_not_found": "No se encontraron operaciones."
   },
   "orders_table": {
     "open_orders_not_found": "No se encontraron órdenes abiertas.",
-    "error_fetching_open_orders": "Ocurrió un error al obtener las órdenes abiertas. Por favor, inténtalo de nuevo más tarde."
+    "error_fetching_open_orders": "Algo salió mal al obtener las órdenes abiertas. Por favor, inténtelo más tarde."
   },
   "issued_assets_table": {
     "issued_assets_not_found": "No se encontraron activos emitidos.",
-    "error_fetching_issued_assets": "Ocurrió un error al obtener los últimos activos emitidos. Por favor, inténtalo de nuevo más tarde."
+    "error_fetching_issued_assets": "Algo salió mal al obtener los últimos activos emitidos. Por favor, inténtelo más tarde."
   },
   "transfers_table": {
     "transfers_not_found": "No se encontraron transferencias.",
-    "error_fetching_transfers": "Ocurrió un error al obtener las últimas transferencias. Por favor, inténtalo de nuevo más tarde."
+    "error_fetching_transfers": "Algo salió mal al obtener las últimas transferencias. Por favor, inténtelo más tarde."
   },
   "connect_wallet_modal": {
     "account_connected": "Cuenta conectada con éxito",
     "copy_uri": "Copiar URI",
-    "scan_qr": "Escanea este código QR con tu billetera Qubic o copia el enlace a continuación:",
-    "wallet_connection_gen_url_error": "No se pudo generar la URI de WalletConnect. Por favor, inténtalo de nuevo.",
-    "metamask_cooming_soon": "MetaMask (próximamente)"
+    "scan_qr": "Escanee este código QR con su billetera Qubic o copie el enlace a continuación:",
+    "metamask_cooming_soon": "MetaMask (próximamente)",
+    "wallet_connection_gen_url_error": "No se pudo generar la URI de WalletConnect. Por favor, inténtelo de nuevo.",
+    "wallet_connection_expired": "Su solicitud de conexión ha expirado. Genere un nuevo código QR para intentarlo nuevamente.",
+    "user_rejected_connection": "Has rechazado la solicitud de conexión."
   },
   "errors": {
-    "error_fetching_data": "Ocurrió un error al obtener los datos. Por favor, inténtalo de nuevo más tarde."
+    "error_fetching_data": "Algo salió mal al obtener los datos. Por favor, inténtelo más tarde.",
+    "unexpected_error": "Ha ocurrido un error inesperado."
+  },
+  "trade_modal": {
+    "place_buy_order": "Realizar orden de compra",
+    "place_sell_order": "Realizar orden de venta",
+    "placing_order": "Realizando orden...",
+    "order_confirmation": "Confirmación de orden",
+    "success_state_cta": "Realizar otra orden",
+    "success_state_desc": "Tu orden se ha enviado correctamente. Puedes seguir su estado en tu billetera.",
+    "error_state_desc": "La transacción no se completó, pero tus fondos siguen seguros en tu billetera.",
+    "declined_state_desc": "Has rechazado la transacción. Tus fondos siguen seguros en tu billetera.",
+    "request_expired_state_desc": "Esta transacción tardó demasiado y la solicitud ha expirado. Inténtalo de nuevo.",
+    "errors": {
+      "price": "Precio inválido",
+      "amount": "Cantidad inválida",
+      "insufficient_balance": "Saldo insuficiente",
+      "not_enough_qubic": "No tienes suficiente QUBIC en tu billetera para realizar esta orden.",
+      "not_enough_asset": "No tienes suficiente {{asset}} en tu billetera para realizar esta orden."
+    }
+  },
+  "remove_order_modal": {
+    "remove_order": "Eliminar orden",
+    "remove_sell_order": "Eliminar orden de venta",
+    "remove_buy_order": "Eliminar orden de compra",
+    "removing_order": "Eliminando orden...",
+    "remove_order_desc": "¿Estás seguro de que deseas eliminar tu orden de <side>{{side}}</side> para <amount>{{amount}}</amount> <asset>{{asset}}</asset> a <price>{{price}}</price> QUBIC cada uno, con un total de <total>{{total}}</total> QUBIC?",
+    "remove_order_success": "Transacción enviada con éxito.\nLa orden se eliminará en el tick <tick>{{tick}}</tick>",
+    "error_removing_order": "La eliminación de la orden ha fallado"
+  },
+  "rpc_errors": {
+    "user_unavailable": "Actualmente estás ocupado con otra solicitud. Complétala o cancélala antes de intentarlo nuevamente.",
+    "tick_expired": "Esta transacción tardó demasiado y el tick ha expirado. Inténtalo de nuevo.",
+    "invalid_arguments": "Algo está mal en la solicitud. Verifica tus entradas e inténtalo de nuevo.",
+    "internal_error": "¡Ups! Algo salió mal de nuestro lado. Inténtalo de nuevo en un momento.",
+    "user_rejected": "Has rechazado la transacción."
   }
 }
