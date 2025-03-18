@@ -35,12 +35,8 @@ jobs:
           VITE_QUBIC_CHAIN_ID: ${{ secrets.QUBIC_CHAIN_ID }}
           VITE_APP_TITLE: ${{ secrets.APP_TITLE }}
           VITE_APP_DESCRIPTION: ${{ secrets.APP_DESCRIPTION }}
-          VITE_APP_URL: |
-            ${{
-              github.ref == 'refs/heads/main' && secrets.APP_URL_PROD ||
-              github.ref == 'refs/heads/staging' && secrets.APP_URL_STAGING ||
-              secrets.APP_URL_DEV
-            }}
+          VITE_APP_URL: ${{ github.ref == 'refs/heads/main' && secrets.APP_URL_PROD || github.ref == 'refs/heads/staging' && secrets.APP_URL_STAGING || secrets.APP_URL_DEV }}
+
         run: pnpm run build
 
       - name: 📤 Deploy to the corresponding environment
