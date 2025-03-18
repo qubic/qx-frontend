@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/qubic/qx-frontend/compare/v1.2.0...v1.2.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* remove pipe for VITE_APP_URL assignment in deploy workflow ([d4456b2](https://github.com/qubic/qx-frontend/commit/d4456b2c50053f311d080ea2ec0fb01d6d5bba99))
+
 # [1.2.0](https://github.com/qubic/qx-frontend/compare/v1.1.3...v1.2.0) (2025-03-18)
 
 
