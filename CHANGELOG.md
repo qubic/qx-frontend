@@ -1,3 +1,11 @@
+## [1.2.2](https://github.com/qubic/qx-frontend/compare/v1.2.1...v1.2.2) (2025-03-27)
+
+
+### Bug Fixes
+
+* add 'approve in wallet' translation for multiple languages ([0827190](https://github.com/qubic/qx-frontend/commit/0827190476233fa70b4677c871d8afa3cdd2a9f5))
+* update footer links to use correct URLs ([4d09bdb](https://github.com/qubic/qx-frontend/commit/4d09bdb0dd9006450748f4c78a43c5a307d3df7b))
+
 ## [1.2.1](https://github.com/qubic/qx-frontend/compare/v1.2.0...v1.2.1) (2025-03-18)
 
 
