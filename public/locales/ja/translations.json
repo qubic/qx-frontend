@@ -57,7 +57,8 @@
     "open_sell_order": "売り注文を開く",
     "request_expired": "リクエストの有効期限が切れました",
     "check_my_orders": "自分の注文を確認",
-    "select": "選択"
+    "select": "選択",
+    "approve_in_wallet": "ウォレットで承認する"
   },
   "home_page": {
     "qx_dashboard": "QX ダッシュボード",

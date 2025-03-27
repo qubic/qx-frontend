@@ -118,7 +118,7 @@ export default function ConfirmTradeStep({
         </div>
       </div>
 
-      <div className="flex gap-20">
+      <div className="flex flex-col-reverse gap-20 md:flex-row">
         <Button type="button" onClick={onCloseModal} variant="text">
           {t('global.cancel')}
         </Button>
@@ -127,7 +127,7 @@ export default function ConfirmTradeStep({
           onClick={onConfirmTrade}
           color={OrderType.BID === orderType ? 'green' : 'red'}
           isLoading={isLoading}
-          loadingText={t('trade_modal.placing_order')}
+          loadingText={t('global.approve_in_wallet')}
           disabled={isLoading || Object.values(errors).some(Boolean)}
         >
           {OrderType.BID === orderType

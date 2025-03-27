@@ -57,7 +57,8 @@
     "open_sell_order": "Ouvrir un ordre de vente",
     "request_expired": "Demande expirée",
     "check_my_orders": "Vérifier mes ordres",
-    "select": "Sélectionner"
+    "select": "Sélectionner",
+    "approve_in_wallet": "Approuver dans votre portefeuille"
   },
   "home_page": {
     "qx_dashboard": "Tableau de bord QX",

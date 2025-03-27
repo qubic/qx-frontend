@@ -89,7 +89,7 @@ export default function RemoveOrderModal({
               </p>
             </section>
 
-            <div className="flex gap-20">
+            <div className="flex flex-col-reverse gap-20 md:flex-row">
               <Button type="button" onClick={handleCloseModal} variant="text">
                 {t('global.cancel')}
               </Button>
@@ -98,7 +98,7 @@ export default function RemoveOrderModal({
                 onClick={handleRemoveOrder}
                 color="red"
                 isLoading={isLoading}
-                loadingText={t('remove_order_modal.removing_order')}
+                loadingText={t('global.approve_in_wallet')}
                 disabled={isLoading}
               >
                 {orderType === OrderType.BID

@@ -57,7 +57,8 @@
     "open_sell_order": "Satış Emri Aç",
     "request_expired": "İstek Süresi Doldu",
     "check_my_orders": "Emirlerimi Kontrol Et",
-    "select": "Seç"
+    "select": "Seç",
+    "approve_in_wallet": "Cüzdanınızdan onaylayın"
   },
   "home_page": {
     "qx_dashboard": "QX Panosu",

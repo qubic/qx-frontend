@@ -57,7 +57,8 @@
     "open_sell_order": "Verkaufsauftrag eröffnen",
     "request_expired": "Anfrage abgelaufen",
     "check_my_orders": "Meine Aufträge überprüfen",
-    "select": "Auswählen"
+    "select": "Auswählen",
+    "approve_in_wallet": "In deiner Wallet genehmigen"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",

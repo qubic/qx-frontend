@@ -57,7 +57,8 @@
     "open_sell_order": "Открыть заявку на продажу",
     "request_expired": "Запрос истек",
     "check_my_orders": "Проверить мои заявки",
-    "select": "Выбрать"
+    "select": "Выбрать",
+    "approve_in_wallet": "Подтвердите в вашем кошельке"
   },
   "home_page": {
     "qx_dashboard": "Панель управления QX",
