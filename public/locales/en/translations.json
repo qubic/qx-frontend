@@ -57,7 +57,8 @@
     "open_sell_order": "Open Sell Order",
     "request_expired": "Request Expired",
     "check_my_orders": "Check My Orders",
-    "select": "Select"
+    "select": "Select",
+    "approve_in_wallet": "Approve in your Wallet"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",

@@ -57,7 +57,8 @@
     "open_sell_order": "Open verkooporder",
     "request_expired": "Verzoek verlopen",
     "check_my_orders": "Bekijk mijn orders",
-    "select": "Selecteren"
+    "select": "Selecteren",
+    "approve_in_wallet": "Goedkeuren in je wallet"
   },
   "home_page": {
     "qx_dashboard": "QX Dashboard",

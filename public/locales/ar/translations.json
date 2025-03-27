@@ -57,7 +57,8 @@
     "open_sell_order": "فتح أمر بيع",
     "request_expired": "انتهت صلاحية الطلب",
     "check_my_orders": "تحقق من أوامري",
-    "select": "اختيار"
+    "select": "اختيار",
+    "approve_in_wallet": "وافق من محفظتك"
   },
   "home_page": {
     "qx_dashboard": "لوحة تحكم QX",

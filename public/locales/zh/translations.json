@@ -57,7 +57,8 @@
     "open_sell_order": "创建卖出订单",
     "request_expired": "请求已过期",
     "check_my_orders": "查看我的订单",
-    "select": "选择"
+    "select": "选择",
+    "approve_in_wallet": "请在钱包中批准"
   },
   "home_page": {
     "qx_dashboard": "QX 仪表板",
