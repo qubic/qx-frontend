@@ -26,9 +26,10 @@ type Props = Readonly<{
   trades: Trade[] | undefined
   isLoading: boolean
   hasError?: boolean
+  entityId?: string
 }>
 
-export default function TradesTable({ trades, isLoading, hasError }: Props) {
+export default function TradesTable({ trades, isLoading, hasError, entityId }: Props) {
   const { t } = useTranslation()
 
   const renderTableHeadContent = useCallback(
@@ -63,8 +64,10 @@ export default function TradesTable({ trades, isLoading, hasError }: Props) {
         />
       )
 
-    return trades?.map((trade) => <TradeRow key={JSON.stringify(trade)} trade={trade} />)
-  }, [isLoading, trades, hasError, t])
+    return trades?.map((trade) => (
+      <TradeRow key={JSON.stringify(trade)} trade={trade} entityId={entityId} />
+    ))
+  }, [isLoading, trades, hasError, t, entityId])
 
   return (
     <TableWrapper>

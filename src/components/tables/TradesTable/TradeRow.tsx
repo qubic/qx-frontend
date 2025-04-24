@@ -9,10 +9,20 @@ import { TableRowCell } from '@app/components/ui/tables'
 import { PublicRoutes } from '@app/router'
 import type { Trade } from '@app/store/apis/qx'
 import type { TableRows } from '@app/types'
-import { ExplorerLinkType } from '@app/types/enums'
+import { ExplorerLinkType, TradeSide } from '@app/types/enums'
 import { formatDate, formatString } from '@app/utils'
 
-const genTradeRowCells = (trade: Trade, t: TFunction): TableRows => [
+const getTradeSide = (trade: Trade, entityId?: string): TradeSide => {
+  if (!entityId) {
+    return trade.bid ? TradeSide.SELL : TradeSide.BUY
+  }
+  if ((trade.bid && trade.taker === entityId) || (!trade.bid && trade.maker === entityId)) {
+    return TradeSide.BUY
+  }
+  return TradeSide.SELL
+}
+
+const genTradeRowCells = (trade: Trade, t: TFunction, entityId?: string): TableRows => [
   {
     key: 'asset',
     content: (
@@ -26,11 +36,12 @@ const genTradeRowCells = (trade: Trade, t: TFunction): TableRows => [
   },
   {
     key: 'side',
-    content: trade.bid ? (
-      <span className="text-success-40">{t('global.buy')}</span>
-    ) : (
-      <span className="text-red-500">{t('global.sell')}</span>
-    )
+    content:
+      getTradeSide(trade, entityId) === TradeSide.BUY ? (
+        <span className="text-success-40">{t('global.buy')}</span>
+      ) : (
+        <span className="text-red-500">{t('global.sell')}</span>
+      )
   },
   {
     key: 'price',
@@ -79,11 +90,12 @@ const genTradeRowCells = (trade: Trade, t: TFunction): TableRows => [
 
 type Props = Readonly<{
   trade: Trade
+  entityId?: string
 }>
 
-function TradeRow({ trade }: Props) {
+function TradeRow({ trade, entityId }: Props) {
   const { t } = useTranslation()
-  const tradeRowCells = useMemo(() => genTradeRowCells(trade, t), [t, trade])
+  const tradeRowCells = useMemo(() => genTradeRowCells(trade, t, entityId), [trade, entityId, t])
 
   return (
     <tr className="even:bg-primary-60/30">

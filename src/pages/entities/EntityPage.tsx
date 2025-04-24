@@ -109,7 +109,12 @@ function EntityPage() {
 
       <section className="grid gap-24">
         <h2 className="text-center text-xl font-bold">{t('global.trades')}</h2>
-        <TradesTable trades={trades.data} isLoading={trades.isFetching} hasError={trades.isError} />
+        <TradesTable
+          trades={trades.data}
+          isLoading={trades.isFetching}
+          hasError={trades.isError}
+          entityId={entity}
+        />
       </section>
       <section className="grid gap-24">
         <h2 className="text-center text-xl font-bold">{t('global.asset_transfers')}</h2>
