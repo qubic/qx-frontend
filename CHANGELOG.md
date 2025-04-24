@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/qubic/qx-frontend/compare/v1.2.2...v1.2.3) (2025-04-24)
+
+
+### Bug Fixes
+
+* add logic to display trade side properly on entity page ([65cdbfa](https://github.com/qubic/qx-frontend/commit/65cdbfaa94a8f4ef4331aaab99c7c479ba424946))
+
 ## [1.2.2](https://github.com/qubic/qx-frontend/compare/v1.2.1...v1.2.2) (2025-03-27)
 
 
