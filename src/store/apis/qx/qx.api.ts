@@ -28,6 +28,12 @@ export const qxApi = createApi({
     getTrades: build.query<Trade[], void>({
       query: () => '/trades'
     }),
+    getSmartContractTrades: build.query<Trade[], void>({
+      query: () => '/smart-contract-trades'
+    }),
+    getTokenTrades: build.query<Trade[], void>({
+      query: () => '/token-trades'
+    }),
     getTransfers: build.query<Transfer[], void>({
       query: () => '/transfers'
     }),
@@ -110,7 +116,8 @@ export const qxApi = createApi({
 export const {
   // QUERIES
   useGetAssetsQuery,
-  useGetTradesQuery,
+  useGetSmartContractTradesQuery,
+  useGetTokenTradesQuery,
   useGetTransfersQuery,
   useGetIssuedAssetsQuery,
   // Entity hooks
