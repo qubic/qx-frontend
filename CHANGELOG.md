@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/qubic/qx-frontend/compare/v1.2.2...v1.3.0) (2025-08-31)
+
+
+### Bug Fixes
+
+* add logic to display trade side properly on entity page ([65cdbfa](https://github.com/qubic/qx-frontend/commit/65cdbfaa94a8f4ef4331aaab99c7c479ba424946))
+
+
+### Features
+
+* [[#46](https://github.com/qubic/qx-frontend/issues/46)] Add calls to new smart contract and token trade endpoints ([1c05336](https://github.com/qubic/qx-frontend/commit/1c05336911da9d39235b7f206011031fb4a3fe7f))
+* [[#46](https://github.com/qubic/qx-frontend/issues/46)] Add draft for splitting trades view for SC and common tokens ([9087842](https://github.com/qubic/qx-frontend/commit/9087842506a7163fbf863388e1cc87654b294ce2))
+
 ## [1.2.3](https://github.com/qubic/qx-frontend/compare/v1.2.2...v1.2.3) (2025-04-24)
 
 
