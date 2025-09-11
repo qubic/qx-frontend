@@ -155,5 +155,9 @@
     "invalid_arguments": "Er is iets mis met de aanvraag. Controleer je invoer en probeer het opnieuw.",
     "internal_error": "Oeps! Er is iets misgegaan aan onze kant. Probeer het later opnieuw.",
     "user_rejected": "Je hebt de transactie geweigerd."
+  },
+  "no_maintenance": {
+    "title": "Dit product wordt niet langer ondersteund",
+    "body": "Het zal binnen enkele weken buiten gebruik worden gesteld.<br />Je kunt community-initiatieven gebruiken zoals <a1>QXBoard</a1> en <a2>QubicTrade</a2>."
   }
 }

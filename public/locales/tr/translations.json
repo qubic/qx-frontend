@@ -155,5 +155,9 @@
     "invalid_arguments": "İstekle ilgili bir hata var. Lütfen girişlerinizi kontrol edin ve tekrar deneyin.",
     "internal_error": "Oops! Sunucu tarafında bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
     "user_rejected": "İşlemi reddettiniz."
+  },
+  "no_maintenance": {
+    "title": "Bu ürün artık desteklenmiyor",
+    "body": "Önümüzdeki haftalarda hizmet dışı bırakılacaktır.<br /><a1>QXBoard</a1> ve <a2>QubicTrade</a2> gibi topluluk girişimlerini kullanabilirsiniz."
   }
 }

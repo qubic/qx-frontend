@@ -155,5 +155,9 @@
     "invalid_arguments": "Algo está mal en la solicitud. Verifica tus entradas e inténtalo de nuevo.",
     "internal_error": "¡Ups! Algo salió mal de nuestro lado. Inténtalo de nuevo en un momento.",
     "user_rejected": "Has rechazado la transacción."
+  },
+  "no_maintenance": {
+    "title": "Este producto ya no recibe mantenimiento",
+    "body": "Estará fuera de servicio en las próximas semanas.<br />Puedes usar iniciativas de la comunidad como <a1>QXBoard</a1> y <a2>QubicTrade</a2>."
   }
 }

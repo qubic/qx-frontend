@@ -155,5 +155,9 @@
     "invalid_arguments": "Algo está errado com a solicitação. Verifique seus dados e tente novamente.",
     "internal_error": "Ops! Algo deu errado do nosso lado. Por favor, tente novamente mais tarde.",
     "user_rejected": "Você recusou a transação."
+  },
+  "no_maintenance": {
+    "title": "Este produto não recebe mais manutenção",
+    "body": "Ele ficará fora de serviço nas próximas semanas.<br />Você pode usar iniciativas da comunidade como <a1>QXBoard</a1> e <a2>QubicTrade</a2>."
   }
 }

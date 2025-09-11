@@ -155,5 +155,9 @@
     "invalid_arguments": "Quelque chose ne va pas avec la demande. Vérifiez vos entrées et réessayez.",
     "internal_error": "Oups ! Une erreur est survenue de notre côté. Veuillez réessayer plus tard.",
     "user_rejected": "Vous avez refusé la transaction."
+  },
+  "no_maintenance": {
+    "title": "Ce produit n’est plus pris en charge",
+    "body": "Il sera mis hors service dans les prochaines semaines.<br />Vous pouvez utiliser des initiatives communautaires comme <a1>QXBoard</a1> et <a2>QubicTrade</a2>."
   }
 }

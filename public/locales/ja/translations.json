@@ -139,5 +139,9 @@
       "not_enough_qubic": "この注文を出すための QUBIC が不足しています。",
       "not_enough_asset": "この注文を出すための {{asset}} が不足しています。"
     }
+  },
+  "no_maintenance": {
+    "title": "この製品はもうサポートされていません",
+    "body": "今後数週間でサービスが終了します。<br />代わりに、<a1>QXBoard</a1> や <a2>QubicTrade</a2> などのコミュニティ主導の取り組みをご利用いただけます。"
   }
 }
