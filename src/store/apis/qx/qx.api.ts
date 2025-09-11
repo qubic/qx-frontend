@@ -23,7 +23,7 @@ export const qxApi = createApi({
   endpoints: (build) => ({
     // QUERIES
     getAssets: build.query<Asset[], void>({
-      query: () => '/assets'
+      query: () => '/assets?all=true'
     }),
     getTrades: build.query<Trade[], void>({
       query: () => '/trades'
