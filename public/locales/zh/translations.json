@@ -155,5 +155,9 @@
     "invalid_arguments": "请求参数错误，请检查输入并重试。",
     "internal_error": "糟糕！服务器发生错误，请稍后重试。",
     "user_rejected": "你已拒绝交易。"
+  },
+  "no_maintenance": {
+    "title": "此產品已不再提供維護",
+    "body": "此服務將在未來數週內下線。<br />你可以使用社群倡議，例如 <a1>QXBoard</a1> 與 <a2>QubicTrade</a2>。"
   }
 }

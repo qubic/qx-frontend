@@ -155,5 +155,9 @@
     "invalid_arguments": "Something's off with the request. Double-check your inputs and try again.",
     "internal_error": "Oops! Something went wrong on our end. Please try again in a moment.",
     "user_rejected": "You rejected the transaction."
+  },
+  "no_maintenance": {
+    "title": "This product is no longer maintained",
+    "body": "It will be out of service in the coming weeks.<br />You can use community initiatives like <a1>QXBoard</a1> and <a2>QubicTrade</a2>."
   }
 }

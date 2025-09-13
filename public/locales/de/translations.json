@@ -155,5 +155,9 @@
     "invalid_arguments": "Etwas stimmt mit der Anfrage nicht. Bitte überprüfen Sie Ihre Eingaben und versuchen Sie es erneut.",
     "internal_error": "Ein interner Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
     "user_rejected": "Sie haben die Transaktion abgelehnt."
+  },
+  "no_maintenance": {
+    "title": "Dieses Produkt wird nicht mehr unterstützt",
+    "body": "Es wird in den kommenden Wochen außer Betrieb genommen.<br />Sie können Community-Initiativen wie <a1>QXBoard</a1> und <a2>QubicTrade</a2> verwenden."
   }
 }
