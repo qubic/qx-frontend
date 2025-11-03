@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom'
 import { AppLayout } from '@app/components/ui/layouts'
 import {
   AssetPageLazy,
-  AssetsPageLazy,
   EntityPageLazy,
   Error404Page,
   HomePage,
@@ -22,10 +21,6 @@ const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
       {
         index: true,
         element: <HomePage />
-      },
-      {
-        path: PublicRoutes.ASSETS.ROOT,
-        element: <AssetsPageLazy />
       },
       {
         path: PublicRoutes.ASSETS.DETAILS(':assetIssuer', ':assetName'),

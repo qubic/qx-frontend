@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { AssetsIcon, TradesIcon, TransactionsIcon } from '@app/assets/icons'
+import { TradesIcon, TransactionsIcon } from '@app/assets/icons'
 import { withHelmet } from '@app/components/hocs'
 import { Button } from '@app/components/ui/buttons'
 import { TextInput } from '@app/components/ui/inputs'
@@ -10,7 +10,6 @@ import { PageLayout } from '@app/components/ui/layouts'
 import { PublicRoutes } from '@app/router/routes'
 
 const DASHBOARD_MENU_ITEMS = [
-  { icon: AssetsIcon, i18nKey: 'global.assets', href: PublicRoutes.ASSETS.ROOT },
   { icon: TradesIcon, i18nKey: 'global.trades', href: PublicRoutes.TRADES },
   { icon: TransactionsIcon, i18nKey: 'global.transactions', href: PublicRoutes.TRANSACTIONS }
 ]

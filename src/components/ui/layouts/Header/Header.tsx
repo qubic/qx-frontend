@@ -23,10 +23,6 @@ const MENU_ITEMS: MenuItem[] = [
     href: PublicRoutes.HOME
   },
   {
-    i18nKey: 'global.assets',
-    href: PublicRoutes.ASSETS.ROOT
-  },
-  {
     i18nKey: 'global.trades',
     href: PublicRoutes.TRADES
   },
