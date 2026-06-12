@@ -1,5 +1,9 @@
 # qx-frontend
 
+> ⚠️ **This repository is archived and no longer maintained.**
+> It is kept available for reference only. Issues and pull requests are disabled,
+> and the code is no longer updated or supported.
+
 ## Getting Started
 
 This section provides a step-by-step guide on how to set up your environment, install dependencies,
